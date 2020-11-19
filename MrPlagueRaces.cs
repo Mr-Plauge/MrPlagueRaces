@@ -45,10 +45,10 @@ namespace MrPlagueRaces
 		public override void Unload()
 		{
 			RacialAbilityHotKey = null;
-            if (!Main.dedServ)
-            {
-                _MrPlagueRaceSelection = null;
-                Main.OnTick -= UpdateTick;
+			if (!Main.dedServ)
+			{
+				_MrPlagueRaceSelection = null;
+				Main.OnTick -= UpdateTick;
 			}
 		}
 
@@ -61,7 +61,7 @@ namespace MrPlagueRaces
 			if (Main.menuMode == 2)
 			{
 				if (justWentRaceSelection == false)
-                {
+				{
 					SetUIState(_MrPlagueRaceSelection);
 					justWentRaceSelection = true;
 				}

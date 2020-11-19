@@ -26,17 +26,17 @@ namespace MrPlagueRaces.Projectiles
 		public override void AI() 
 		{
 		   Rectangle bounds = projectile.getRect();
-           for (int i = 0; i < Main.player.Length; i++)
-           {
-		       Player player = Main.player[i];
-               if (player.active && bounds.Intersects(player.getRect()))
-               {
+		   for (int i = 0; i < Main.player.Length; i++)
+		   {
+			   Player player = Main.player[i];
+			   if (player.active && bounds.Intersects(player.getRect()))
+			   {
 					if (!(player.statLife == player.statLifeMax2))
 					{
 						 player.AddBuff(mod.BuffType("MushfolkHeal"), 60);
 					}
-               }
-           }
+			   }
+		   }
 		}
 	}
 }

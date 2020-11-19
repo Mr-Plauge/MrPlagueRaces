@@ -59,7 +59,7 @@ namespace MrPlagueRaces.Mounts
 			mountData.textureHeight = mountData.backTexture.Height;
 		}
 		public override void UpdateEffects(Player player)
-        {
+		{
 			if (player.velocity.Y != 0)
 			{
 				mountData.runSpeed = (player.moveSpeed) + (player.accRunSpeed) + (player.wingTimeMax / 30);

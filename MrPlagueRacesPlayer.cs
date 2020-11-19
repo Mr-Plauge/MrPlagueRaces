@@ -44,9 +44,9 @@ namespace MrPlagueRaces
 		public bool VampireTransformationDust = false;
 		private int vampireWingAnim = 0;
 		private int vampireWingFrame = 0;
-        private int vampireWalkAnim = 0;
+		private int vampireWalkAnim = 0;
 		public bool FluftrodonPaintUI = false;
-        public bool IsNewCharacter1 = false;
+		public bool IsNewCharacter1 = false;
 		public bool FluftrodonPaintUIPositionSet = false;
 
 		public override TagCompound Save()
@@ -111,10 +111,10 @@ namespace MrPlagueRaces
 			}
 		}
 
-        public override void ResetEffects()
-        {
-            if (RaceStats == true)
-            {
+		public override void ResetEffects()
+		{
+			if (RaceStats == true)
+			{
 				if (PlayerRace == 1)
 				{
 					player.statLifeMax2 -= (player.statLifeMax2 / 5);
@@ -258,7 +258,7 @@ namespace MrPlagueRaces
 					}
 				}
 			}
-        }
+		}
 
 		public override void PostItemCheck()
 		{
@@ -518,12 +518,12 @@ namespace MrPlagueRaces
 			{
 				hasCeilingAbove = false;
 			}
-            if (VampireTransformation == false)
+			if (VampireTransformation == false)
 			{
-                return (!hasCeilingAbove || !behindWall) && !((double)player.Center.Y > Main.worldSurface * 16.0) && Main.dayTime == true && !(Collision.DrownCollision(player.position, player.width, player.height, player.gravDir));
-            }
-            else
-            {
+				return (!hasCeilingAbove || !behindWall) && !((double)player.Center.Y > Main.worldSurface * 16.0) && Main.dayTime == true && !(Collision.DrownCollision(player.position, player.width, player.height, player.gravDir));
+			}
+			else
+			{
 				return (!hasCeilingAbove || !behindSmallWall) && !((double)player.Center.Y > Main.worldSurface * 16.0) && Main.dayTime == true && !(Collision.DrownCollision(player.position, player.width, player.height, player.gravDir));
 			}
 		}
@@ -531,10 +531,10 @@ namespace MrPlagueRaces
 		public override void ModifyDrawInfo(ref PlayerDrawInfo drawInfo)
 		{
 			Item familiarshirt = new Item();
-            familiarshirt.SetDefaults(ItemID.FamiliarShirt);
+			familiarshirt.SetDefaults(ItemID.FamiliarShirt);
 
 			Item familiarpants = new Item();
-            familiarpants.SetDefaults(ItemID.FamiliarPants);
+			familiarpants.SetDefaults(ItemID.FamiliarPants);
 
 			if (player.armor[0].type == mod.ItemType("AInvisibleHead") && player.armor[10].type < ItemID.IronPickaxe || player.armor[10].type == mod.ItemType("AInvisibleHead"))
 			{
@@ -542,7 +542,7 @@ namespace MrPlagueRaces
 				player.head = -1;
 			}
 			else
-            {
+			{
 				hidehelmet = false;
 			}
 			if (player.armor[1].type == mod.ItemType("BInvisibleBody") && player.armor[11].type < ItemID.IronPickaxe || player.armor[11].type == mod.ItemType("BInvisibleBody"))
@@ -551,9 +551,9 @@ namespace MrPlagueRaces
 				player.body = -1;
 			}
 			else
-            {
+			{
 				hidechestplate = false;
-            }
+			}
 			if (player.armor[2].type == mod.ItemType("CInvisibleLegs") && player.armor[12].type < ItemID.IronPickaxe || player.armor[12].type == mod.ItemType("CInvisibleLegs"))
 			{
 				hideleggings = true;
@@ -593,7 +593,7 @@ namespace MrPlagueRaces
 				IsNewCharacter1 = true;
 			}
 			if (PlayerRace == -1)
-            {
+			{
 				if (Main.menuMode == 2)
 				{
 					PlayerRace = PlayerRaceStatic;
@@ -603,7 +603,7 @@ namespace MrPlagueRaces
 					PlayerRace = 0;
 				}
 				else if (PlayerRace == 0)
-                {
+				{
 					player.hairColor = new Color(200, 81, 57);
 					player.skinColor = new Color(243, 131, 102);
 					player.eyeColor = new Color(85, 82, 99);
@@ -619,7 +619,7 @@ namespace MrPlagueRaces
 					}
 				}
 				else if (PlayerRace == 1)
-                {
+				{
 					player.hairColor = new Color(58, 61, 53);
 					player.skinColor = new Color(147, 144, 86);
 					player.eyeColor = new Color(112, 42, 36);
@@ -750,20 +750,20 @@ namespace MrPlagueRaces
 					player.skinVariant = 1;
 				}
 			}
-            if (PlayerRace == 3 || PlayerRace == 11)
-            {
-                drawInfo.drawAltHair = true;
-            }
+			if (PlayerRace == 3 || PlayerRace == 11)
+			{
+				drawInfo.drawAltHair = true;
+			}
 			if (PlayerRace == 6 && drawInfo.drawHair == true)
-            {
+			{
 				mushfolkHideCap = false;
-            }
+			}
 			if (PlayerRace == 6 && drawInfo.drawHair == false)
 			{
 				mushfolkHideCap = true;
 			}
 			if (RaceStats == true)
-            {
+			{
 				if (PlayerRace == 2)
 				{
 					if (kenkuFallDamagePrevention < 0)
@@ -998,7 +998,7 @@ namespace MrPlagueRaces
 					}
 				}
 				if (PlayerRace == 11)
-                {
+				{
 					player.underShirtColor = player.hairColor;
 					player.shoeColor = player.hairColor;
 				}
@@ -1008,11 +1008,11 @@ namespace MrPlagueRaces
 		public override void ProcessTriggers(TriggersSet triggersSet)
 		{
 			if (RaceStats == true)
-            {
+			{
 				if (MrPlagueRaces.RacialAbilityHotKey.JustPressed)
-                {
+				{
 					if (PlayerRace == 11)
-                    {
+					{
 						if (FluftrodonPaintUI == false)
 						{
 							FluftrodonPaintUI = true;
@@ -1030,7 +1030,7 @@ namespace MrPlagueRaces
 				if (MrPlagueRaces.RacialAbilityHotKey.JustReleased)
 				{
 					if (PlayerRace == 11)
-                    {
+					{
 						FluftrodonPaintUIPositionSet = false;
 					}
 				}
@@ -1092,14 +1092,14 @@ namespace MrPlagueRaces
 		public override void OnRespawn(Player player)
 		{
 			if (RaceStats == true)
-            {
+			{
 			}
 		}
 
 		public override void PreUpdate()
 		{
 			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
-            {
+			{
 				if (player.Male == true)
 				{
 					if (PlayerRace == 1)
@@ -1204,7 +1204,7 @@ namespace MrPlagueRaces
 				}
 			}
 			if (RaceStats == true)
-            {
+			{
 				if (PlayerRace == 2)
 				{
 					player.wingTimeMax += 100;
@@ -1345,7 +1345,7 @@ namespace MrPlagueRaces
 						hidearmor = true;
 						VampireTransformation = true;
 						if (VampireTransformationDust == false)
-                        {
+						{
 							Main.PlaySound(SoundID.Item8, player.position);
 							int num = Gore.NewGore(new Vector2(player.position.X, player.position.Y - 10f), player.velocity, 99);
 							Main.gore[num].velocity *= 0.3f;
@@ -1383,9 +1383,9 @@ namespace MrPlagueRaces
 					}
 				}
 				if (PlayerRace == 11)
-                {
+				{
 					if (FluftrodonPaintUI == true)
-                    {
+					{
 						FluftrodonPaintUIPanel.Visible = true;
 					}
 					if (FluftrodonPaintUI == false)
@@ -1393,7 +1393,7 @@ namespace MrPlagueRaces
 						FluftrodonPaintUIPanel.Visible = true;
 					}
 					if (FluftrodonPaintUI == true && Main.mouseLeft)
-                    {
+					{
 						if (FluftrodonPaintTileMode == 1 && Main.tile[Player.tileTargetX, Player.tileTargetY].active() && Main.tile[Player.tileTargetX, Player.tileTargetY].color() != (byte)FluftrodonPaintColor && player.position.X / 16f - (float)Player.tileRangeX - (float)player.blockRange <= (float)Player.tileTargetX && (player.position.X + (float)player.width) / 16f + (float)Player.tileRangeX + (float)player.blockRange >= (float)Player.tileTargetX && player.position.Y / 16f - (float)Player.tileRangeY - (float)player.blockRange <= (float)Player.tileTargetY && (player.position.Y + (float)player.height) / 16f + (float)Player.tileRangeY + (float)player.blockRange >= (float)Player.tileTargetY)
 						{
 							WorldGen.paintTile(Player.tileTargetX, Player.tileTargetY, (byte)FluftrodonPaintColor, true);
@@ -1411,17 +1411,17 @@ namespace MrPlagueRaces
 							WorldGen.paintWall(Player.tileTargetX, Player.tileTargetY, 0, true);
 						}
 					}
-                }
+				}
 			}
 		}
 
 		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
-        {
+		{
 			player.AddBuff(mod.BuffType("DetectHurt"), 1);
 			if (playSound)
 			{	
 				if (PlayerRace != 0)
-                {
+				{
 					playSound = false;
 				}
 			}
@@ -1432,26 +1432,26 @@ namespace MrPlagueRaces
 		{
 			if (playSound)
 			{
-                if (PlayerRace == 2)
-                {
-                    playSound = false;
-                    Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Kenku_Killed"));
-                }
-                else if (PlayerRace == 6)
-                {
-                    playSound = false;
-                    Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Mushfolk_Killed"));
-                }
-                else if (PlayerRace == 7)
-                {
-                    playSound = false;
-                    Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Derpkin_Killed"));
-                }
-                else if (PlayerRace == 9)
-                {
-                    playSound = false;
-                    Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Skeleton_Killed"));
-                }
+				if (PlayerRace == 2)
+				{
+					playSound = false;
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Kenku_Killed"));
+				}
+				else if (PlayerRace == 6)
+				{
+					playSound = false;
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Mushfolk_Killed"));
+				}
+				else if (PlayerRace == 7)
+				{
+					playSound = false;
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Derpkin_Killed"));
+				}
+				else if (PlayerRace == 9)
+				{
+					playSound = false;
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Skeleton_Killed"));
+				}
 				else
 				{
 					playSound = true;
