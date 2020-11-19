@@ -1,16 +1,11 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
+using MrPlagueRaces.UI;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
 using Terraria;
 using Terraria.ID;
-using Terraria.UI;
 using Terraria.ModLoader;
-using MrPlagueRaces.UI;
-using MrPlagueRaces.Buffs;
-using static Terraria.ModLoader.ModContent;
+using Terraria.UI;
 
 namespace MrPlagueRaces
 {
@@ -22,21 +17,28 @@ namespace MrPlagueRaces
 
 	public class MrPlagueRaces : Mod
 	{
-		private UserInterface FluftrodonUserInterface;
 		public static ModHotKey RacialAbilityHotKey;
-		private MrPlagueRaceSelection _MrPlagueRaceSelection;
-		private bool justWentRaceSelection = false;
+
+		public static int PreviousMenuMode { get; internal set; }
+
 		internal FluftrodonPaintUIPanel FluftrodonPaintUIPanel;
+
+		private UserInterface FluftrodonUserInterface;
+		private MrPlagueRaceSelection _MrPlagueRaceSelection;
+		private bool justWentRaceSelection;
 
 		public override void Load()
 		{
 			RacialAbilityHotKey = RegisterHotKey("Racial Ability", "Mouse2");
+
 			if (!Main.dedServ)
 			{
-				_MrPlagueRaceSelection = new MrPlagueRaceSelection();
 				Main.OnTick += UpdateTick;
+
+				_MrPlagueRaceSelection = new MrPlagueRaceSelection();
 				FluftrodonPaintUIPanel = new FluftrodonPaintUIPanel();
 				FluftrodonPaintUIPanel.Activate();
+
 				FluftrodonUserInterface = new UserInterface();
 				FluftrodonUserInterface.SetState(FluftrodonPaintUIPanel);
 			}
@@ -45,9 +47,11 @@ namespace MrPlagueRaces
 		public override void Unload()
 		{
 			RacialAbilityHotKey = null;
+
 			if (!Main.dedServ)
 			{
 				_MrPlagueRaceSelection = null;
+
 				Main.OnTick -= UpdateTick;
 			}
 		}
@@ -58,13 +62,12 @@ namespace MrPlagueRaces
 			{
 				justWentRaceSelection = false;
 			}
-			if (Main.menuMode == 2)
+
+			if (Main.menuMode == 2 && !justWentRaceSelection)
 			{
-				if (justWentRaceSelection == false)
-				{
-					SetUIState(_MrPlagueRaceSelection);
-					justWentRaceSelection = true;
-				}
+				SetUIState(_MrPlagueRaceSelection);
+
+				justWentRaceSelection = true;
 			}
 		}
 
@@ -81,9 +84,11 @@ namespace MrPlagueRaces
 				FluftrodonUserInterface?.Update(gameTime);
 			}
 		}
+
 		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
 		{
 			int mouseTextIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
+
 			if (mouseTextIndex != -1)
 			{
 				layers.Insert(mouseTextIndex, new LegacyGameInterfaceLayer("MrPlagueRaces: Fluftrodon Paint UI", delegate 
@@ -100,38 +105,46 @@ namespace MrPlagueRaces
 
 		public override void HandlePacket(BinaryReader reader, int whoAmI) 
 		{
-			MrPlagueRacesMessageType msgType = (MrPlagueRacesMessageType)reader.ReadByte();
+			var msgType = (MrPlagueRacesMessageType)reader.ReadByte();
+
 			switch (msgType) 
 			{
 				case MrPlagueRacesMessageType.MrPlagueRacesPlayerSyncPlayer:
-					byte playernumber = reader.ReadByte();
-					MrPlagueRacesPlayer MrPlagueRacesPlayer = Main.player[playernumber].GetModPlayer<MrPlagueRacesPlayer>();
-					int PlayerRace = reader.ReadInt32();
-					MrPlagueRacesPlayer.PlayerRace = PlayerRace;
-					MrPlagueRacesPlayer.RaceStats = reader.ReadBoolean();
-					MrPlagueRacesPlayer.GotStatToggler = reader.ReadBoolean();
-					MrPlagueRacesPlayer.GotLoreBook = reader.ReadBoolean();
-					MrPlagueRacesPlayer.IsNewCharacter1 = reader.ReadBoolean();
-					MrPlagueRacesPlayer.MrPlagueRacesNonStopParty = reader.ReadBoolean();
-					break;
-				case MrPlagueRacesMessageType.MrPlagueRacesNonStopPartyChanged:
-					playernumber = reader.ReadByte();
-					MrPlagueRacesPlayer = Main.player[playernumber].GetModPlayer<MrPlagueRacesPlayer>();
-					MrPlagueRacesPlayer.MrPlagueRacesNonStopParty = reader.ReadBoolean();
-					if (Main.netMode == NetmodeID.Server) 
 					{
-						var packet = GetPacket();
-						packet.Write((byte)MrPlagueRacesMessageType.MrPlagueRacesNonStopPartyChanged);
-						packet.Write(playernumber);
-						packet.Write(MrPlagueRacesPlayer.MrPlagueRacesNonStopParty);
-						packet.Send(-1, playernumber);
+						byte playernumber = reader.ReadByte();
+						var MrPlagueRacesPlayer = Main.player[playernumber].GetModPlayer<MrPlagueRacesPlayer>();
+						int PlayerRace = reader.ReadInt32();
+
+						MrPlagueRacesPlayer.PlayerRace = PlayerRace;
+						MrPlagueRacesPlayer.RaceStats = reader.ReadBoolean();
+						MrPlagueRacesPlayer.GotStatToggler = reader.ReadBoolean();
+						MrPlagueRacesPlayer.GotLoreBook = reader.ReadBoolean();
+						MrPlagueRacesPlayer.IsNewCharacter1 = reader.ReadBoolean();
+						MrPlagueRacesPlayer.MrPlagueRacesNonStopParty = reader.ReadBoolean();
+
+						break;
 					}
-					break;
+				case MrPlagueRacesMessageType.MrPlagueRacesNonStopPartyChanged:
+					{
+						byte playernumber = reader.ReadByte();
+						var MrPlagueRacesPlayer = Main.player[playernumber].GetModPlayer<MrPlagueRacesPlayer>();
+						MrPlagueRacesPlayer.MrPlagueRacesNonStopParty = reader.ReadBoolean();
+
+						if (Main.netMode == NetmodeID.Server)
+						{
+							var packet = GetPacket();
+							packet.Write((byte)MrPlagueRacesMessageType.MrPlagueRacesNonStopPartyChanged);
+							packet.Write(playernumber);
+							packet.Write(MrPlagueRacesPlayer.MrPlagueRacesNonStopParty);
+							packet.Send(-1, playernumber);
+						}
+
+						break;
+					}
 				default:
 					Logger.WarnFormat("MrPlagueRaces: Something went wrong:", msgType);
 					break;
 			}
 		}
-		public static int PreviousMenuMode { get; internal set; }
 	}
 }
