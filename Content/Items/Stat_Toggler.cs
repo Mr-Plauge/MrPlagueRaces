@@ -28,12 +28,12 @@ namespace MrPlagueRaces.Content.Items
 		public override bool UseItem(Player player) 
 		{
 		    MrPlagueRacesPlayer MrPlagueRacesPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
-			if (MrPlagueRacesPlayer.RaceStats == true)
+			if (MrPlagueRacesPlayer.RaceStats)
 			{
 			    MrPlagueRacesPlayer.RaceStats = false;
 				Main.NewText(player.name + "'s Racial Stats have been disabled!", 52, 235, 147);
 			}
-			else if (MrPlagueRacesPlayer.RaceStats == false)
+			else if (!MrPlagueRacesPlayer.RaceStats)
 			{
 				MrPlagueRacesPlayer.RaceStats = true;
 				Main.NewText(player.name + "'s Racial Stats have been enabled!", 52, 235, 147);

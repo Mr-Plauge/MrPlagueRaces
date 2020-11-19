@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using MrPlagueRaces.Common.Races;
 using MrPlagueRaces.Common.UI;
 using MrPlagueRaces.Core.Loadables;
 using System.Collections.Generic;
@@ -120,7 +121,11 @@ namespace MrPlagueRaces
 						var MrPlagueRacesPlayer = Main.player[playernumber].GetModPlayer<MrPlagueRacesPlayer>();
 						int PlayerRace = reader.ReadInt32();
 
-						MrPlagueRacesPlayer.PlayerRace = PlayerRace;
+						if (RaceLoader.TryGetRace(PlayerRace, out var race))
+						{
+							MrPlagueRacesPlayer.race = race;
+						}
+
 						MrPlagueRacesPlayer.RaceStats = reader.ReadBoolean();
 						MrPlagueRacesPlayer.GotStatToggler = reader.ReadBoolean();
 						MrPlagueRacesPlayer.GotLoreBook = reader.ReadBoolean();
