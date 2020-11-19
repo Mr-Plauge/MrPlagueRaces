@@ -34,7 +34,7 @@ namespace MrPlagueRaces.Common.UI
 			FluftrodonPaintUIPanelBackground.BorderColor = new Color(0, 0, 0) * 0f;
 			Append(FluftrodonPaintUIPanelBackground);
 
-			Texture2D FluftrodonPaintUIBrushIcon = GetTexture("MrPlagueRaces/UI/FluftrodonPaintUIBrush_Ignore");
+			Texture2D FluftrodonPaintUIBrushIcon = GetTexture("MrPlagueRaces/Common/UI/FluftrodonPaintUIBrush_Ignore");
 			MrPlagueRaceButton FluftrodonPaintUIBrush = new MrPlagueRaceButton(FluftrodonPaintUIBrushIcon);
 			FluftrodonPaintUIBrush.Width.Set(40, 0);
 			FluftrodonPaintUIBrush.Height.Set(40, 0);
@@ -52,7 +52,7 @@ namespace MrPlagueRaces.Common.UI
 			FluftrodonPaintUIBrushText.BorderColor = Color.Transparent;
 			FluftrodonPaintUIPanelBackground.Append(FluftrodonPaintUIBrushText);
 
-			Texture2D FluftrodonPaintUIColorIcon = GetTexture("MrPlagueRaces/UI/FluftrodonPaintUIColor");
+			Texture2D FluftrodonPaintUIColorIcon = GetTexture("MrPlagueRaces/Common/UI/FluftrodonPaintUIColor");
 			MrPlagueRaceButton FluftrodonPaintUIColor = new MrPlagueRaceButton(FluftrodonPaintUIColorIcon);
 			FluftrodonPaintUIColor.Width.Set(40, 0);
 			FluftrodonPaintUIColor.Height.Set(40, 0);
@@ -70,7 +70,7 @@ namespace MrPlagueRaces.Common.UI
 			FluftrodonPaintUIColorText.BorderColor = Color.Transparent;
 			FluftrodonPaintUIPanelBackground.Append(FluftrodonPaintUIColorText);
 
-			Texture2D FluftrodonPaintUIRollerIcon = GetTexture("MrPlagueRaces/UI/FluftrodonPaintUIRoller_Ignore");
+			Texture2D FluftrodonPaintUIRollerIcon = GetTexture("MrPlagueRaces/Common/UI/FluftrodonPaintUIRoller_Ignore");
 			MrPlagueRaceButton FluftrodonPaintUIRoller = new MrPlagueRaceButton(FluftrodonPaintUIRollerIcon);
 			FluftrodonPaintUIRoller.Width.Set(40, 0);
 			FluftrodonPaintUIRoller.Height.Set(40, 0);
@@ -274,12 +274,12 @@ namespace MrPlagueRaces.Common.UI
 			{
 				FluftrodonPaintUIColorText.SetText("Error (please report to MrPlague!)");
 			}
-			if (_MrPlagueRacesPlayer.FluftrodonPaintUIPositionSet == true)
+			if (_MrPlagueRacesPlayer.FluftrodonPaintUIPositionSet)
 			{
 				FluftrodonPaintUIPanelBackground.Left.Set(Main.mouseX - 100, 0);
 				FluftrodonPaintUIPanelBackground.Top.Set(Main.mouseY - 33, 0);
 			}
-			if (_MrPlagueRacesPlayer.FluftrodonPaintUI == false)
+			if (!_MrPlagueRacesPlayer.FluftrodonPaintUI)
 			{
 				FluftrodonPaintUIPanelBackground.Left.Set(999999, 0);
 				FluftrodonPaintUIPanelBackground.Top.Set(999999, 0);
