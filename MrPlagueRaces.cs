@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using MrPlagueRaces.Core.Loadables;
 using MrPlagueRaces.UI;
 using System.Collections.Generic;
 using System.IO;
@@ -29,6 +30,8 @@ namespace MrPlagueRaces
 
 		public override void Load()
 		{
+			LoadableManager.Autoload(this);
+
 			RacialAbilityHotKey = RegisterHotKey("Racial Ability", "Mouse2");
 
 			if (!Main.dedServ)
@@ -46,6 +49,8 @@ namespace MrPlagueRaces
 
 		public override void Unload()
 		{
+			LoadableManager.Unload();
+
 			RacialAbilityHotKey = null;
 
 			if (!Main.dedServ)
