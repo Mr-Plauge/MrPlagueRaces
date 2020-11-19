@@ -676,6 +676,12 @@ namespace MrPlagueRaces.Common.Races.Humans
 				Main.playerTextures[9, 14] = ModContent.GetTexture("MrPlagueRaces/Content/RaceTextures/Blank");
 			}
 
+			for (int i = 0; i < 133; i++)
+			{
+				Main.playerHairTexture[i] = ModContent.GetTexture($"MrPlagueRaces/Content/RaceTextures/Human/Hair/Human_Hair_{i + 1}");
+				Main.playerHairAltTexture[i] = ModContent.GetTexture($"MrPlagueRaces/Content/RaceTextures/Human/Hair/Human_HairAlt_{i + 1}");
+			}
+
 			Main.ghostTexture = ModContent.GetTexture("MrPlagueRaces/Content/RaceTextures/Human/Human_Ghost");
 		}
 	}
