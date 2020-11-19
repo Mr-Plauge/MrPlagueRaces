@@ -12,6 +12,8 @@ namespace MrPlagueRaces.Core.Loadables
 
 		public static void Autoload(Mod mod)
 		{
+			content = new List<ILoadable>();
+
 			foreach (var type in mod.GetType().Assembly.GetTypes())
 			{
 				if (type.IsAbstract || !typeof(ILoadable).IsAssignableFrom(type) || type.GetConstructor(new Type[0]) == null)
