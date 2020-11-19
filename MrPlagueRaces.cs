@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
+using MrPlagueRaces.Common.UI;
 using MrPlagueRaces.Core.Loadables;
-using MrPlagueRaces.UI;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
