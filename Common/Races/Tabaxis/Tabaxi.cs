@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -15,6 +16,94 @@ namespace MrPlagueRaces.Common.Races.Tabaxis
 			playSound = false;
 
 			return true;
+		}
+
+		public override void PostItemCheck(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (!modPlayer.GotLoreBook)
+			{
+				modPlayer.GotLoreBook = true;
+				player.QuickSpawnItem(mod.ItemType("Race_Lore_Book_Tabaxi"));
+			}
+		}
+
+		public override void ResetEffects(Player player)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (modPlayer.RaceStats)
+			{
+				player.statDefense -= 4;
+				player.allDamage -= 0.1f;
+				player.moveSpeed += 0.4f;
+				player.tileSpeed += 0.25f;
+				player.wallSpeed += 0.25f;
+				player.pickSpeed -= 0.25f;
+				if (player.spikedBoots <= 0)
+				{
+					player.spikedBoots = 1;
+				}
+				player.jumpSpeedBoost += 0.35f;
+				player.nightVision = true;
+				if (player.statLife <= (player.statLifeMax2 / 4))
+				{
+					player.noFallDmg = true;
+					player.dangerSense = true;
+				}
+				player.accFlipper = true;
+			}
+		}
+
+		public override void PreUpdate(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
+			{
+				if (player.Male)
+				{
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Tabaxi_Hurt"));
+				}
+				else
+				{
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Tabaxi_Hurt_Female"));
+				}
+			}
+		}
+
+		public override void ModifyDrawInfo(Player player, Mod mod, ref PlayerDrawInfo drawInfo)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			Item familiarshirt = new Item();
+			familiarshirt.SetDefaults(ItemID.FamiliarShirt);
+
+			Item familiarpants = new Item();
+			familiarpants.SetDefaults(ItemID.FamiliarPants);
+			drawInfo.drawAltHair = true;
+			if (!modPlayer.IsNewCharacter1)
+			{
+				player.hairColor = new Color(239, 119, 157);
+				player.eyeColor = new Color(102, 255, 157);
+				player.skinColor = new Color(player.skinColor.R + 40, player.skinColor.G + 40, player.skinColor.B + 40);
+			}
+			if (!modPlayer.IsNewCharacter1)
+			{
+				modPlayer.IsNewCharacter1 = true;
+			}
+			if (modPlayer.resetDefaultColors)
+			{
+				modPlayer.resetDefaultColors = false;
+				player.hairColor = new Color(239, 119, 157);
+				player.skinColor = new Color(207, 183, 127);
+				player.eyeColor = new Color(102, 255, 157);
+				player.shirtColor = new Color(141, 100, 62);
+				player.underShirtColor = new Color(109, 83, 69);
+				player.skinVariant = 3;
+				if (player.armor[1].type < ItemID.IronPickaxe && player.armor[2].type < ItemID.IronPickaxe)
+				{
+					player.armor[1] = familiarshirt;
+					player.armor[2] = familiarpants;
+				}
+			}
 		}
 
 		public override void ModifyDrawLayers(Player player, List<PlayerLayer> layers)

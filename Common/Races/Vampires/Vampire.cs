@@ -1,14 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MrPlagueRaces.Content.Mounts;
+using static Terraria.ModLoader.ModContent;
 
 namespace MrPlagueRaces.Common.Races.Vampires
 {
 	public class Vampire : Race
 	{
 		public override int? LegacyId => 10;
+		public bool VampireTransformation;
+		public bool VampireTransformationDust;
+		public int vampireWingAnim;
+		public int vampireWingFrame;
+		public int vampireWalkAnim;
 
 		public override bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
@@ -17,11 +25,284 @@ namespace MrPlagueRaces.Common.Races.Vampires
 			return true;
 		}
 
+		public override void PostItemCheck(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (!modPlayer.GotLoreBook)
+			{
+				modPlayer.GotLoreBook = true;
+				player.QuickSpawnItem(mod.ItemType("Race_Lore_Book_Vampire"));
+			}
+		}
+
+		public override void ResetEffects(Player player)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (modPlayer.RaceStats)
+			{
+				player.moveSpeed += 0.1f;
+				player.pickSpeed -= 0.2f;
+				player.lifeMagnet = true;
+				if (MrPlagueRaces.RacialAbilityHotKey.JustPressed && MrPlagueRaces.RacialAbilityHotKey.Current)
+				{
+					player.controlMount = false;
+					player.releaseMount = false;
+				}
+				if (VampireTransformation)
+				{
+					player.controlUseItem = false;
+				}
+			}
+		}
+
+		public override void ProcessTriggers(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (modPlayer.RaceStats)
+			{
+				if (MrPlagueRaces.RacialAbilityHotKey.Current)
+				{
+					player.AddBuff(mod.BuffType("VampireBat"), 2);
+				}
+			}
+		}
+
+		public override void PreUpdate(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
+			{
+				if (player.Male)
+				{
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Vampire_Hurt"));
+				}
+				else
+				{
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Vampire_Hurt_Female"));
+				}
+			}
+			if (modPlayer.RaceStats)
+			{
+				if (player.HasBuff(mod.BuffType("VampireBat")))
+				{
+					modPlayer.hideArmor = true;
+					VampireTransformation = true;
+					if (!VampireTransformationDust)
+					{
+						Main.PlaySound(SoundID.Item8, player.position);
+						int num = Gore.NewGore(new Vector2(player.position.X, player.position.Y - 10f), player.velocity, 99);
+						Main.gore[num].velocity *= 0.3f;
+						num = Gore.NewGore(new Vector2(player.position.X, player.position.Y + (float)(player.height / 2) - 10f), player.velocity, 99);
+						Main.gore[num].velocity *= 0.3f;
+						num = Gore.NewGore(new Vector2(player.position.X, player.position.Y + (float)player.height - 10f), player.velocity, 99);
+						Main.gore[num].velocity *= 0.3f;
+						VampireTransformationDust = true;
+					}
+					player.mount.SetMount(ModContent.MountType<VampireRaceBat>(), player, false);
+				}
+				if (!player.HasBuff(mod.BuffType("VampireBat")))
+				{
+					modPlayer.hideArmor = false;
+					VampireTransformation = false;
+					if (VampireTransformationDust)
+					{
+						Main.PlaySound(SoundID.Item8, player.position);
+						int num = Gore.NewGore(new Vector2(player.position.X, player.position.Y - 10f), player.velocity, 99);
+						Main.gore[num].velocity *= 0.3f;
+						num = Gore.NewGore(new Vector2(player.position.X, player.position.Y + (float)(player.height / 2) - 10f), player.velocity, 99);
+						Main.gore[num].velocity *= 0.3f;
+						num = Gore.NewGore(new Vector2(player.position.X, player.position.Y + (float)player.height - 10f), player.velocity, 99);
+						Main.gore[num].velocity *= 0.3f;
+						VampireTransformationDust = false;
+					}
+					if (player.mount.Type == ModContent.MountType<VampireRaceBat>())
+					{
+						player.mount.Dismount(player);
+					}
+				}
+				if (modPlayer.ExposedToSunlight() && Main.myPlayer == player.whoAmI && !((player.inventory[player.selectedItem].type == ItemID.Umbrella) || (player.armor[0].type == ItemID.UmbrellaHat)))
+				{
+					player.AddBuff(mod.BuffType("VampireBurn"), 2);
+				}
+			}
+		}
+
+		public override void ModifyDrawInfo(Player player, Mod mod, ref PlayerDrawInfo drawInfo)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			Item familiarshirt = new Item();
+			familiarshirt.SetDefaults(ItemID.FamiliarShirt);
+
+			Item familiarpants = new Item();
+			familiarpants.SetDefaults(ItemID.FamiliarPants);
+			if (!modPlayer.IsNewCharacter1)
+			{
+				modPlayer.IsNewCharacter1 = true;
+			}
+			if (modPlayer.resetDefaultColors)
+			{
+				modPlayer.resetDefaultColors = false;
+				player.hairColor = new Color(62, 54, 76);
+				player.skinColor = new Color(244, 225, 195);
+				player.eyeColor = new Color(239, 40, 147);
+				player.shirtColor = new Color(61, 51, 65);
+				player.underShirtColor = new Color(169, 71, 111);
+				player.pantsColor = new Color(45, 31, 37);
+				player.shoeColor = new Color(38, 38, 38);
+				player.skinVariant = 3;
+				if (player.armor[1].type < ItemID.IronPickaxe && player.armor[2].type < ItemID.IronPickaxe)
+				{
+					player.armor[1] = familiarshirt;
+					player.armor[2] = familiarpants;
+				}
+			}
+			if (modPlayer.RaceStats)
+			{
+				if (VampireTransformation)
+				{
+					Lighting.AddLight((int)(player.position.X + (float)(player.width / 2)) / 16, (int)(player.position.Y + (float)(player.height / 2)) / 16, 0.8f, 0.95f, 1f);
+					if (player.direction == -1)
+					{
+						player.headRotation = -(player.velocity.X * (float)player.direction * 0.1f);
+					}
+					if (player.direction == 1)
+					{
+						player.headRotation = player.velocity.X * (float)player.direction * 0.1f;
+					}
+					if ((double)player.headRotation < -0.3)
+					{
+						player.headRotation = -0.3f;
+					}
+					if ((double)player.headRotation > 0.3)
+					{
+						player.headRotation = 0.3f;
+					}
+					if (player.bodyFrame.Height == player.bodyFrame.Height * 1)
+					{
+						player.bodyFrame.Y = player.bodyFrame.Height * 2;
+					}
+					if (player.controlLeft)
+					{
+						if (player.velocity.Y == 0)
+						{
+							vampireWalkAnim += 1;
+							if ((vampireWalkAnim >= 0) && (vampireWalkAnim < 6))
+							{
+								player.bodyFrame.Y = player.bodyFrame.Height * 6;
+							}
+
+							if ((vampireWalkAnim >= 6) && (vampireWalkAnim < 12))
+							{
+								player.bodyFrame.Y = player.bodyFrame.Height * 7;
+							}
+
+							if ((vampireWalkAnim >= 12) && (vampireWalkAnim < 18))
+							{
+								player.bodyFrame.Y = player.bodyFrame.Height * 8;
+							}
+
+							if ((vampireWalkAnim >= 18) && (vampireWalkAnim < 24))
+							{
+								player.bodyFrame.Y = player.bodyFrame.Height * 9;
+								vampireWalkAnim = 0;
+							}
+						}
+					}
+					if (player.controlRight)
+					{
+						if (player.velocity.Y == 0)
+						{
+							vampireWalkAnim += 1;
+							if ((vampireWalkAnim >= 0) && (vampireWalkAnim < 6))
+							{
+								player.bodyFrame.Y = player.bodyFrame.Height * 6;
+							}
+
+							if ((vampireWalkAnim >= 6) && (vampireWalkAnim < 12))
+							{
+								player.bodyFrame.Y = player.bodyFrame.Height * 7;
+							}
+
+							if ((vampireWalkAnim >= 12) && (vampireWalkAnim < 18))
+							{
+								player.bodyFrame.Y = player.bodyFrame.Height * 8;
+							}
+
+							if ((vampireWalkAnim >= 18) && (vampireWalkAnim < 24))
+							{
+								player.bodyFrame.Y = player.bodyFrame.Height * 9;
+								vampireWalkAnim = 0;
+							}
+						}
+					}
+					if (player.controlJump)
+					{
+						if (player.velocity.Y < 0)
+						{
+							vampireWingAnim += 1;
+							if ((vampireWingAnim >= 0) && (vampireWingAnim < 6))
+							{
+								player.bodyFrame.Y = player.bodyFrame.Height * 2;
+								vampireWingFrame = 1;
+							}
+
+							if ((vampireWingAnim >= 6) && (vampireWingAnim < 12))
+							{
+								player.bodyFrame.Y = player.bodyFrame.Height * 2;
+								vampireWingFrame = 2;
+							}
+
+							if ((vampireWingAnim >= 12) && (vampireWingAnim < 18))
+							{
+								player.bodyFrame.Y = player.bodyFrame.Height * 2;
+								vampireWingFrame = 3;
+							}
+
+							if ((vampireWingAnim >= 18) && (vampireWingAnim < 24))
+							{
+								player.bodyFrame.Y = player.bodyFrame.Height * 2;
+								vampireWingFrame = 4;
+								vampireWingAnim = 0;
+								if (!player.dead)
+								{
+									Main.PlaySound(SoundLoader.customSoundType, -1, -1, mod.GetSoundSlot(SoundType.Custom, "Sounds/Kenku_Wing_Flap"));
+								}
+							}
+						}
+						else if (player.velocity.Y > 0)
+						{
+							player.bodyFrame.Y = player.bodyFrame.Height * 2;
+							vampireWingAnim = 0;
+							vampireWingFrame = 2;
+						}
+						else
+						{
+							player.bodyFrame.Y = player.bodyFrame.Height * 2;
+							vampireWingAnim = 0;
+							vampireWingFrame = -1;
+						}
+					}
+					if (player.velocity.Y == 0)
+					{
+						vampireWingAnim = 0;
+						vampireWingFrame = -1;
+						if (!player.controlLeft && !player.controlRight)
+							player.bodyFrame.Y = player.bodyFrame.Height * 2;
+					}
+					if (player.velocity.Y > 0)
+					{
+						player.bodyFrame.Y = player.bodyFrame.Height * 2;
+						vampireWingFrame = 2;
+					}
+				}
+			}
+		}
+
 		public override void ModifyDrawLayers(Player player, List<PlayerLayer> layers)
 		{
 			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
 
-			if (modPlayer.VampireTransformation)
+			if (VampireTransformation)
 			{
 				ModifyDrawLayersTransformed(player, layers);
 				return;
@@ -964,8 +1245,6 @@ namespace MrPlagueRaces.Common.Races.Vampires
 		private void ModifyDrawLayersTransformed(Player player, List<PlayerLayer> layers)
 		{
 			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
-
-			int vampireWingFrame = modPlayer.vampireWingFrame;
 
 			Main.playerTextures[0, 0] = ModContent.GetTexture("MrPlagueRaces/Content/RaceTextures/Vampire/VampireBat_Head");
 			Main.playerTextures[0, 1] = ModContent.GetTexture("MrPlagueRaces/Content/RaceTextures/Blank");

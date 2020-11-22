@@ -18,10 +18,15 @@ namespace MrPlagueRaces.Common.Races
 		public virtual int? LegacyId => null;
 
 		public virtual void ResetEffects(Player player) { }
-		public virtual void Load(Player player, TagCompound tag) { }
-		public virtual void Save(Player player, TagCompound tag) { }
+		public virtual void Load(Player player) { }
+		public virtual void Save(Player player) { }
+		public virtual void PostItemCheck(Player player, Mod mod) { }
+		public virtual void ProcessTriggers(Player player, Mod mod) { }
+		public virtual void PreUpdate(Player player, Mod mod) { }
+		public virtual void ModifyDrawInfo(Player player, Mod mod, ref PlayerDrawInfo drawInfo) { }
 		public virtual void ModifyDrawLayers(Player player, List<PlayerLayer> layers) { }
 		public virtual bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource) => true;
+		public virtual bool PreKill(Player player, Mod mod, double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource) => true;
 
 		protected override void Register()
 		{

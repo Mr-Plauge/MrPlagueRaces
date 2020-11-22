@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -15,6 +16,70 @@ namespace MrPlagueRaces.Common.Races.Derpkins
 			playSound = false;
 
 			return true;
+		}
+
+		public override bool PreKill(Player player, Mod mod, double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+		{
+			if (playSound)
+			{
+				playSound = false;
+				Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Derpkin_Killed"));
+			}
+			return true;
+		}
+
+		public override void PostItemCheck(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (!modPlayer.GotLoreBook)
+			{
+				modPlayer.GotLoreBook = true;
+				player.QuickSpawnItem(mod.ItemType("Race_Lore_Book_Derpkin"));
+			}
+		}
+
+		public override void ResetEffects(Player player)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (modPlayer.RaceStats)
+			{
+				player.statLifeMax2 -= (player.statLifeMax2 / 10);
+				player.statDefense -= 4;
+				player.allDamage += 0.1f;
+				player.moveSpeed += 0.25f;
+				player.jumpSpeedBoost += 0.6f;
+				player.autoJump = true;
+			}
+		}
+
+		public override void PreUpdate(Player player, Mod mod)
+		{
+			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
+			{
+				Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Derpkin_Hurt"));
+			}
+		}
+
+		public override void ModifyDrawInfo(Player player, Mod mod, ref PlayerDrawInfo drawInfo)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			Item familiarshirt = new Item();
+			familiarshirt.SetDefaults(ItemID.FamiliarShirt);
+
+			Item familiarpants = new Item();
+			familiarpants.SetDefaults(ItemID.FamiliarPants);
+			if (!modPlayer.IsNewCharacter1)
+			{
+				modPlayer.IsNewCharacter1 = true;
+			}
+			if (modPlayer.resetDefaultColors)
+			{
+				modPlayer.resetDefaultColors = false;
+				player.hairColor = new Color(82, 179, 255);
+				player.skinColor = new Color(82, 179, 255);
+				player.eyeColor = new Color(99, 122, 207);
+				player.skinVariant = 0;
+			}
 		}
 
 		public override void ModifyDrawLayers(Player player, List<PlayerLayer> layers)

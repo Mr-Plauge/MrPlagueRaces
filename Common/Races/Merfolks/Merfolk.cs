@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -9,12 +10,173 @@ namespace MrPlagueRaces.Common.Races.Merfolks
 	public class Merfolk : Race
 	{
 		public override int? LegacyId => 5;
+		public int merfolkBreathHurt;
+		public int merfolkBreathControl = 7;
+		public int merfolkBreathControl2 = 200;
 
 		public override bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
 			playSound = false;
 
 			return true;
+		}
+
+		public override void PostItemCheck(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (!modPlayer.GotLoreBook)
+			{
+				modPlayer.GotLoreBook = true;
+				player.QuickSpawnItem(mod.ItemType("Race_Lore_Book_Merfolk"));
+			}
+		}
+
+		public override void ResetEffects(Player player)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (modPlayer.RaceStats)
+			{
+				if (player.wet)
+				{
+					player.allDamage += 0.25f;
+				}
+				player.blockRange += 1;
+				player.tileSpeed += 0.25f;
+				player.wallSpeed += 0.25f;
+				player.pickSpeed -= 0.1f;
+				player.ignoreWater = true;
+				player.merman = false;
+				player.gills = false;
+				player.accFlipper = true;
+			}
+		}
+
+		public override void PreUpdate(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
+			{
+				Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Merfolk_Hurt"));
+			}
+			if (modPlayer.RaceStats)
+			{
+				if (player.dead)
+				{
+					merfolkBreathControl = 0;
+					merfolkBreathControl2 = 200;
+				}
+				if (Collision.DrownCollision(player.position, player.width, player.height, player.gravDir) || player.armor[0].type == ItemID.FishBowl || Main.raining && modPlayer.ExposedToSky())
+				{
+					merfolkBreathControl = 0;
+					if (merfolkBreathControl2 < 200)
+					{
+						merfolkBreathControl2 += 3;
+					}
+					if (merfolkBreathControl2 > 200)
+					{
+						merfolkBreathControl2 = 200;
+					}
+					player.breath = (merfolkBreathControl2 + 2);
+					merfolkBreathHurt = 0;
+				}
+				else
+				{
+					merfolkBreathControl += 1;
+					if (merfolkBreathControl >= 7)
+					{
+						merfolkBreathControl2 -= 1;
+						merfolkBreathControl = 0;
+					}
+					player.breath = (merfolkBreathControl2 - 2);
+				}
+				if (player.breath == 0)
+				{
+					Main.PlaySound(SoundID.Drown, -1, -1, 1, 1f, 0f);
+				}
+				if (player.breath <= 0)
+				{
+					player.lifeRegenTime = 0;
+					player.breath = 0;
+					merfolkBreathHurt += 1;
+					if (merfolkBreathHurt >= 7)
+					{
+						player.statLife -= 2;
+						merfolkBreathHurt = 0;
+					}
+					if (player.statLife <= 0)
+					{
+						player.statLife = 0;
+						switch (Main.rand.Next(8))
+						{
+							case 0:
+								player.KillMe(PlayerDeathReason.ByCustomReason(player.name + " is sleeping with the air-breathers."), 10.0, 0, false);
+								break;
+							case 1:
+								player.KillMe(PlayerDeathReason.ByCustomReason(player.name + " didn't make it to the water."), 10.0, 0, false);
+								break;
+							case 2:
+								player.KillMe(PlayerDeathReason.ByCustomReason(player.name + " was out of their element."), 10.0, 0, false);
+								break;
+							case 3:
+								player.KillMe(PlayerDeathReason.ByCustomReason(player.name + " suffocated."), 10.0, 0, false);
+								break;
+							case 4:
+								player.KillMe(PlayerDeathReason.ByCustomReason(player.name + " couldn't breathe."), 10.0, 0, false);
+								break;
+							case 5:
+								player.KillMe(PlayerDeathReason.ByCustomReason(player.name + " is food for the land dwellers."), 10.0, 0, false);
+								break;
+							case 6:
+								player.KillMe(PlayerDeathReason.ByCustomReason(player.name + " tried breathing air."), 10.0, 0, false);
+								break;
+							default:
+								player.KillMe(PlayerDeathReason.ByCustomReason(player.name + " had gills instead of lungs."), 10.0, 0, false);
+								break;
+						}
+					}
+				}
+			}
+		}
+
+		public override void ModifyDrawInfo(Player player, Mod mod, ref PlayerDrawInfo drawInfo)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			Item familiarshirt = new Item();
+			familiarshirt.SetDefaults(ItemID.FamiliarShirt);
+
+			Item familiarpants = new Item();
+			familiarpants.SetDefaults(ItemID.FamiliarPants);
+			if (!modPlayer.IsNewCharacter1)
+			{
+				player.skinColor = new Color(player.skinColor.R + 40, player.skinColor.G + 40, player.skinColor.B + 40);
+			}
+			if (!modPlayer.IsNewCharacter1)
+			{
+				modPlayer.IsNewCharacter1 = true;
+			}
+			if (modPlayer.resetDefaultColors)
+			{
+				modPlayer.resetDefaultColors = false;
+				player.hairColor = new Color(94, 236, 135);
+				player.skinColor = new Color(94, 236, 135);
+				player.eyeColor = new Color(251, 57, 135);
+				player.skinVariant = 0;
+			}
+			if (modPlayer.RaceStats)
+			{
+				if (Collision.DrownCollision(player.position, player.width, player.height, player.gravDir))
+				{
+					player.headRotation = player.velocity.Y * (float)player.direction * 0.1f;
+					if ((double)player.headRotation < -0.3)
+					{
+						player.headRotation = -0.3f;
+					}
+					if ((double)player.headRotation > 0.3)
+					{
+						player.headRotation = 0.3f;
+					}
+				}
+			}
 		}
 
 		public override void ModifyDrawLayers(Player player, List<PlayerLayer> layers)

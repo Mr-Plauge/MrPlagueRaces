@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -9,12 +10,98 @@ namespace MrPlagueRaces.Common.Races.Mushfolks
 	public class Mushfolk : Race
 	{
 		public override int? LegacyId => 6;
+		public bool mushfolkHideCap;
 
 		public override bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
 			playSound = false;
 
 			return true;
+		}
+
+		public override bool PreKill(Player player, Mod mod, double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+		{
+			if (playSound)
+			{
+				playSound = false;
+				Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Mushfolk_Killed"));
+			}
+			return true;
+		}
+
+		public override void Load(Player player)
+		{
+			player.statLife += 20;
+		}
+
+		public override void PostItemCheck(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (!modPlayer.GotLoreBook)
+			{
+				modPlayer.GotLoreBook = true;
+				player.QuickSpawnItem(mod.ItemType("Race_Lore_Book_Mushfolk"));
+			}
+		}
+
+		public override void ResetEffects(Player player)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			player.statLifeMax2 += (player.statLifeMax2 / 10);
+			player.allDamage -= 0.15f;
+			player.maxMinions += 2;
+			player.moveSpeed += 0.1f;
+		}
+
+		public override void PreUpdate(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
+			{
+				Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Mushfolk_Hurt"));
+			}
+			if (modPlayer.RaceStats)
+			{
+				if (!player.dead)
+				{
+					Projectile.NewProjectile((player.position.X + 10), (player.position.Y + 15), 0, 0, mod.ProjectileType("MushfolkHeal"), 0, 0f, player.whoAmI);
+				}
+			}
+		}
+
+		public override void ModifyDrawInfo(Player player, Mod mod, ref PlayerDrawInfo drawInfo)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			Item familiarshirt = new Item();
+			familiarshirt.SetDefaults(ItemID.FamiliarShirt);
+
+			Item familiarpants = new Item();
+			familiarpants.SetDefaults(ItemID.FamiliarPants);
+			if (!modPlayer.IsNewCharacter1)
+			{
+				player.hairColor = new Color(player.hairColor.R - 40, player.hairColor.G - 40, player.hairColor.B - 40);
+				player.eyeColor = new Color(player.eyeColor.R - 40, player.eyeColor.G - 40, player.eyeColor.B - 40);
+			}
+			if (!modPlayer.IsNewCharacter1)
+			{
+				modPlayer.IsNewCharacter1 = true;
+			}
+			if (modPlayer.resetDefaultColors)
+			{
+				modPlayer.resetDefaultColors = false;
+				player.hairColor = new Color(104, 138, 233);
+				player.skinColor = new Color(222, 209, 184);
+				player.eyeColor = new Color(104, 138, 233);
+				player.skinVariant = 0;
+			}
+			if (drawInfo.drawHair)
+			{
+				mushfolkHideCap = false;
+			}
+			if (!drawInfo.drawHair)
+			{
+				mushfolkHideCap = true;
+			}
 		}
 
 		public override void ModifyDrawLayers(Player player, List<PlayerLayer> layers)
@@ -24,7 +111,6 @@ namespace MrPlagueRaces.Common.Races.Mushfolks
 			bool hideChestplate = modPlayer.hideChestplate;
 			bool hideLeggings = modPlayer.hideLeggings;
 			bool hideHelmet = modPlayer.hideHelmet;
-			bool mushfolkHideCap = modPlayer.mushfolkHideCap;
 
 			if ((player.armor[0].type < ItemID.IronPickaxe && player.armor[10].type < ItemID.IronPickaxe && (player.hair != 15 && player.hair < 51)) || hideHelmet || !mushfolkHideCap)
 			{

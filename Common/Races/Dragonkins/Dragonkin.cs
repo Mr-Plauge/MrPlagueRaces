@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -15,6 +16,98 @@ namespace MrPlagueRaces.Common.Races.Dragonkins
 			playSound = false;
 
 			return true;
+		}
+
+		public override void Load(Player player) 
+		{
+			player.statLife += 25;
+		}
+
+		public override void PostItemCheck(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (!modPlayer.GotLoreBook)
+			{
+				modPlayer.GotLoreBook = true;
+				player.QuickSpawnItem(mod.ItemType("Race_Lore_Book_Dragonkin"));
+			}
+		}
+
+		public override void ResetEffects(Player player)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (modPlayer.RaceStats)
+			{
+				player.statLifeMax2 += (player.statLifeMax2 / 5);
+				player.statDefense += 8;
+				player.meleeDamage += 0.1f;
+				player.pickSpeed += 0.2f;
+				player.tileSpeed -= 0.1f;
+				player.wallSpeed -= 0.1f;
+				player.jumpSpeedBoost -= 0.1f;
+				if (player.lavaMax == 0)
+				{
+					player.lavaMax += 60;
+				}
+				player.fireWalk = true;
+			}
+		}
+
+		public override void PreUpdate(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
+			{
+				if (player.Male)
+				{
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Dragonkin_Hurt"));
+				}
+				else
+				{
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Dragonkin_Hurt_Female"));
+				}
+			}
+			if (modPlayer.RaceStats)
+			{
+				player.buffImmune[24] = true;
+				player.buffImmune[39] = true;
+				player.buffImmune[153] = true;
+				player.buffImmune[67] = true;
+
+			}
+		}
+
+		public override void ModifyDrawInfo(Player player, Mod mod, ref PlayerDrawInfo drawInfo)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			Item familiarshirt = new Item();
+			familiarshirt.SetDefaults(ItemID.FamiliarShirt);
+
+			Item familiarpants = new Item();
+			familiarpants.SetDefaults(ItemID.FamiliarPants);
+			if (!modPlayer.IsNewCharacter1)
+			{
+				player.skinColor = new Color(player.skinColor.R + 60, player.skinColor.G + 60, player.skinColor.B + 60);
+			}
+			if (!modPlayer.IsNewCharacter1)
+			{
+				modPlayer.IsNewCharacter1 = true;
+			}
+			if (modPlayer.resetDefaultColors)
+			{
+				modPlayer.resetDefaultColors = false;
+				player.hairColor = new Color(175, 163, 147);
+				player.skinColor = new Color(202, 255, 208);
+				player.eyeColor = new Color(255, 180, 92);
+				player.shirtColor = new Color(119, 115, 157);
+				player.underShirtColor = new Color(216, 156, 95);
+				player.skinVariant = 8;
+				if (player.armor[1].type < ItemID.IronPickaxe && player.armor[2].type < ItemID.IronPickaxe)
+				{
+					player.armor[1] = familiarshirt;
+					player.armor[2] = familiarpants;
+				}
+			}
 		}
 
 		public override void ModifyDrawLayers(Player player, List<PlayerLayer> layers)

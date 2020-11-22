@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -15,6 +16,138 @@ namespace MrPlagueRaces.Common.Races.Kobolds
 			playSound = false;
 
 			return true;
+		}
+
+		public override void PostItemCheck(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (!modPlayer.GotLoreBook)
+			{
+				modPlayer.GotLoreBook = true;
+				player.QuickSpawnItem(mod.ItemType("Race_Lore_Book_Kobold"));
+			}
+		}
+
+		public override void ResetEffects(Player player)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (modPlayer.RaceStats)
+			{
+				player.statLifeMax2 -= (player.statLifeMax2 / 10);
+				player.statDefense -= 4;
+				player.meleeDamage -= 0.1f;
+				player.rangedDamage += 0.05f;
+				player.magicDamage += 0.05f;
+				player.minionDamage += 0.05f;
+				player.moveSpeed += 0.05f;
+				player.pickSpeed -= 0.6f;
+				player.nightVision = true;
+			}
+		}
+
+		public override void ProcessTriggers(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (modPlayer.RaceStats)
+			{
+				if (MrPlagueRaces.RacialAbilityHotKey.Current)
+				{
+					int spelunkerradius = 30;
+					if ((player.Center - Main.player[Main.myPlayer].Center).Length() < (float)(Main.screenWidth + spelunkerradius * 16))
+					{
+						int playerX = (int)player.Center.X / 16;
+						int playerY = (int)player.Center.Y / 16;
+						int num3;
+						for (int playerX2 = playerX - spelunkerradius; playerX2 <= playerX + spelunkerradius; playerX2 = num3 + 1)
+						{
+							for (int playerY2 = playerY - spelunkerradius; playerY2 <= playerY + spelunkerradius; playerY2 = num3 + 1)
+							{
+								if (Main.rand.Next(4) == 0)
+								{
+									Vector2 vector16 = new Vector2((float)(playerX - playerX2), (float)(playerY - playerY2));
+									if (vector16.Length() < (float)spelunkerradius && playerX2 > 0 && playerX2 < Main.maxTilesX - 1 && playerY2 > 0 && playerY2 < Main.maxTilesY - 1 && Main.tile[playerX2, playerY2] != null && Main.tile[playerX2, playerY2].active())
+									{
+										bool flag3 = false;
+										if (Main.tile[playerX2, playerY2].type == 185 && Main.tile[playerX2, playerY2].frameY == 18)
+										{
+											if (Main.tile[playerX2, playerY2].frameX >= 576 && Main.tile[playerX2, playerY2].frameX <= 882)
+											{
+												flag3 = true;
+											}
+										}
+										else if (Main.tile[playerX2, playerY2].type == 186 && Main.tile[playerX2, playerY2].frameX >= 864 && Main.tile[playerX2, playerY2].frameX <= 1170)
+										{
+											flag3 = true;
+										}
+										if (flag3 || Main.tileSpelunker[(int)Main.tile[playerX2, playerY2].type] || (Main.tileAlch[(int)Main.tile[playerX2, playerY2].type] && Main.tile[playerX2, playerY2].type != 82))
+										{
+											int spelunkerdust = Dust.NewDust(new Vector2((float)(playerX2 * 16), (float)(playerY2 * 16)), 16, 16, 204, 0f, 0f, 150, default(Color), 0.3f);
+											Main.dust[spelunkerdust].fadeIn = 0.75f;
+											Dust dust = Main.dust[spelunkerdust];
+											dust.velocity *= 0.1f;
+											Main.dust[spelunkerdust].noLight = true;
+										}
+									}
+								}
+								num3 = playerY2;
+							}
+							num3 = playerX2;
+						}
+					}
+				}
+			}
+		}
+
+		public override void PreUpdate(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
+			{
+				if (player.Male)
+				{
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Kobold_Hurt"));
+				}
+				else
+				{
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Kobold_Hurt_Female"));
+				}
+			}
+			if (modPlayer.RaceStats)
+			{
+				Lighting.AddLight((int)(player.position.X + (float)(player.width / 2)) / 16, (int)(player.position.Y + (float)(player.height / 2)) / 16, 0.8f, 0.95f, 1f);
+				if (modPlayer.ExposedToSunlight() && Main.myPlayer == player.whoAmI && !((player.inventory[player.selectedItem].type == ItemID.Umbrella) || (player.armor[0].type == ItemID.UmbrellaHat)))
+				{
+					player.AddBuff(mod.BuffType("KoboldSunlight"), 2);
+				}
+			}
+		}
+
+		public override void ModifyDrawInfo(Player player, Mod mod, ref PlayerDrawInfo drawInfo)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			Item familiarshirt = new Item();
+			familiarshirt.SetDefaults(ItemID.FamiliarShirt);
+
+			Item familiarpants = new Item();
+			familiarpants.SetDefaults(ItemID.FamiliarPants);
+			if (!modPlayer.IsNewCharacter1)
+			{
+				modPlayer.IsNewCharacter1 = true;
+			}
+			if (modPlayer.resetDefaultColors)
+			{
+				modPlayer.resetDefaultColors = false;
+				player.hairColor = new Color(237, 180, 164);
+				player.skinColor = new Color(193, 93, 93);
+				player.eyeColor = new Color(243, 168, 53);
+				player.shirtColor = new Color(175, 151, 114);
+				player.underShirtColor = new Color(119, 112, 147);
+				player.skinVariant = 2;
+				if (player.armor[1].type < ItemID.IronPickaxe)
+				{
+					player.armor[1] = familiarshirt;
+				}
+			}
 		}
 
 		public override void ModifyDrawLayers(Player player, List<PlayerLayer> layers)

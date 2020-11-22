@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.UI;
 using Terraria.ModLoader;
 using Terraria.GameContent.UI.Elements;
+using MrPlagueRaces.Common.Races.Fluftrodons;
 using static Terraria.ModLoader.ModContent;
 
 namespace MrPlagueRaces.Common.UI
@@ -169,11 +170,11 @@ namespace MrPlagueRaces.Common.UI
 
 		public override void Update(GameTime gameTime)
 		{
-			MrPlagueRacesPlayer _MrPlagueRacesPlayer = Main.LocalPlayer.GetModPlayer<MrPlagueRacesPlayer>();
+			Fluftrodon _Fluftrodon = ModContent.GetInstance<Fluftrodon>();
 			base.Update(gameTime);
-			MrPlagueRacesPlayer.FluftrodonPaintTileMode = FluftrodonPaintTileMode2;
-			MrPlagueRacesPlayer.FluftrodonPaintWallMode = FluftrodonPaintWallMode2;
-			MrPlagueRacesPlayer.FluftrodonPaintColor = FluftrodonPaintColor2;
+			Fluftrodon.FluftrodonPaintTileMode = FluftrodonPaintTileMode2;
+			Fluftrodon.FluftrodonPaintWallMode = FluftrodonPaintWallMode2;
+			Fluftrodon.FluftrodonPaintColor = FluftrodonPaintColor2;
 			if (FluftrodonPaintTileMode2 == 0)
 			{
 				FluftrodonPaintUIBrushText.SetText("Ignore");
@@ -274,12 +275,12 @@ namespace MrPlagueRaces.Common.UI
 			{
 				FluftrodonPaintUIColorText.SetText("Error (please report to MrPlague!)");
 			}
-			if (_MrPlagueRacesPlayer.FluftrodonPaintUIPositionSet)
+			if (_Fluftrodon.FluftrodonPaintUIPositionSet)
 			{
 				FluftrodonPaintUIPanelBackground.Left.Set(Main.mouseX - 100, 0);
 				FluftrodonPaintUIPanelBackground.Top.Set(Main.mouseY - 33, 0);
 			}
-			if (!_MrPlagueRacesPlayer.FluftrodonPaintUI)
+			if (!_Fluftrodon.FluftrodonPaintUI)
 			{
 				FluftrodonPaintUIPanelBackground.Left.Set(999999, 0);
 				FluftrodonPaintUIPanelBackground.Top.Set(999999, 0);

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -15,6 +16,77 @@ namespace MrPlagueRaces.Common.Races.Goblins
 			playSound = false;
 
 			return true;
+		}
+
+		public override void PostItemCheck(Player player, Mod mod)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (!modPlayer.GotLoreBook)
+			{
+				modPlayer.GotLoreBook = true;
+				player.QuickSpawnItem(mod.ItemType("Race_Lore_Book_Goblin"));
+			}
+		}
+
+		public override void ResetEffects(Player player)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (modPlayer.RaceStats)
+			{
+				player.statLifeMax2 -= (player.statLifeMax2 / 5);
+				player.allDamage -= 0.1f;
+				player.maxMinions += 1;
+				player.maxTurrets += 1;
+				player.moveSpeed += 0.1f;
+				player.tileSpeed += 0.1f;
+				player.wallSpeed += 0.1f;
+				player.pickSpeed -= 0.1f;
+			}
+		}
+
+		public override void PreUpdate(Player player, Mod mod)
+		{
+			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
+			{
+				if (player.Male)
+				{
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Goblin_Hurt"));
+				}
+				else
+				{
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/Goblin_Hurt_Female"));
+				}
+			}
+		}
+
+		public override void ModifyDrawInfo(Player player, Mod mod, ref PlayerDrawInfo drawInfo)
+		{
+			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			Item familiarshirt = new Item();
+			familiarshirt.SetDefaults(ItemID.FamiliarShirt);
+
+			Item familiarpants = new Item();
+			familiarpants.SetDefaults(ItemID.FamiliarPants);
+			if (!modPlayer.IsNewCharacter1)
+			{
+				modPlayer.IsNewCharacter1 = true;
+			}
+			if (modPlayer.resetDefaultColors)
+			{
+				modPlayer.resetDefaultColors = false;
+				player.hairColor = new Color(58, 61, 53);
+				player.skinColor = new Color(147, 144, 86);
+				player.eyeColor = new Color(112, 42, 36);
+				player.underShirtColor = new Color(130, 98, 116);
+				player.pantsColor = new Color(111, 100, 97);
+				player.shoeColor = new Color(110, 93, 89);
+				player.skinVariant = 2;
+				if (player.armor[1].type < ItemID.IronPickaxe && player.armor[2].type < ItemID.IronPickaxe)
+				{
+					player.armor[1] = familiarshirt;
+					player.armor[2] = familiarpants;
+				}
+			}
 		}
 
 		public override void ModifyDrawLayers(Player player, List<PlayerLayer> layers)
