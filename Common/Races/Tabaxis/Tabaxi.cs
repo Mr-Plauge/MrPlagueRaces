@@ -10,7 +10,7 @@ namespace MrPlagueRaces.Common.Races.Tabaxis
 	public class Tabaxi : Race
 	{
 		public override int? LegacyId => 3;
-
+		public override string RaceName => "Tabaxi";
 		public override bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
 			playSound = false;

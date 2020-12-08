@@ -10,7 +10,7 @@ namespace MrPlagueRaces.Common.Races.Goblins
 	public class Goblin : Race
 	{
 		public override int? LegacyId => 1;
-
+		public override string RaceName => "Goblin";
 		public override bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
 			playSound = false;
@@ -36,7 +36,7 @@ namespace MrPlagueRaces.Common.Races.Goblins
 				player.statLifeMax2 -= (player.statLifeMax2 / 5);
 				player.allDamage -= 0.1f;
 				player.maxMinions += 1;
-				player.maxTurrets += 1;
+				player.maxTurrets += 100;
 				player.moveSpeed += 0.1f;
 				player.tileSpeed += 0.1f;
 				player.wallSpeed += 0.1f;
@@ -75,10 +75,10 @@ namespace MrPlagueRaces.Common.Races.Goblins
 			{
 				modPlayer.resetDefaultColors = false;
 				player.hairColor = new Color(58, 61, 53);
-				player.skinColor = new Color(147, 144, 86);
+				player.skinColor = new Color(182, 215, 126);
 				player.eyeColor = new Color(112, 42, 36);
-				player.underShirtColor = new Color(130, 98, 116);
-				player.pantsColor = new Color(111, 100, 97);
+				player.underShirtColor = new Color(150, 107, 112);
+				player.pantsColor = new Color(104, 127, 148);
 				player.shoeColor = new Color(110, 93, 89);
 				player.skinVariant = 2;
 				if (player.armor[1].type < ItemID.IronPickaxe && player.armor[2].type < ItemID.IronPickaxe)

@@ -9,7 +9,8 @@ namespace MrPlagueRaces.Common.Races.Merfolks
 {
 	public class Merfolk : Race
 	{
-		public override int? LegacyId => 5;
+        public override int? LegacyId => 5;
+		public override string RaceName => "Merfolk";
 		public int merfolkBreathHurt;
 		public int merfolkBreathControl = 7;
 		public int merfolkBreathControl2 = 200;

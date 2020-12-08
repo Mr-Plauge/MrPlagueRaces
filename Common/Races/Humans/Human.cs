@@ -9,7 +9,7 @@ namespace MrPlagueRaces.Common.Races.Humans
 	public class Human : Race
 	{
 		public override int? LegacyId => 0;
-
+		public override string RaceName => "Human";
 		public override void PostItemCheck(Player player, Mod mod)
 		{
 			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();

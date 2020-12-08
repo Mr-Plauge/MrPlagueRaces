@@ -10,7 +10,11 @@ namespace MrPlagueRaces.Common.Races.Derpkins
 	public class Derpkin : Race
 	{
 		public override int? LegacyId => 7;
+		public override string RaceName => "Derpkin";
+		public override void Initialize(Player player)
+        {
 
+		}
 		public override bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
 			playSound = false;
@@ -46,9 +50,10 @@ namespace MrPlagueRaces.Common.Races.Derpkins
 				player.statLifeMax2 -= (player.statLifeMax2 / 10);
 				player.statDefense -= 4;
 				player.allDamage += 0.1f;
-				player.moveSpeed += 0.25f;
-				player.jumpSpeedBoost += 0.6f;
-				player.autoJump = true;
+				player.moveSpeed += 50f;
+				player.jumpSpeedBoost += 10f;
+                player.autoJump = true;
+				player.extraFall += 100;
 			}
 		}
 

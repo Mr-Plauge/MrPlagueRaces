@@ -9,7 +9,8 @@ namespace MrPlagueRaces.Common.Races.Mushfolks
 {
 	public class Mushfolk : Race
 	{
-		public override int? LegacyId => 6;
+        public override int? LegacyId => 6;
+		public override string RaceName => "Mushfolk";
 		public bool mushfolkHideCap;
 
 		public override bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)

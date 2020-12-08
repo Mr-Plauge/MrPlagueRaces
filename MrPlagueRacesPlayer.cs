@@ -16,8 +16,8 @@ namespace MrPlagueRaces
 {
 	public class MrPlagueRacesPlayer : ModPlayer
 	{
-		public static int PlayerRaceStatic = -1;
-
+        public static int PlayerRaceStatic = -1;
+		public static Race StaticRace;
 		public Race race;
 		public bool MrPlagueRacesNonStopParty;
 		public bool RaceStats = true;
@@ -26,7 +26,7 @@ namespace MrPlagueRaces
 		public bool hideArmor;
 		public bool hideHelmet;
 		public bool hideChestplate;
-		public bool hideLeggings;
+        public bool hideLeggings;
 
 		public bool IsNewCharacter1;
 
@@ -34,7 +34,8 @@ namespace MrPlagueRaces
 
 		public override void Initialize()
 		{
-			race = ModContent.GetInstance<Vampire>();
+			//race.Initialize(player);
+			race = ModContent.GetInstance<Human>();
 		}
 
 		public override TagCompound Save()
@@ -53,10 +54,10 @@ namespace MrPlagueRaces
 		{
 			resetDefaultColors = false;
 
-			if ((tag.ContainsKey("Race") && RaceLoader.TryGetRace(tag.GetString("Race"), out var loadedRace)) //Type name
-			|| (tag.ContainsKey("PlayerRace") && RaceLoader.TryGetRaceFromLegacyId(tag.GetInt("PlayerRace"), out loadedRace))) //Legacy Id
+			if ((tag.ContainsKey("Race") && RaceLoader.TryGetRace(tag.GetString("Race"), out var loadedRace)) || (tag.ContainsKey("PlayerRace") && RaceLoader.TryGetRaceFromLegacyId(tag.GetInt("PlayerRace"), out loadedRace)))
 			{
-				race = loadedRace;
+                race = loadedRace;
+				//race = RaceLoader.Races[0];
 			}
 
 			RaceStats = tag.GetBool("RaceStats");
@@ -101,10 +102,7 @@ namespace MrPlagueRaces
 
 		public override void ResetEffects()
 		{
-			if (RaceStats)
-			{
-				race.ResetEffects(player);
-			}
+			race.ResetEffects(player);
 		}
 
 		public override void PostItemCheck()
@@ -339,15 +337,19 @@ namespace MrPlagueRaces
 			{
 				hideChestplate = false;
 			}
-			if (player.armor[2].type == mod.ItemType("CInvisibleLegs") && player.armor[12].type < ItemID.IronPickaxe || player.armor[12].type == mod.ItemType("CInvisibleLegs"))
-			{
-				hideLeggings = true;
-				player.legs = -1;
-			}
-			else
-			{
-				hideLeggings = false;
-			}
+            if (player.armor[2].type == mod.ItemType("CInvisibleLegs") && player.armor[12].type < ItemID.IronPickaxe || player.armor[12].type == mod.ItemType("CInvisibleLegs"))
+            {
+                hideLeggings = true;
+                player.legs = -1;
+            }
+            else
+            {
+                hideLeggings = false;
+            }
+			if (Main.menuMode == 2)
+            {
+                race = StaticRace;
+            }
 			race.ModifyDrawInfo(player, mod, ref drawInfo);
 		}
 

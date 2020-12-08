@@ -9,7 +9,8 @@ namespace MrPlagueRaces.Common.Races.Kenkus
 {
 	public class Kenku : Race
 	{
-		public override int? LegacyId => 2;
+        public override int? LegacyId => 2;
+		public override string RaceName => "Kenku";
 		public int kenkuWingAnim;
 		public int kenkuWingFrame;
 		public int kenkuWingTime = 40;

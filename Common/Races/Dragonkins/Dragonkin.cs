@@ -10,7 +10,7 @@ namespace MrPlagueRaces.Common.Races.Dragonkins
 	public class Dragonkin : Race
 	{
 		public override int? LegacyId => 4;
-
+		public override string RaceName => "Dragonkin";
 		public override bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
 			playSound = false;

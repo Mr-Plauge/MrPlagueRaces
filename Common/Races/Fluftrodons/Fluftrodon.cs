@@ -10,7 +10,8 @@ namespace MrPlagueRaces.Common.Races.Fluftrodons
 {
 	public class Fluftrodon : Race
 	{
-		public override int? LegacyId => 11;
+        public override int? LegacyId => 11;
+		public override string RaceName => "Fluftrodon";
 		public static int FluftrodonPaintTileMode = -1;
 		public static int FluftrodonPaintWallMode = -1;
 		public static int FluftrodonPaintColor = 0;

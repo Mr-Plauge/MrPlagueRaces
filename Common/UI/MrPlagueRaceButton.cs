@@ -10,7 +10,7 @@ namespace MrPlagueRaces.Common.UI
 	{
 		private Texture2D _texture;
 		private float _visibilityActive = 1f;
-		private float _visibilityInactive = 0.8f;
+        private float _visibilityInactive = 0.8f;
 
 		public MrPlagueRaceButton(Texture2D texture)
 		{
@@ -32,7 +32,7 @@ namespace MrPlagueRaces.Common.UI
 		protected override void DrawSelf(SpriteBatch spriteBatch)
 		{
 			CalculatedStyle dimensions = GetDimensions();
-			spriteBatch.Draw(_texture, dimensions.Position(), Color.White * (IsMouseHovering ? _visibilityActive : _visibilityInactive));
+            spriteBatch.Draw(_texture, dimensions.Position(), Color.White * (IsMouseHovering ? _visibilityActive : _visibilityInactive));
 		}
 
 		public override void MouseOver(UIMouseEvent evt)

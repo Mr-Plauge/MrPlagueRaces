@@ -14,9 +14,10 @@ namespace MrPlagueRaces.Common.Races
 		//private Texture2D[] hairTexturesAlt;
 
 		public int Id { get; internal set; }
-
+		public virtual string RaceName => null;
 		public virtual int? LegacyId => null;
 
+		public virtual void Initialize(Player player) { }
 		public virtual void ResetEffects(Player player) { }
 		public virtual void Load(Player player) { }
 		public virtual void Save(Player player) { }

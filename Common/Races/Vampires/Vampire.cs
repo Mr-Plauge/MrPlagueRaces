@@ -11,7 +11,8 @@ namespace MrPlagueRaces.Common.Races.Vampires
 {
 	public class Vampire : Race
 	{
-		public override int? LegacyId => 10;
+        public override int? LegacyId => 10;
+		public override string RaceName => "Vampire";
 		public bool VampireTransformation;
 		public bool VampireTransformationDust;
 		public int vampireWingAnim;

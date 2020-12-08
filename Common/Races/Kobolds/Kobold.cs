@@ -10,7 +10,7 @@ namespace MrPlagueRaces.Common.Races.Kobolds
 	public class Kobold : Race
 	{
 		public override int? LegacyId => 8;
-
+		public override string RaceName => "Kobold";
 		public override bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
 			playSound = false;

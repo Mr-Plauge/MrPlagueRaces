@@ -66,14 +66,16 @@ namespace MrPlagueRaces
 		{
 			if (Main.menuMode == 1)
 			{
-				justWentRaceSelection = false;
+                justWentRaceSelection = false;
+				MrPlagueRacesPlayer.StaticRace = null;
 			}
 
 			if (Main.menuMode == 2 && !justWentRaceSelection)
 			{
 				SetUIState(_MrPlagueRaceSelection);
 
-				justWentRaceSelection = true;
+                justWentRaceSelection = true;
+				MrPlagueRacesPlayer.StaticRace = null;
 			}
 		}
 
@@ -131,7 +133,6 @@ namespace MrPlagueRaces
 						MrPlagueRacesPlayer.GotLoreBook = reader.ReadBoolean();
 						MrPlagueRacesPlayer.IsNewCharacter1 = reader.ReadBoolean();
 						MrPlagueRacesPlayer.MrPlagueRacesNonStopParty = reader.ReadBoolean();
-
 						break;
 					}
 				case MrPlagueRacesMessageType.MrPlagueRacesNonStopPartyChanged:
