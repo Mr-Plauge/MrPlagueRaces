@@ -43,7 +43,6 @@ namespace MrPlagueRaces.Common.UI
 
 		public override void MouseOut(UIMouseEvent evt)
 		{
-			base.MouseOver(evt);
 			MrPlagueRaceSelection.RaceHoverTextString = ("");
 		}
 	}

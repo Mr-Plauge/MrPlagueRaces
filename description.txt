@@ -27,6 +27,12 @@ This allows you to retain the ability to see your equipped armor and change the 
 
 [c/3ABC7A:Credits:]
 -MrPlague (spriter, animator, and coder)
+-Mirsario (helped with cleaning up MrPlague's spaghetti code and did 90% of the custom race support)
+-SnowMelon (adjusted some of the audio files)
+-CrocWithShades (betatester)
+-Shen (gameplay balance, betatester)
+-Blaquestone (gameplay balance)
+-Fallout_Patriot (gameplay balance, betatester)
 -FullyVoided, suggester of the Kobold Race
 -Pinsel, suggester and one of the creators of the Fluftrodon Race
 

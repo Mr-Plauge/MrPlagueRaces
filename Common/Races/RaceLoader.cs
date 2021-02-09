@@ -17,7 +17,9 @@ namespace MrPlagueRaces.Common.Races
         public void Unload()
         {
             Races.Clear();
-        }
+            RacesByLegacyIds.Clear();
+			RacesByFullNames.Clear();
+		}
 
 		public static void AddRace(Race race)
 		{
