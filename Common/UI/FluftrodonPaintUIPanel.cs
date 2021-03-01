@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.UI;
 using Terraria.ModLoader;
 using Terraria.GameContent.UI.Elements;
-using MrPlagueRaces.Common.Races.Fluftrodons;
+using MrPlagueRaces.Common.Races._999992_Fluftrodons;
 using static Terraria.ModLoader.ModContent;
 
 namespace MrPlagueRaces.Common.UI
@@ -35,8 +35,9 @@ namespace MrPlagueRaces.Common.UI
 			FluftrodonPaintUIPanelBackground.BorderColor = new Color(0, 0, 0) * 0f;
 			Append(FluftrodonPaintUIPanelBackground);
 
-			Texture2D FluftrodonPaintUIBrushIcon = GetTexture("MrPlagueRaces/Common/UI/FluftrodonPaintUIBrush_Ignore");
-			MrPlagueRaceButton FluftrodonPaintUIBrush = new MrPlagueRaceButton(FluftrodonPaintUIBrushIcon);
+			Texture2D FluftrodonPaintUIBrushIcon = GetTexture("MrPlagueRaces/Common/UI/FluftrodonPaintUIBrush");
+			Texture2D FluftrodonPaintUIBrush_ActiveIcon = GetTexture("MrPlagueRaces/Common/UI/FluftrodonPaintUIBrush_Active");
+			MrPlagueRaceButton FluftrodonPaintUIBrush = new MrPlagueRaceButton(FluftrodonPaintUIBrushIcon, FluftrodonPaintUIBrush_ActiveIcon);
 			FluftrodonPaintUIBrush.Width.Set(40, 0);
 			FluftrodonPaintUIBrush.Height.Set(40, 0);
 			FluftrodonPaintUIBrush.Left.Set(-5 - 40 + 43, 0);
@@ -53,8 +54,9 @@ namespace MrPlagueRaces.Common.UI
 			FluftrodonPaintUIBrushText.BorderColor = Color.Transparent;
 			FluftrodonPaintUIPanelBackground.Append(FluftrodonPaintUIBrushText);
 
-			Texture2D FluftrodonPaintUIColorIcon = GetTexture("MrPlagueRaces/Common/UI/FluftrodonPaintUIColor");
-			MrPlagueRaceButton FluftrodonPaintUIColor = new MrPlagueRaceButton(FluftrodonPaintUIColorIcon);
+            Texture2D FluftrodonPaintUIColorIcon = GetTexture("MrPlagueRaces/Common/UI/FluftrodonPaintUIColor");
+			Texture2D FluftrodonPaintUIColor_ActiveIcon = GetTexture("MrPlagueRaces/Common/UI/FluftrodonPaintUIColor_Active");
+			MrPlagueRaceButton FluftrodonPaintUIColor = new MrPlagueRaceButton(FluftrodonPaintUIColorIcon, FluftrodonPaintUIColor_ActiveIcon);
 			FluftrodonPaintUIColor.Width.Set(40, 0);
 			FluftrodonPaintUIColor.Height.Set(40, 0);
 			FluftrodonPaintUIColor.Left.Set(25 + 43, 0);
@@ -71,8 +73,9 @@ namespace MrPlagueRaces.Common.UI
 			FluftrodonPaintUIColorText.BorderColor = Color.Transparent;
 			FluftrodonPaintUIPanelBackground.Append(FluftrodonPaintUIColorText);
 
-			Texture2D FluftrodonPaintUIRollerIcon = GetTexture("MrPlagueRaces/Common/UI/FluftrodonPaintUIRoller_Ignore");
-			MrPlagueRaceButton FluftrodonPaintUIRoller = new MrPlagueRaceButton(FluftrodonPaintUIRollerIcon);
+            Texture2D FluftrodonPaintUIRollerIcon = GetTexture("MrPlagueRaces/Common/UI/FluftrodonPaintUIRoller");
+			Texture2D FluftrodonPaintUIRoller_ActiveIcon = GetTexture("MrPlagueRaces/Common/UI/FluftrodonPaintUIRoller_Active");
+			MrPlagueRaceButton FluftrodonPaintUIRoller = new MrPlagueRaceButton(FluftrodonPaintUIRollerIcon, FluftrodonPaintUIRoller_ActiveIcon);
 			FluftrodonPaintUIRoller.Width.Set(40, 0);
 			FluftrodonPaintUIRoller.Height.Set(40, 0);
 			FluftrodonPaintUIRoller.Left.Set(55 + 40 + 43, 0);

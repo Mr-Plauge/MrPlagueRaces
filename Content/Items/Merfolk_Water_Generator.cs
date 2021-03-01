@@ -10,19 +10,19 @@ namespace MrPlagueRaces.Content.Items
         public override void SetStaticDefaults()
         {
 		    DisplayName.SetDefault("Emergency Water Generator");
-            Tooltip.SetDefault("A piece of Merfolk Technology. Creates a pool of water underneath the user." + "\nCreates a pool of water directly underneath the user" + "\nUse if there are no pools or lakes in your immediate spawn range" + $"\n[c/FF0000:WARNING: This item is consumed upon use, use it wisely!]");
+            Tooltip.SetDefault("A piece of odd technology. Creates a pool of water underneath the user." + "\nCreates a pool of water directly underneath the user" + "\nUse if there are no pools or lakes in your immediate spawn range" + $"\n[c/FF0000:WARNING: This item is consumed upon use, use it wisely!]");
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 32;
-            item.useStyle = ItemUseStyleID.HoldingUp;
-            item.useAnimation = 15;
-            item.useTime = 15;
+			item.width = 34;
+			item.height = 32;
+			item.useStyle = ItemUseStyleID.HoldingOut;
+            item.useAnimation = 5;
+            item.useTime = 5;
             item.UseSound = SoundID.Item3;
             item.consumable = true;
-            item.rare = ItemRarityID.Blue;
+            item.rare = ItemRarityID.Quest;
         }
 
 		public override bool UseItem(Player player) 

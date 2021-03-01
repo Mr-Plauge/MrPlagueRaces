@@ -1,7 +1,7 @@
 displayName = [c/3ABC7A:MrPlague's Authentic Races]
 author = MrPlague
-version = 1.12.6
-hideCode = false
-hideResources = false
-includeSource = true
+version = 1.12.9
+hideCode = true
+hideResources = true
+includeSource = false
 homepage = https://discord.gg/F5mTFJP

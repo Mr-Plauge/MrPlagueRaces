@@ -20,40 +20,42 @@ namespace MrPlagueRaces
 	public class MrPlagueRaces : Mod
 	{
 		public static ModHotKey RacialAbilityHotKey;
+		public static MrPlagueRaces Instance { get; private set; }
+        internal FluftrodonPaintUIPanel FluftrodonPaintUIPanel;
+		internal MrPlagueRaceInformation MrPlagueRaceInformation;
 
-		public static int PreviousMenuMode { get; internal set; }
-
-		internal FluftrodonPaintUIPanel FluftrodonPaintUIPanel;
-
-		private UserInterface FluftrodonUserInterface;
+        private UserInterface FluftrodonUserInterface;
+		private UserInterface MrPlagueRaceInformationUserInterface;
 		private MrPlagueRaceSelection _MrPlagueRaceSelection;
 		private bool justWentRaceSelection;
 
-		public override void Load()
-		{
+        public override void Load()
+        {
 			LoadableManager.Autoload(this);
-
 			RacialAbilityHotKey = RegisterHotKey("Racial Ability", "Mouse2");
 
-			if (!Main.dedServ)
-			{
-				Main.OnTick += UpdateTick;
+            if (!Main.dedServ)
+            {
+                Main.OnTick += UpdateTick;
 
-				_MrPlagueRaceSelection = new MrPlagueRaceSelection();
-				FluftrodonPaintUIPanel = new FluftrodonPaintUIPanel();
-				FluftrodonPaintUIPanel.Activate();
+                _MrPlagueRaceSelection = new MrPlagueRaceSelection();
 
-				FluftrodonUserInterface = new UserInterface();
-				FluftrodonUserInterface.SetState(FluftrodonPaintUIPanel);
+                FluftrodonPaintUIPanel = new FluftrodonPaintUIPanel();
+                FluftrodonPaintUIPanel.Activate();
+                FluftrodonUserInterface = new UserInterface();
+                FluftrodonUserInterface.SetState(FluftrodonPaintUIPanel);
+
+				MrPlagueRaceInformation = new MrPlagueRaceInformation();
+				MrPlagueRaceInformation.Activate();
+				MrPlagueRaceInformationUserInterface = new UserInterface();
+				MrPlagueRaceInformationUserInterface.SetState(MrPlagueRaceInformation);
 			}
-		}
+        }
 
 		public override void Unload()
 		{
-			LoadableManager.Unload();
-
-			RacialAbilityHotKey = null;
-
+            LoadableManager.Unload();
+            RacialAbilityHotKey = null;
 			if (!Main.dedServ)
 			{
 				_MrPlagueRaceSelection = null;
@@ -66,14 +68,20 @@ namespace MrPlagueRaces
 		{
 			if (Main.menuMode == 1)
 			{
-				justWentRaceSelection = false;
+                justWentRaceSelection = false;
+                MrPlagueRacesPlayer.StaticRace = null;
+                _MrPlagueRaceSelection.RaceIndex = 0;
+				_MrPlagueRaceSelection.RacePage = 0;
 			}
 
 			if (Main.menuMode == 2 && !justWentRaceSelection)
 			{
 				SetUIState(_MrPlagueRaceSelection);
 
-				justWentRaceSelection = true;
+                justWentRaceSelection = true;
+                MrPlagueRacesPlayer.StaticRace = null;
+				_MrPlagueRaceSelection.RaceIndex = 0;
+				_MrPlagueRaceSelection.RacePage = 0;
 			}
 		}
 
@@ -85,25 +93,42 @@ namespace MrPlagueRaces
 
 		public override void UpdateUI(GameTime gameTime)
 		{
-			if (FluftrodonPaintUIPanel.Visible)
+            if (FluftrodonPaintUIPanel.Visible)
+            {
+                FluftrodonUserInterface?.Update(gameTime);
+            }
+			if (MrPlagueRaceInformation.Visible)
 			{
-				FluftrodonUserInterface?.Update(gameTime);
+				MrPlagueRaceInformationUserInterface?.Update(gameTime);
 			}
 		}
 
 		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
 		{
 			int mouseTextIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
+            if (mouseTextIndex != -1)
+            {
+                layers.Insert(mouseTextIndex, new LegacyGameInterfaceLayer("MrPlagueRaces: Fluftrodon Paint UI", delegate
+                {
+                    if (FluftrodonPaintUIPanel.Visible)
+                    {
+                        FluftrodonUserInterface.Draw(Main.spriteBatch, new GameTime());
+                    }
+                    return true;
+                },
+                InterfaceScaleType.UI));
+            }
 
-			if (mouseTextIndex != -1)
+			int inventoryIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
+			if (inventoryIndex != -1)
 			{
-				layers.Insert(mouseTextIndex, new LegacyGameInterfaceLayer("MrPlagueRaces: Fluftrodon Paint UI", delegate 
+				layers.Insert(inventoryIndex, new LegacyGameInterfaceLayer("MrPlagueRaces: Race Information UI", delegate
 				{
-						if (FluftrodonPaintUIPanel.Visible)
-						{
-							FluftrodonUserInterface.Draw(Main.spriteBatch, new GameTime());
-						}
-						return true;
+					if (MrPlagueRaceInformation.Visible)
+					{
+						MrPlagueRaceInformationUserInterface.Draw(Main.spriteBatch, new GameTime());
+					}
+					return true;
 				},
 				InterfaceScaleType.UI));
 			}
@@ -128,10 +153,11 @@ namespace MrPlagueRaces
 
 						MrPlagueRacesPlayer.RaceStats = reader.ReadBoolean();
 						MrPlagueRacesPlayer.GotStatToggler = reader.ReadBoolean();
-						MrPlagueRacesPlayer.GotLoreBook = reader.ReadBoolean();
-						MrPlagueRacesPlayer.IsNewCharacter1 = reader.ReadBoolean();
+						MrPlagueRacesPlayer.GotRaceItems = reader.ReadBoolean();
+                        MrPlagueRacesPlayer.IsNewCharacter1 = reader.ReadBoolean();
+                        MrPlagueRacesPlayer.IsNewCharacter2 = reader.ReadBoolean();
+						MrPlagueRacesPlayer.MrPlagueRaceInfo = reader.ReadBoolean();
 						MrPlagueRacesPlayer.MrPlagueRacesNonStopParty = reader.ReadBoolean();
-
 						break;
 					}
 				case MrPlagueRacesMessageType.MrPlagueRacesNonStopPartyChanged:

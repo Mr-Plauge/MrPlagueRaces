@@ -18,12 +18,12 @@ namespace MrPlagueRaces.Content.Items
 			}
 			if (item.type == ItemID.Umbrella)
 			{
-				var line = new TooltipLine(mod, "", "If you are a Vampire or a Kobold, holding this prevents you from burning in the sunlight");
+				var line = new TooltipLine(mod, "", "If you are a Vampire or a Kobold, holding this prevents you from being burned/weakened in the sunlight");
 				tooltips.Add(line);
 			}
 			if (item.type == ItemID.UmbrellaHat)
 			{
-				var line = new TooltipLine(mod, "", "If you are a Vampire or a Kobold, wearing this prevents you from burning in the sunlight at the cost of taking up your helmet slot");
+				var line = new TooltipLine(mod, "", "If you are a Vampire or a Kobold, wearing this prevents you from being burned/weakened in the sunlight at the cost of taking up your helmet slot");
 				tooltips.Add(line);
 			}
 		}

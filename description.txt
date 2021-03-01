@@ -1,11 +1,9 @@
 [c/3ABC7A:Description:]
-
 MrPlague's Authentic Races aims to add playable Races in a similar fashion to Starbound or Dungeons & Dragons.
 Each Race directly changes the Player's appearance and stats, editing the Player's sprites themselves rather than just adding a "costume" onto them.
 This allows you to retain the ability to see your equipped armor and change the color values of the player (eyes, hair, etc), whilst also gaining an entirely different appearance.
 
 [c/3ABC7A:Races:]
-
 -Human
 -Goblin
 -Kenku
@@ -20,13 +18,19 @@ This allows you to retain the ability to see your equipped armor and change the 
 -Fluftrodon
 
 [c/3ABC7A:Misc Changes:]
--Removed the fused-on clothing that is applied to the player by default. The player is instead equipped with Familiar Clothing, which can be removed.
+-Removed the fused-on clothing that is applied to the player by default. The player is instead equipped with Familiar Clothing, which can be removed
 -Upon spawning in for the first time, the player will get a race-specific lore item and a potion to disable/reenable Racial Stat Changes
--If the player is a Merfolk, they will additionally gain an Emergency Water Pool Generator in the event the world has no lakes within their immediate spawn area.
--If the player is a Vampire or a Kobold, holding an Umbrella will protect them from the sun.
+-If the player is a Merfolk, they will additionally gain an Emergency Water Pool Generator in the event the world has no lakes within their immediate spawn area
+-If the player is a Vampire or a Kobold, holding an Umbrella will protect them from the sun
 
 [c/3ABC7A:Credits:]
 -MrPlague (spriter, animator, and coder)
+-Mirsario (helped with cleaning up MrPlague's spaghetti code and did 90% of the custom race support)
+-SnowMelon (adjusted some of the audio files)
+-CrocWithShades (betatester)
+-Dragons Tired (betatester)
+-Blaquestone (gameplay balance)
+-Fallout_Patriot (gameplay balance, betatester)
 -FullyVoided, suggester of the Kobold Race
 -Pinsel, suggester and one of the creators of the Fluftrodon Race
 

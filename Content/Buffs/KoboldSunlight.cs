@@ -18,19 +18,9 @@ namespace MrPlagueRaces.Content.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.blackout = true;
 			player.statDefense -= 4;
 			player.allDamage -= 0.2f;
 			player.jumpSpeedBoost -= 0.5f;
-			player.nightVision = false;
-			if (player.velocity.X > player.maxRunSpeed)
-			{
-				player.velocity.X = player.maxRunSpeed;
-			}
-			if (player.velocity.X < -player.maxRunSpeed)
-			{
-				player.velocity.X = -player.maxRunSpeed;
-			}
 		}
 	}
 }
