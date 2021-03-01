@@ -8,24 +8,23 @@ namespace MrPlagueRaces.Common.UI
 {
 	public class MrPlagueRaceButton : UIElement
 	{
-        private Texture2D _texture;
-		private Texture2D _textureActive;
+		private Texture2D _texture;
+		private float _visibilityActive = 1f;
+		private float _visibilityInactive = 0.8f;
 
-		public MrPlagueRaceButton(Texture2D texture, Texture2D textureActive)
+		public MrPlagueRaceButton(Texture2D texture)
 		{
 			if (!Main.dedServ)
 			{
-                _texture = texture;
-				_textureActive = textureActive;
+				_texture = texture;
 				Width.Set(_texture.Width, 0f);
 				Height.Set(_texture.Height, 0f);
 			}
 		}
 
-		public void SetImage(Texture2D texture, Texture2D textureActive)
+		public void SetImage(Texture2D texture)
 		{
-            _texture = texture;
-			_textureActive = textureActive;
+			_texture = texture;
 			Width.Set(_texture.Width, 0f);
 			Height.Set(_texture.Height, 0f);
 		}
@@ -33,12 +32,19 @@ namespace MrPlagueRaces.Common.UI
 		protected override void DrawSelf(SpriteBatch spriteBatch)
 		{
 			CalculatedStyle dimensions = GetDimensions();
-            spriteBatch.Draw((IsMouseHovering ? _textureActive : _texture), dimensions.Position(), Color.White * 1f);
+			spriteBatch.Draw(_texture, dimensions.Position(), Color.White * (IsMouseHovering ? _visibilityActive : _visibilityInactive));
 		}
 
 		public override void MouseOver(UIMouseEvent evt)
 		{
-            base.MouseOver(evt);
+			base.MouseOver(evt);
+			Main.PlaySound(SoundID.MenuTick, -1, -1, 1, 1f, 0f);
+		}
+
+		public void SetVisibility(float whenActive, float whenInactive)
+		{
+			_visibilityActive = MathHelper.Clamp(whenActive, 0f, 1f);
+			_visibilityInactive = MathHelper.Clamp(whenInactive, 0f, 1f);
 		}
 	}
 }

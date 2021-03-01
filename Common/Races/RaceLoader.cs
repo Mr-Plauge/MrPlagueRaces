@@ -6,19 +6,14 @@ namespace MrPlagueRaces.Common.Races
 {
 	public sealed class RaceLoader : ILoadable
 	{
-		public static readonly List<Race> Races = new List<Race>();
-		public static readonly Dictionary<int, Race> RacesByLegacyIds = new Dictionary<int, Race>();
-		public static readonly Dictionary<string, Race> RacesByFullNames = new Dictionary<string, Race>();
+		private static readonly List<Race> Races = new List<Race>();
+		private static readonly Dictionary<int, Race> RacesByLegacyIds = new Dictionary<int, Race>();
+		private static readonly Dictionary<string, Race> RacesByFullNames = new Dictionary<string, Race>();
 
-        public void Load(Mod mod)
-        {
-
-        }
-        public void Unload()
-        {
-            Races.Clear();
-            RacesByLegacyIds.Clear();
-			RacesByFullNames.Clear();
+		public void Load(Mod mod) { }
+		public void Unload()
+		{
+			Races.Clear();
 		}
 
 		public static void AddRace(Race race)
@@ -30,7 +25,7 @@ namespace MrPlagueRaces.Common.Races
 
 			int? legacyId = race.LegacyId;
 
-			if (legacyId != null)
+			if (legacyId.HasValue)
 			{
 				RacesByLegacyIds.Add(legacyId.Value, race);
 			}
