@@ -9,32 +9,36 @@ using Terraria.ModLoader.IO;
 using MrPlagueRaces.Content.Mounts;
 using MrPlagueRaces.Common.UI;
 using MrPlagueRaces.Common.Races;
-using MrPlagueRaces.Common.Races.Humans;
-using MrPlagueRaces.Common.Races.Vampires;
+using MrPlagueRaces.Common.Races._999999_Humans;
+using MrPlagueRaces.Common.Races._999991_Vampires;
 
 namespace MrPlagueRaces
 {
 	public class MrPlagueRacesPlayer : ModPlayer
 	{
 		public static int PlayerRaceStatic = -1;
-
+		public static Race StaticRace;
 		public Race race;
 		public bool MrPlagueRacesNonStopParty;
 		public bool RaceStats = true;
 		public bool GotStatToggler;
-		public bool GotLoreBook;
+		public bool GotRaceItems;
 		public bool hideArmor;
 		public bool hideHelmet;
 		public bool hideChestplate;
-		public bool hideLeggings;
+        public bool hideLeggings;
+        public bool MrPlagueRaceInfo;
+        public int MrPlagueRaceInfoMouseX = 0;
+		public int MrPlagueRaceInfoMouseY = 0;
 
-		public bool IsNewCharacter1;
+        public bool IsNewCharacter1;
+		public bool IsNewCharacter2;
 
 		public bool resetDefaultColors = true;
 
 		public override void Initialize()
 		{
-			race = ModContent.GetInstance<Vampire>();
+			race = ModContent.GetInstance<Human>();
 		}
 
 		public override TagCompound Save()
@@ -44,28 +48,27 @@ namespace MrPlagueRaces
 				{ "Race", race.FullName },
 				{ "RaceStats", RaceStats },
 				{ "GotStatToggler", GotStatToggler },
-				{ "GotLoreBook", GotLoreBook },
-				{ "IsNewCharacter1", IsNewCharacter1 }
+				{ "GotRaceItems", GotRaceItems },
+				{ "IsNewCharacter1", IsNewCharacter1 },
+				{ "IsNewCharacter2", IsNewCharacter2 }
 			};
 		}
 
-		public override void Load(TagCompound tag)
-		{
-			resetDefaultColors = false;
-
-			if ((tag.ContainsKey("Race") && RaceLoader.TryGetRace(tag.GetString("Race"), out var loadedRace)) //Type name
-			|| (tag.ContainsKey("PlayerRace") && RaceLoader.TryGetRaceFromLegacyId(tag.GetInt("PlayerRace"), out loadedRace))) //Legacy Id
-			{
-				race = loadedRace;
-			}
-
+        public override void Load(TagCompound tag)
+        {
+            resetDefaultColors = false;
+			if ((tag.ContainsKey("Race") && RaceLoader.TryGetRace(tag.GetString("Race"), out var loadedRace)) || (tag.ContainsKey("PlayerRace") && RaceLoader.TryGetRaceFromLegacyId(tag.GetInt("PlayerRace"), out loadedRace)))
+            {
+                race = loadedRace;
+            }
 			RaceStats = tag.GetBool("RaceStats");
-			GotStatToggler = tag.GetBool("GotStatToggler");
-			GotLoreBook = tag.GetBool("GotLoreBook");
-			IsNewCharacter1 = tag.GetBool("IsNewCharacter1");
+            GotStatToggler = tag.GetBool("GotStatToggler");
+            GotRaceItems = tag.GetBool("GotRaceItems");
+            IsNewCharacter1 = tag.GetBool("IsNewCharacter1");
+			IsNewCharacter2 = tag.GetBool("IsNewCharacter2");
 			race.Load(player);
-		}
-		
+        }
+
 		public override void clientClone(ModPlayer clientClone) 
 		{
 			MrPlagueRacesPlayer clone = clientClone as MrPlagueRacesPlayer;
@@ -80,8 +83,9 @@ namespace MrPlagueRaces
 			packet.Write(race.Id);
 			packet.Write(RaceStats);
 			packet.Write(GotStatToggler);
-			packet.Write(GotLoreBook);
-			packet.Write(IsNewCharacter1);
+			packet.Write(GotRaceItems);
+            packet.Write(IsNewCharacter1);
+			packet.Write(IsNewCharacter2);
 			packet.Write(MrPlagueRacesNonStopParty);
 			packet.Send(toWho, fromWho);
 		}
@@ -101,40 +105,45 @@ namespace MrPlagueRaces
 
 		public override void ResetEffects()
 		{
-			if (RaceStats)
+			if (MrPlagueRaceInfo && MrPlagueRaceInformation.IsBeingHoveredOver)
 			{
-				race.ResetEffects(player);
+				player.controlUseItem = false;
 			}
+			race.ResetEffects(player);
 		}
 
 		public override void PostItemCheck()
 		{
-			if (!GotStatToggler)
-			{
-				GotStatToggler = true;
-				RaceStats = true;
-				player.QuickSpawnItem(mod.ItemType("Stat_Toggler"));
-			}
 			race.PostItemCheck(player, mod);
+			if (!GotStatToggler)
+            {
+                GotStatToggler = true;
+                RaceStats = true;
+                player.QuickSpawnItem(mod.ItemType("Stat_Toggler"));
+            }
+			if (!GotRaceItems)
+			{
+				GotRaceItems = true;
+				player.QuickSpawnItem(mod.ItemType("Race_Info_Tablet"));
+			}
 		}
-
 		private void HideArmor()
-		{
-			player.head = -1;
-			player.body = -1;
-			player.legs = -1;
-			player.handon = -1;
-			player.handoff = -1;
-			player.back = -1;
-			player.front = -1;
-			player.shoe = -1;
-			player.waist = -1;
-			player.shield = -1;
-			player.neck = -1;
-			player.face = -1;
-			player.balloon = -1;
-			player.wings = -1;
-		}
+        {
+            player.head = -1;
+            player.body = -1;
+            player.legs = -1;
+            player.handon = -1;
+            player.handoff = -1;
+            player.back = -1;
+            player.front = -1;
+            player.shoe = -1;
+            player.waist = -1;
+            player.shield = -1;
+            player.neck = -1;
+            player.face = -1;
+            player.balloon = -1;
+            player.wings = -1;
+        }
 		private void HideHelmet()
 		{
 			player.head = -1;
@@ -339,15 +348,19 @@ namespace MrPlagueRaces
 			{
 				hideChestplate = false;
 			}
-			if (player.armor[2].type == mod.ItemType("CInvisibleLegs") && player.armor[12].type < ItemID.IronPickaxe || player.armor[12].type == mod.ItemType("CInvisibleLegs"))
-			{
-				hideLeggings = true;
-				player.legs = -1;
-			}
-			else
-			{
-				hideLeggings = false;
-			}
+            if (player.armor[2].type == mod.ItemType("CInvisibleLegs") && player.armor[12].type < ItemID.IronPickaxe || player.armor[12].type == mod.ItemType("CInvisibleLegs"))
+            {
+                hideLeggings = true;
+                player.legs = -1;
+            }
+            else
+            {
+                hideLeggings = false;
+            }
+			if (Main.menuMode == 2)
+            {
+                race = StaticRace;
+            }
 			race.ModifyDrawInfo(player, mod, ref drawInfo);
 		}
 
@@ -358,23 +371,66 @@ namespace MrPlagueRaces
 
 		public override void PreUpdate()
 		{
+            if (!(race is Common.Races._999989_Fluftrodons.Fluftrodon))
+            {
+                FluftrodonPaintUIPanel.Visible = false;
+            }
+            if (MrPlagueRaceInfo)
+            {
+                MrPlagueRaceInformation.Visible = true;
+            }
 			race.PreUpdate(player, mod);
 		}
 
 		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
-			player.AddBuff(mod.BuffType("DetectHurt"), 1);
+            player.AddBuff(mod.BuffType("DetectHurt"), 1);
+			if (race.UsesCustomHurtSound)
+			{
+				playSound = false;
+			}
 			return race.PreHurt(player, pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource);
 		}
 
 		public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
-            return race.PreKill(player, mod, damage, hitDirection, pvp, ref playSound, ref genGore, ref damageSource);
+			if (race.UsesCustomDeathSound)
+			{
+                playSound = false;
+			}
+			return race.PreKill(player, mod, damage, hitDirection, pvp, ref playSound, ref genGore, ref damageSource);
 		}
 
 		public override void ModifyDrawLayers(List<PlayerLayer> layers) 
 		{
-			race.ModifyDrawLayers(player, layers);
+            race.ModifyDrawLayers(player, layers);
+			if (race == null)
+            {
+				for (int i = 0; i < 9; i++)
+				{
+					Main.playerTextures[i, 0] = ModContent.GetTexture($"Terraria/Player_{i}_0");
+					Main.playerTextures[i, 1] = ModContent.GetTexture($"Terraria/Player_{i}_1");
+					Main.playerTextures[i, 2] = ModContent.GetTexture($"Terraria/Player_{i}_2");
+					Main.playerTextures[i, 3] = ModContent.GetTexture($"Terraria/Player_{i}_3");
+					Main.playerTextures[i, 4] = ModContent.GetTexture($"Terraria/Player_{i}_4");
+					Main.playerTextures[i, 5] = ModContent.GetTexture($"Terraria/Player_{i}_5");
+					Main.playerTextures[i, 6] = ModContent.GetTexture($"Terraria/Player_{i}_6");
+					Main.playerTextures[i, 7] = ModContent.GetTexture($"Terraria/Player_{i}_7");
+					Main.playerTextures[i, 8] = ModContent.GetTexture($"Terraria/Player_{i}_8");
+					Main.playerTextures[i, 9] = ModContent.GetTexture($"Terraria/Player_{i}_9");
+					Main.playerTextures[i, 10] = ModContent.GetTexture($"Terraria/Player_{i}_10");
+					Main.playerTextures[i, 11] = ModContent.GetTexture($"Terraria/Player_{i}_11");
+					Main.playerTextures[i, 12] = ModContent.GetTexture($"Terraria/Player_{i}_12");
+					Main.playerTextures[i, 13] = ModContent.GetTexture($"Terraria/Player_{i}_13");
+					Main.playerTextures[i, 14] = ModContent.GetTexture($"Terraria/Player_{i}_14");
+				}
+				for (int i = 0; i < 133; i++)
+				{
+					Main.playerHairTexture[i] = ModContent.GetTexture($"Terraria/Player_Hair_{i + 1}");
+					Main.playerHairAltTexture[i] = ModContent.GetTexture($"Terraria/Player_HairAlt_{i + 1}");
+				}
+				Main.ghostTexture = ModContent.GetTexture("Terraria/Ghost");
+			}
 		}
 	}
 }
