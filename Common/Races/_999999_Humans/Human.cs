@@ -68,8 +68,6 @@ namespace MrPlagueRaces.Common.Races._999999_Humans
 
 		public override string RaceGoodBiomesDisplayText => "None";
 		public override string RaceBadBiomesDisplayText => "None";
-		public override string RaceDietDisplayText => "Omnivore";
-		public override string RaceTimeDisplayText => "Day";
 
 		public override void ModifyDrawInfo(Player player, Mod mod, ref PlayerDrawInfo drawInfo)
 		{

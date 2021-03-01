@@ -10,7 +10,7 @@ using MrPlagueRaces.Content.Mounts;
 using MrPlagueRaces.Common.UI;
 using MrPlagueRaces.Common.Races;
 using MrPlagueRaces.Common.Races._999999_Humans;
-using MrPlagueRaces.Common.Races._999991_Vampires;
+using MrPlagueRaces.Common.Races._999994_Vampires;
 
 namespace MrPlagueRaces
 {
@@ -38,23 +38,23 @@ namespace MrPlagueRaces
 
 		public override void Initialize()
 		{
-			race = ModContent.GetInstance<Human>();
+            race = ModContent.GetInstance<Human>();
 		}
 
-		public override TagCompound Save()
-		{
-			return new TagCompound
-			{
-				{ "Race", race.FullName },
-				{ "RaceStats", RaceStats },
-				{ "GotStatToggler", GotStatToggler },
-				{ "GotRaceItems", GotRaceItems },
-				{ "IsNewCharacter1", IsNewCharacter1 },
-				{ "IsNewCharacter2", IsNewCharacter2 }
-			};
-		}
+        public override TagCompound Save()
+        {
+            return new TagCompound
+            {
+                { "Race", race.FullName },
+                { "RaceStats", RaceStats },
+                { "GotStatToggler", GotStatToggler },
+                { "GotRaceItems", GotRaceItems },
+                { "IsNewCharacter1", IsNewCharacter1 },
+                { "IsNewCharacter2", IsNewCharacter2 }
+            };
+        }
 
-        public override void Load(TagCompound tag)
+		public override void Load(TagCompound tag)
         {
             resetDefaultColors = false;
 			if ((tag.ContainsKey("Race") && RaceLoader.TryGetRace(tag.GetString("Race"), out var loadedRace)) || (tag.ContainsKey("PlayerRace") && RaceLoader.TryGetRaceFromLegacyId(tag.GetInt("PlayerRace"), out loadedRace)))
@@ -65,7 +65,7 @@ namespace MrPlagueRaces
             GotStatToggler = tag.GetBool("GotStatToggler");
             GotRaceItems = tag.GetBool("GotRaceItems");
             IsNewCharacter1 = tag.GetBool("IsNewCharacter1");
-			IsNewCharacter2 = tag.GetBool("IsNewCharacter2");
+            IsNewCharacter2 = tag.GetBool("IsNewCharacter2");
 			race.Load(player);
         }
 
@@ -85,7 +85,8 @@ namespace MrPlagueRaces
 			packet.Write(GotStatToggler);
 			packet.Write(GotRaceItems);
             packet.Write(IsNewCharacter1);
-			packet.Write(IsNewCharacter2);
+            packet.Write(IsNewCharacter2);
+			packet.Write(MrPlagueRaceInfo);
 			packet.Write(MrPlagueRacesNonStopParty);
 			packet.Send(toWho, fromWho);
 		}
@@ -114,18 +115,18 @@ namespace MrPlagueRaces
 
 		public override void PostItemCheck()
 		{
-			race.PostItemCheck(player, mod);
+            race.PostItemCheck(player, mod);
+			if (!GotRaceItems)
+			{
+				GotRaceItems = true;
+				player.QuickSpawnItem(mod.ItemType("Race_Info_Tablet"));
+			}
 			if (!GotStatToggler)
             {
                 GotStatToggler = true;
                 RaceStats = true;
                 player.QuickSpawnItem(mod.ItemType("Stat_Toggler"));
             }
-			if (!GotRaceItems)
-			{
-				GotRaceItems = true;
-				player.QuickSpawnItem(mod.ItemType("Race_Info_Tablet"));
-			}
 		}
 		private void HideArmor()
         {
@@ -371,10 +372,10 @@ namespace MrPlagueRaces
 
 		public override void PreUpdate()
 		{
-            if (!(race is Common.Races._999989_Fluftrodons.Fluftrodon))
+            /*if (!(race is Common.Races._999989_Fluftrodons.Fluftrodon))
             {
                 FluftrodonPaintUIPanel.Visible = false;
-            }
+            }*/
             if (MrPlagueRaceInfo)
             {
                 MrPlagueRaceInformation.Visible = true;
@@ -394,6 +395,7 @@ namespace MrPlagueRaces
 
 		public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
+			MrPlagueRaceInfo = false;
 			if (race.UsesCustomDeathSound)
 			{
                 playSound = false;

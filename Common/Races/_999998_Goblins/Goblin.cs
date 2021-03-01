@@ -25,9 +25,9 @@ namespace MrPlagueRaces.Common.Races._999998_Goblins
 		public override string RaceAbilityDescription6 => "";
 		public override string RaceAdditionalNotesDescription1 => "";
 		public override bool UsesCustomHurtSound => true;
-        public override bool HasFemaleHurt => true;
+        public override bool HasFemaleHurtSound => true;
 
-		public override string RaceHealthDisplayText => "[c/FC4258:-20%]";
+		public override string RaceHealthDisplayText => "[c/FF4F64:-20%]";
 		public override string RaceRegenerationDisplayText => "";
 		public override string RaceManaDisplayText => "";
 		public override string RaceManaRegenerationDisplayText => "";
@@ -58,7 +58,7 @@ namespace MrPlagueRaces.Common.Races._999998_Goblins
 		public override string RaceMovementSpeedDisplayText => "[c/34EB93:+10%]";
 		public override string RaceJumpSpeedDisplayText => "";
         public override string RaceFallDamageResistanceDisplayText => "";
-		public override string RaceAllDamageDisplayText => "[c/FC4258:-10%]";
+		public override string RaceAllDamageDisplayText => "[c/FF4F64:-10%]";
 		public override string RaceFishingSkillDisplayText => "";
 		public override string RaceAggroDisplayText => "";
 		public override string RaceRunSpeedDisplayText => "";
@@ -66,8 +66,6 @@ namespace MrPlagueRaces.Common.Races._999998_Goblins
 
 		public override string RaceGoodBiomesDisplayText => "None";
 		public override string RaceBadBiomesDisplayText => "None";
-		public override string RaceDietDisplayText => "Omnivore";
-		public override string RaceTimeDisplayText => "Day";
 
 		public override bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
@@ -95,11 +93,11 @@ namespace MrPlagueRaces.Common.Races._999998_Goblins
 		{
 			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
 			{
-				if (player.Male || !HasFemaleHurt)
+				if (player.Male || !HasFemaleHurtSound)
 				{
 					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/" + this.Name + "_Hurt"));
 				}
-				else if (!player.Male && HasFemaleHurt)
+				else if (!player.Male && HasFemaleHurtSound)
 				{
 					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/" + this.Name + "_Hurt_Female"));
 				}

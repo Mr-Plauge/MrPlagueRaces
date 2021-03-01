@@ -33,17 +33,10 @@ namespace MrPlagueRaces.Common.UI
         {
             CalculatedStyle dimensions = GetDimensions();
             spriteBatch.Draw(_texture, dimensions.Position(), Color.White);
-        }
-
-        public override void MouseOver(UIMouseEvent evt)
-        {
-            base.MouseOver(evt);
-            MrPlagueRaceInformation.RaceHoverTextStringInfo = ImageHoverText;
-        }
-
-		public override void MouseOut(UIMouseEvent evt)
-		{
-			MrPlagueRaceInformation.RaceHoverTextStringInfo = ("");
+			if (IsMouseHovering)
+			{
+				Main.hoverItemName = ImageHoverText;
+			}
 		}
 	}
 }

@@ -155,7 +155,8 @@ namespace MrPlagueRaces
 						MrPlagueRacesPlayer.GotStatToggler = reader.ReadBoolean();
 						MrPlagueRacesPlayer.GotRaceItems = reader.ReadBoolean();
                         MrPlagueRacesPlayer.IsNewCharacter1 = reader.ReadBoolean();
-						MrPlagueRacesPlayer.IsNewCharacter2 = reader.ReadBoolean();
+                        MrPlagueRacesPlayer.IsNewCharacter2 = reader.ReadBoolean();
+						MrPlagueRacesPlayer.MrPlagueRaceInfo = reader.ReadBoolean();
 						MrPlagueRacesPlayer.MrPlagueRacesNonStopParty = reader.ReadBoolean();
 						break;
 					}
