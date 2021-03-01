@@ -21,6 +21,11 @@ namespace MrPlagueRaces.Content.Buffs
 			player.statDefense -= 4;
 			player.allDamage -= 0.2f;
 			player.jumpSpeedBoost -= 0.5f;
+<<<<<<< HEAD
+=======
+            //player.maxRunSpeed -= 1f;
+			//player.runSoundDelay = 1;
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 		}
 	}
 }

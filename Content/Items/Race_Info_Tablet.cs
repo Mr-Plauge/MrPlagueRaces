@@ -45,7 +45,11 @@ namespace MrPlagueRaces.Content.Items
 
 		public override bool UseItem(Player player) 
 		{
+<<<<<<< HEAD
 			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+=======
+			var modPlayer = Main.LocalPlayer.GetModPlayer<MrPlagueRacesPlayer>();
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			if (modPlayer.MrPlagueRaceInfo)
 			{
                 Main.PlaySound(SoundID.MenuClose, (int)player.Center.X, (int)player.Center.Y, 1, 1f, 0f);
@@ -57,8 +61,13 @@ namespace MrPlagueRaces.Content.Items
 			{
 				Main.PlaySound(SoundID.MenuOpen, (int)player.Center.X, (int)player.Center.Y, 1, 1f, 0f);
 				modPlayer.MrPlagueRaceInfo = true;
+<<<<<<< HEAD
 				modPlayer.MrPlagueRaceInfoMouseX = Main.mouseX - 800;
 				modPlayer.MrPlagueRaceInfoMouseY = Main.mouseY - 400;
+=======
+				modPlayer.MrPlagueRaceInfoMouseX = Main.mouseX;
+				modPlayer.MrPlagueRaceInfoMouseY = Main.mouseY;
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			}
 			return true;
 		}

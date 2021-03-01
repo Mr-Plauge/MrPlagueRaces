@@ -5,7 +5,11 @@ using Terraria.ID;
 using Terraria.UI;
 using Terraria.ModLoader;
 using Terraria.GameContent.UI.Elements;
+<<<<<<< HEAD
 using MrPlagueRaces.Common.Races._999992_Fluftrodons;
+=======
+using MrPlagueRaces.Common.Races._999989_Fluftrodons;
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 using static Terraria.ModLoader.ModContent;
 
 namespace MrPlagueRaces.Common.UI

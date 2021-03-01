@@ -28,7 +28,11 @@ This allows you to retain the ability to see your equipped armor and change the 
 -Mirsario (helped with cleaning up MrPlague's spaghetti code and did 90% of the custom race support)
 -SnowMelon (adjusted some of the audio files)
 -CrocWithShades (betatester)
+<<<<<<< HEAD
 -Dragons Tired (betatester)
+=======
+-Shen (gameplay balance, betatester)
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 -Blaquestone (gameplay balance)
 -Fallout_Patriot (gameplay balance, betatester)
 -FullyVoided, suggester of the Kobold Race

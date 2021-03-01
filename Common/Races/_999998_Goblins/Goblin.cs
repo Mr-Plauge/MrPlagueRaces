@@ -25,9 +25,15 @@ namespace MrPlagueRaces.Common.Races._999998_Goblins
 		public override string RaceAbilityDescription6 => "";
 		public override string RaceAdditionalNotesDescription1 => "";
 		public override bool UsesCustomHurtSound => true;
+<<<<<<< HEAD:Common/Races/_999998_Goblins/Goblin.cs
         public override bool HasFemaleHurtSound => true;
 
 		public override string RaceHealthDisplayText => "[c/FF4F64:-20%]";
+=======
+        public override bool HasFemaleHurt => true;
+
+		public override string RaceHealthDisplayText => "[c/FC4258:-20%]";
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/Goblins/Goblin.cs
 		public override string RaceRegenerationDisplayText => "";
 		public override string RaceManaDisplayText => "";
 		public override string RaceManaRegenerationDisplayText => "";
@@ -58,7 +64,11 @@ namespace MrPlagueRaces.Common.Races._999998_Goblins
 		public override string RaceMovementSpeedDisplayText => "[c/34EB93:+10%]";
 		public override string RaceJumpSpeedDisplayText => "";
         public override string RaceFallDamageResistanceDisplayText => "";
+<<<<<<< HEAD:Common/Races/_999998_Goblins/Goblin.cs
 		public override string RaceAllDamageDisplayText => "[c/FF4F64:-10%]";
+=======
+		public override string RaceAllDamageDisplayText => "[c/FC4258:-10%]";
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/Goblins/Goblin.cs
 		public override string RaceFishingSkillDisplayText => "";
 		public override string RaceAggroDisplayText => "";
 		public override string RaceRunSpeedDisplayText => "";
@@ -66,6 +76,11 @@ namespace MrPlagueRaces.Common.Races._999998_Goblins
 
 		public override string RaceGoodBiomesDisplayText => "None";
 		public override string RaceBadBiomesDisplayText => "None";
+<<<<<<< HEAD:Common/Races/_999998_Goblins/Goblin.cs
+=======
+		public override string RaceDietDisplayText => "Omnivore";
+		public override string RaceTimeDisplayText => "Day";
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/Goblins/Goblin.cs
 
 		public override bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
@@ -93,11 +108,19 @@ namespace MrPlagueRaces.Common.Races._999998_Goblins
 		{
 			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
 			{
+<<<<<<< HEAD:Common/Races/_999998_Goblins/Goblin.cs
 				if (player.Male || !HasFemaleHurtSound)
 				{
 					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/" + this.Name + "_Hurt"));
 				}
 				else if (!player.Male && HasFemaleHurtSound)
+=======
+				if (player.Male || !HasFemaleHurt)
+				{
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/" + this.Name + "_Hurt"));
+				}
+				else if (!player.Male && HasFemaleHurt)
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/Goblins/Goblin.cs
 				{
 					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/" + this.Name + "_Hurt_Female"));
 				}

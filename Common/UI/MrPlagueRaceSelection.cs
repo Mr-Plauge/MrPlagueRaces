@@ -96,6 +96,7 @@ namespace MrPlagueRaces.Common.UI
 		public bool StatPosition35Taken = false;
         public bool StatPosition36Taken = false;
 
+<<<<<<< HEAD
         private Texture2D UI_RaceEnvironmentImageIcon()
         {
             return GetTexture(RaceLoader.Races[RaceIndex].RaceEnvironmentIcon);
@@ -108,6 +109,8 @@ namespace MrPlagueRaces.Common.UI
 		{
 			return GetTexture(RaceLoader.Races[RaceIndex].RaceEnvironmentOverlay2Icon);
 		}
+=======
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 		public Texture2D UI_RaceDisplayMaleImageIcon()
 		{
 			return GetTexture(RaceLoader.Races[RaceIndex].RaceDisplayMaleIcon);
@@ -397,6 +400,7 @@ namespace MrPlagueRaces.Common.UI
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon29()
+<<<<<<< HEAD
 		{
 			switch (RaceLoader.Races.Count > (28 + (RacePage * 34)))
 			{
@@ -428,6 +432,39 @@ namespace MrPlagueRaces.Common.UI
 		}
 		public Texture2D UI_RaceSelectImageIcon32()
 		{
+=======
+		{
+			switch (RaceLoader.Races.Count > (28 + (RacePage * 34)))
+			{
+				case true:
+					return GetTexture(RaceLoader.Races[28 + (RacePage * 34)].RaceSelectIcon);
+				default:
+					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
+			}
+		}
+		public Texture2D UI_RaceSelectImageIcon30()
+		{
+			switch (RaceLoader.Races.Count > (29 + (RacePage * 34)))
+			{
+				case true:
+					return GetTexture(RaceLoader.Races[29 + (RacePage * 34)].RaceSelectIcon);
+				default:
+					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
+			}
+		}
+		public Texture2D UI_RaceSelectImageIcon31()
+		{
+			switch (RaceLoader.Races.Count > (30 + (RacePage * 34)))
+			{
+				case true:
+					return GetTexture(RaceLoader.Races[30 + (RacePage * 34)].RaceSelectIcon);
+				default:
+					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
+			}
+		}
+		public Texture2D UI_RaceSelectImageIcon32()
+		{
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			switch (RaceLoader.Races.Count > (31 + (RacePage * 34)))
 			{
 				case true:
@@ -513,6 +550,11 @@ namespace MrPlagueRaces.Common.UI
         UITextPanel<string> DisplayRunAcceleration = new UITextPanel<string>("");
 		UITextPanel<string> DisplayGoodBiomes = new UITextPanel<string>("");
 		UITextPanel<string> DisplayBadBiomes = new UITextPanel<string>("");
+<<<<<<< HEAD
+=======
+		UITextPanel<string> DisplayDiet = new UITextPanel<string>("");
+        UITextPanel<string> DisplayTime = new UITextPanel<string>("");
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 		public static Texture2D Stat_HealthIconPlaceholder = GetTexture("MrPlagueRaces/Common/UI/Stat_Health");
 		MrPlagueRaceImage Stat_Health = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
 		MrPlagueRaceImage Stat_Regeneration = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
@@ -552,6 +594,11 @@ namespace MrPlagueRaces.Common.UI
         MrPlagueRaceImage Stat_RunAcceleration = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
 		MrPlagueRaceImage Environment_GoodBiomes = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
 		MrPlagueRaceImage Environment_BadBiomes = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
+<<<<<<< HEAD
+=======
+		MrPlagueRaceImage Environment_Diet = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
+        MrPlagueRaceImage Environment_Time = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 		MrPlagueRaceImage UI_DecorativeLine_StatBox1 = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
 		MrPlagueRaceImage UI_DecorativeLine_StatBox2 = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
 		MrPlagueRaceImage UI_DecorativeLine_StatBox3 = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
@@ -804,7 +851,11 @@ namespace MrPlagueRaces.Common.UI
 			MrPlagueRaceStatDisplayBackground.Append(Stat_Thorns);
 
 			Texture2D Stat_LavaResistanceIcon = GetTexture("MrPlagueRaces/Common/UI/Stat_LavaResistance");
+<<<<<<< HEAD
 			Stat_LavaResistance = new MrPlagueRaceImage(Stat_LavaResistanceIcon, "Lava Immunity Time");
+=======
+			Stat_LavaResistance = new MrPlagueRaceImage(Stat_LavaResistanceIcon, "Lava Resistance");
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
             Stat_LavaResistance.Width.Set(64, 0);
             Stat_LavaResistance.Height.Set(20, 0);
             Stat_LavaResistance.Left.Set(20 - 22 + 64 + 8 + 64 + 8 + 64 + 8, 0);
@@ -1036,14 +1087,20 @@ namespace MrPlagueRaces.Common.UI
 			MrPlagueRaceStatDisplayBackground.Append(Stat_RunAcceleration);
 
             Texture2D Environment_GoodBiomesIcon = GetTexture("MrPlagueRaces/Common/UI/Environment_GoodBiomes");
+<<<<<<< HEAD
 			Environment_GoodBiomes = new MrPlagueRaceImage(Environment_GoodBiomesIcon, "Adapted for" + "\n(CURRENTLY COSMETIC)");
 			Environment_GoodBiomes.Width.Set(280, 0);
+=======
+			Environment_GoodBiomes = new MrPlagueRaceImage(Environment_GoodBiomesIcon, "Adapted for");
+            Environment_GoodBiomes.Width.Set(136, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
             Environment_GoodBiomes.Height.Set(26, 0);
             Environment_GoodBiomes.Left.Set(20 - 22, 0);
             Environment_GoodBiomes.Top.Set(539 + 132 - 92 - 260, 0);
 			MrPlagueRaceStatDisplayBackground.Append(Environment_GoodBiomes);
 
             Texture2D Environment_BadBiomesIcon = GetTexture("MrPlagueRaces/Common/UI/Environment_BadBiomes");
+<<<<<<< HEAD
 			Environment_BadBiomes = new MrPlagueRaceImage(Environment_BadBiomesIcon, "Unadapted for" + "\n(CURRENTLY COSMETIC)");
 			Environment_BadBiomes.Width.Set(280, 0);
             Environment_BadBiomes.Height.Set(26, 0);
@@ -1051,6 +1108,31 @@ namespace MrPlagueRaces.Common.UI
 			Environment_BadBiomes.Top.Set(539 + 34 + 132 - 92 - 260, 0);
 			MrPlagueRaceStatDisplayBackground.Append(Environment_BadBiomes);
 
+=======
+			Environment_BadBiomes = new MrPlagueRaceImage(Environment_BadBiomesIcon, "Unadapted for");
+            Environment_BadBiomes.Width.Set(136, 0);
+            Environment_BadBiomes.Height.Set(26, 0);
+            Environment_BadBiomes.Left.Set(20 - 22 + 144, 0);
+            Environment_BadBiomes.Top.Set(539 + 132 - 92 - 260, 0);
+			MrPlagueRaceStatDisplayBackground.Append(Environment_BadBiomes);
+
+            Texture2D Environment_DietIcon = GetTexture("MrPlagueRaces/Common/UI/Environment_Diet");
+			Environment_Diet = new MrPlagueRaceImage(Environment_DietIcon, "Diet");
+            Environment_Diet.Width.Set(136, 0);
+            Environment_Diet.Height.Set(26, 0);
+            Environment_Diet.Left.Set(20 - 22, 0);
+            Environment_Diet.Top.Set(539 + 34 + 132 - 92 - 260, 0);
+			MrPlagueRaceStatDisplayBackground.Append(Environment_Diet);
+
+            Texture2D Environment_TimeIcon = GetTexture("MrPlagueRaces/Common/UI/Environment_Time");
+            Environment_Time = new MrPlagueRaceImage(Environment_TimeIcon, "Time of Activity");
+            Environment_Time.Width.Set(136, 0);
+            Environment_Time.Height.Set(26, 0);
+            Environment_Time.Left.Set(20 - 22 + 144, 0);
+            Environment_Time.Top.Set(539 + 34 + 132 - 92 - 260, 0);
+			MrPlagueRaceStatDisplayBackground.Append(Environment_Time);
+
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
             Ability = new UITextPanel<string>("Ability:" + "\n                                                                                                                                                                       ");
             Ability.Width.Set(1216, 0);
             Ability.Height.Set(40, 0);
@@ -1464,6 +1546,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayArrowDamage.BackgroundColor = Color.Transparent;
 			DisplayArrowDamage.BorderColor = Color.Transparent;
             MrPlagueRaceStatDisplayBackground.Append(DisplayArrowDamage);
+<<<<<<< HEAD
 
 			DisplayMovementSpeed = new UITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayMovementSpeed.Width.Set(64, 0);
@@ -1483,6 +1566,27 @@ namespace MrPlagueRaces.Common.UI
 			DisplayJumpSpeed.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayJumpSpeed);
 
+=======
+
+			DisplayMovementSpeed = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayMovementSpeed.Width.Set(64, 0);
+			DisplayMovementSpeed.Height.Set(20, 0);
+			DisplayMovementSpeed.Left.Set(10 + 20 - 22  - 10 + 7, 0);
+            DisplayMovementSpeed.Top.Set(-10 + 279 + 28 + 28 + 28 + 28 + 28 + 28 + 28 + 132 - 90 + 999999, 0);
+			DisplayMovementSpeed.BackgroundColor = Color.Transparent;
+			DisplayMovementSpeed.BorderColor = Color.Transparent;
+			MrPlagueRaceStatDisplayBackground.Append(DisplayMovementSpeed);
+
+			DisplayJumpSpeed = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayJumpSpeed.Width.Set(64, 0);
+			DisplayJumpSpeed.Height.Set(20, 0);
+			DisplayJumpSpeed.Left.Set(10 + 20 - 22 + 72  - 10 + 7, 0);
+            DisplayJumpSpeed.Top.Set(-10 + 279 + 28 + 28 + 28 + 28 + 28 + 28 + 28 + 132 - 90 + 999999, 0);
+			DisplayJumpSpeed.BackgroundColor = Color.Transparent;
+			DisplayJumpSpeed.BorderColor = Color.Transparent;
+			MrPlagueRaceStatDisplayBackground.Append(DisplayJumpSpeed);
+
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			DisplayFallDamageResistance = new UITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayFallDamageResistance.Width.Set(64, 0);
 			DisplayFallDamageResistance.Height.Set(20, 0);
@@ -1537,24 +1641,61 @@ namespace MrPlagueRaces.Common.UI
 			DisplayRunAcceleration.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayRunAcceleration);
 
+<<<<<<< HEAD
 			DisplayGoodBiomes = new UITextPanel<string>("None" + "\n                                          ", 0.8f);
 			DisplayGoodBiomes.Width.Set(280, 0);
 			DisplayGoodBiomes.Height.Set(26, 0);
 			DisplayGoodBiomes.Left.Set(15 + 20 - 22 - 10, 0);
             DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 260 + 2, 0);
+=======
+			DisplayGoodBiomes = new UITextPanel<string>("None" + "\n                                          ");
+			DisplayGoodBiomes.Width.Set(136, 0);
+			DisplayGoodBiomes.Height.Set(26, 0);
+			DisplayGoodBiomes.Left.Set(15 + 20 - 22, 0);
+            DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 260, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			DisplayGoodBiomes.BackgroundColor = Color.Transparent;
 			DisplayGoodBiomes.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayGoodBiomes);
 
+<<<<<<< HEAD
 			DisplayBadBiomes = new UITextPanel<string>("None" + "\n                                          ", 0.8f);
 			DisplayBadBiomes.Width.Set(280, 0);
 			DisplayBadBiomes.Height.Set(26, 0);
 			DisplayBadBiomes.Left.Set(15 + 20 - 22 - 10, 0);
 			DisplayBadBiomes.Top.Set(-6 + 539 + 34 + 132 - 92 - 260 + 2, 0);
+=======
+			DisplayBadBiomes = new UITextPanel<string>("None" + "\n                                          ");
+			DisplayBadBiomes.Width.Set(136, 0);
+			DisplayBadBiomes.Height.Set(26, 0);
+			DisplayBadBiomes.Left.Set(15 + 20 - 22 + 144, 0);
+            DisplayBadBiomes.Top.Set(-6 + 539 + 132 - 92 - 260, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			DisplayBadBiomes.BackgroundColor = Color.Transparent;
 			DisplayBadBiomes.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayBadBiomes);
 
+<<<<<<< HEAD
+=======
+			DisplayDiet = new UITextPanel<string>("Omnivore" + "\n                                          ");
+			DisplayDiet.Width.Set(136, 0);
+			DisplayDiet.Height.Set(26, 0);
+			DisplayDiet.Left.Set(15 + 20 - 22, 0);
+            DisplayDiet.Top.Set(-6 + 539 + 34 + 132 - 92 - 260, 0);
+			DisplayDiet.BackgroundColor = Color.Transparent;
+			DisplayDiet.BorderColor = Color.Transparent;
+			MrPlagueRaceStatDisplayBackground.Append(DisplayDiet);
+
+			DisplayTime = new UITextPanel<string>("Day" + "\n                                          ");
+			DisplayTime.Width.Set(136, 0);
+			DisplayTime.Height.Set(26, 0);
+			DisplayTime.Left.Set(15 + 20 - 22 + 144, 0);
+            DisplayTime.Top.Set(-6 + 539 + 34 + 132 - 92 - 260, 0);
+			DisplayTime.BackgroundColor = Color.Transparent;
+			DisplayTime.BorderColor = Color.Transparent;
+            MrPlagueRaceStatDisplayBackground.Append(DisplayTime);
+
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
             Texture2D UI_RaceSelectButtonIcon = GetTexture("MrPlagueRaces/Common/UI/UI_RaceSelectButton");
 			Texture2D UI_RaceSelectButton_ActiveIcon = GetTexture("MrPlagueRaces/Common/UI/UI_RaceSelectButton_Active");
 			MrPlagueRaceSelectButton UI_RaceSelectButton1 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
@@ -2242,12 +2383,19 @@ namespace MrPlagueRaces.Common.UI
 
 		protected override void DrawChildren(SpriteBatch spriteBatch)
 		{
+<<<<<<< HEAD
 			base.DrawChildren(spriteBatch);
             CalculatedStyle MrPlagueRaceSelectionMenuInnerDimension = MrPlagueRaceSelectionMenuBackground.GetInnerDimensions();
             CalculatedStyle MrPlagueRaceStatDisplayInnerDimension = MrPlagueRaceStatDisplayBackground.GetInnerDimensions();
             var RaceEnvironmentImageIcon = UI_RaceEnvironmentImageIcon();
             var RaceEnvironmentOverlay1ImageIcon = UI_RaceEnvironmentOverlay1ImageIcon();
 			var RaceEnvironmentOverlay2ImageIcon = UI_RaceEnvironmentOverlay2ImageIcon();
+=======
+			//SPAGHETTI WARNING
+			base.DrawChildren(spriteBatch);
+            CalculatedStyle MrPlagueRaceSelectionMenuInnerDimension = MrPlagueRaceSelectionMenuBackground.GetInnerDimensions();
+			CalculatedStyle MrPlagueRaceStatDisplayInnerDimension = MrPlagueRaceStatDisplayBackground.GetInnerDimensions();
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			var RaceDisplayMaleImageIcon = UI_RaceDisplayMaleImageIcon();
 			var RaceDisplayFemaleImageIcon = UI_RaceDisplayFemaleImageIcon();
 			var RaceSelectImageIcon1 = UI_RaceSelectImageIcon1();
@@ -2287,6 +2435,7 @@ namespace MrPlagueRaces.Common.UI
 
             Vector2 SelectButtonIconPosition = new Vector2(64 / 2 - RaceSelectImageIcon1.Width * 1f / 2,
                 56 / 2 - UI_RaceSelectImageIcon1().Height * 1f / 2);
+<<<<<<< HEAD
             Vector2 DisplayIconPosition = new Vector2(100 / 2 - RaceDisplayMaleImageIcon.Width * 1f / 2,
                 138 / 2 - UI_RaceDisplayMaleImageIcon().Height * 1f / 2);
             if (RaceLoader.Races[RaceIndex].DarkenEnvironment)
@@ -2299,6 +2448,10 @@ namespace MrPlagueRaces.Common.UI
             }
             spriteBatch.Draw(RaceEnvironmentOverlay1ImageIcon, new Vector2(MrPlagueRaceStatDisplayInnerDimension.X - 2f, MrPlagueRaceStatDisplayInnerDimension.Y + 33f) + DisplayIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
 			spriteBatch.Draw(RaceEnvironmentOverlay2ImageIcon, new Vector2(MrPlagueRaceStatDisplayInnerDimension.X - 2f, MrPlagueRaceStatDisplayInnerDimension.Y + 33f) + DisplayIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
+=======
+			Vector2 DisplayIconPosition = new Vector2(100 / 2 - RaceDisplayMaleImageIcon.Width * 1f / 2,
+				138 / 2 - UI_RaceDisplayMaleImageIcon().Height * 1f / 2);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			spriteBatch.Draw(RaceDisplayMaleImageIcon, new Vector2(MrPlagueRaceStatDisplayInnerDimension.X - 2f, MrPlagueRaceStatDisplayInnerDimension.Y + 33f) + DisplayIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
 			spriteBatch.Draw(RaceDisplayFemaleImageIcon, new Vector2(MrPlagueRaceStatDisplayInnerDimension.X - 2f, MrPlagueRaceStatDisplayInnerDimension.Y + 33f) + DisplayIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
 			spriteBatch.Draw(RaceSelectImageIcon1, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
@@ -2404,6 +2557,11 @@ namespace MrPlagueRaces.Common.UI
             DisplayRunAcceleration.SetText(MrPlagueRacesPlayer.StaticRace.RaceRunAccelerationDisplayText);
 			DisplayGoodBiomes.SetText(MrPlagueRacesPlayer.StaticRace.RaceGoodBiomesDisplayText + "\n                                          ");
 			DisplayBadBiomes.SetText(MrPlagueRacesPlayer.StaticRace.RaceBadBiomesDisplayText + "\n                                          ");
+<<<<<<< HEAD
+=======
+			DisplayDiet.SetText(MrPlagueRacesPlayer.StaticRace.RaceDietDisplayText + "\n                                          ");
+			DisplayTime.SetText(MrPlagueRacesPlayer.StaticRace.RaceTimeDisplayText + "\n                                          ");
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			RaceStatAmount = 0;
 
 			StatPosition1Taken = false;
@@ -8204,81 +8362,181 @@ namespace MrPlagueRaces.Common.UI
             {
 				UI_DecorativeLine_StatBox3.Top.Set(129 - 124 + 108 + 156 + 260 + 132 - 92 - 260, 0);
 				Environment_GoodBiomes.Top.Set(539 + 132 - 92 - 260, 0);
+<<<<<<< HEAD
                 Environment_BadBiomes.Top.Set(539 + 34 + 132 - 92 - 260, 0);
                 DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 260 + 2, 0);
                 DisplayBadBiomes.Top.Set(-6 + 539 + 34 + 132 - 92 - 260 + 2, 0);
+=======
+                Environment_BadBiomes.Top.Set(539 + 132 - 92 - 260, 0);
+                Environment_Diet.Top.Set(539 + 34 + 132 - 92 - 260, 0);
+                Environment_Time.Top.Set(539 + 34 + 132 - 92 - 260, 0);
+                DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 260, 0);
+                DisplayBadBiomes.Top.Set(-6 + 539 + 132 - 92 - 260, 0);
+                DisplayDiet.Top.Set(-6 + 539 + 34 + 132 - 92 - 260, 0);
+                DisplayTime.Top.Set(-6 + 539 + 34 + 132 - 92 - 260, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
             }
 			else if (RaceStatAmount < 5 && RaceStatAmount > 0)
 			{
 				UI_DecorativeLine_StatBox3.Top.Set(129 - 124 + 108 + 156 + 260 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
 				Environment_GoodBiomes.Top.Set(539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+<<<<<<< HEAD
 				Environment_BadBiomes.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
 				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 - 28 + 2, 0);
 				DisplayBadBiomes.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 - 28 + 2, 0);
+=======
+				Environment_BadBiomes.Top.Set(539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				Environment_Diet.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				Environment_Time.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayBadBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayDiet.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayTime.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			}
 			else if (RaceStatAmount < 9 && RaceStatAmount > 4)
 			{
 				UI_DecorativeLine_StatBox3.Top.Set(129 - 124 + 108 + 156 + 260 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
 				Environment_GoodBiomes.Top.Set(539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+<<<<<<< HEAD
 				Environment_BadBiomes.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
 				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 + 2, 0);
 				DisplayBadBiomes.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28 + 2, 0);
+=======
+				Environment_BadBiomes.Top.Set(539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				Environment_Diet.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				Environment_Time.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayBadBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayDiet.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayTime.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			}
 			else if (RaceStatAmount < 13 && RaceStatAmount > 8)
 			{
 				UI_DecorativeLine_StatBox3.Top.Set(129 - 124 + 108 + 156 + 260 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28, 0);
 				Environment_GoodBiomes.Top.Set(539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+<<<<<<< HEAD
 				Environment_BadBiomes.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28, 0);
 				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 + 2, 0);
 				DisplayBadBiomes.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28 + 2, 0);
+=======
+				Environment_BadBiomes.Top.Set(539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				Environment_Diet.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				Environment_Time.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayBadBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayDiet.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayTime.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 - 28, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			}
 			else if (RaceStatAmount < 17 && RaceStatAmount > 12)
 			{
 				UI_DecorativeLine_StatBox3.Top.Set(129 - 124 + 108 + 156 + 260 + 132 - 92 - 28 - 28 - 28 - 28 - 28, 0);
 				Environment_GoodBiomes.Top.Set(539 + 132 - 92 - 28 - 28 - 28 - 28 - 28, 0);
+<<<<<<< HEAD
 				Environment_BadBiomes.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28, 0);
 				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 - 28 + 2, 0);
 				DisplayBadBiomes.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28 + 2, 0);
+=======
+				Environment_BadBiomes.Top.Set(539 + 132 - 92 - 28 - 28 - 28 - 28 - 28, 0);
+				Environment_Diet.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28, 0);
+				Environment_Time.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayBadBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayDiet.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28, 0);
+				DisplayTime.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 - 28, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			}
 			else if (RaceStatAmount < 21 && RaceStatAmount > 16)
 			{
 				UI_DecorativeLine_StatBox3.Top.Set(129 - 124 + 108 + 156 + 260 + 132 - 92 - 28 - 28 - 28 - 28, 0);
 				Environment_GoodBiomes.Top.Set(539 + 132 - 92 - 28 - 28 - 28 - 28, 0);
+<<<<<<< HEAD
 				Environment_BadBiomes.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28, 0);
 				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28 + 2, 0);
 				DisplayBadBiomes.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28 + 2, 0);
+=======
+				Environment_BadBiomes.Top.Set(539 + 132 - 92 - 28 - 28 - 28 - 28, 0);
+				Environment_Diet.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28, 0);
+				Environment_Time.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28 - 28, 0);
+				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28, 0);
+				DisplayBadBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 - 28, 0);
+				DisplayDiet.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28, 0);
+				DisplayTime.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 - 28, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			}
 			else if (RaceStatAmount < 25 && RaceStatAmount > 20)
 			{
 				UI_DecorativeLine_StatBox3.Top.Set(129 - 124 + 108 + 156 + 260 + 132 - 92 - 28 - 28 - 28, 0);
 				Environment_GoodBiomes.Top.Set(539 + 132 - 92 - 28 - 28 - 28, 0);
+<<<<<<< HEAD
 				Environment_BadBiomes.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28, 0);
 				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28 + 2, 0);
 				DisplayBadBiomes.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28 + 2, 0);
+=======
+				Environment_BadBiomes.Top.Set(539 + 132 - 92 - 28 - 28 - 28, 0);
+				Environment_Diet.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28, 0);
+				Environment_Time.Top.Set(539 + 34 + 132 - 92 - 28 - 28 - 28, 0);
+				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28, 0);
+				DisplayBadBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 - 28, 0);
+				DisplayDiet.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28, 0);
+				DisplayTime.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 - 28, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			}
 			else if (RaceStatAmount < 29 && RaceStatAmount > 24)
 			{
 				UI_DecorativeLine_StatBox3.Top.Set(129 - 124 + 108 + 156 + 260 + 132 - 92 - 28 - 28, 0);
 				Environment_GoodBiomes.Top.Set(539 + 132 - 92 - 28 - 28, 0);
+<<<<<<< HEAD
 				Environment_BadBiomes.Top.Set(539 + 34 + 132 - 92 - 28 - 28, 0);
 				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28 + 2, 0);
 				DisplayBadBiomes.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28 + 2, 0);
+=======
+				Environment_BadBiomes.Top.Set(539 + 132 - 92 - 28 - 28, 0);
+				Environment_Diet.Top.Set(539 + 34 + 132 - 92 - 28 - 28, 0);
+				Environment_Time.Top.Set(539 + 34 + 132 - 92 - 28 - 28, 0);
+				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28, 0);
+				DisplayBadBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 - 28, 0);
+				DisplayDiet.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28, 0);
+				DisplayTime.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 - 28, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			}
 			else if (RaceStatAmount < 33 && RaceStatAmount > 28)
 			{
 				UI_DecorativeLine_StatBox3.Top.Set(129 - 124 + 108 + 156 + 260 + 132 - 92 - 28, 0);
 				Environment_GoodBiomes.Top.Set(539 + 132 - 92 - 28, 0);
+<<<<<<< HEAD
 				Environment_BadBiomes.Top.Set(539 + 34 + 132 - 92 - 28, 0);
 				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28 + 2, 0);
 				DisplayBadBiomes.Top.Set(-6 + 539 + 34 + 132 - 92 - 28 + 2, 0);
+=======
+				Environment_BadBiomes.Top.Set(539 + 132 - 92 - 28, 0);
+				Environment_Diet.Top.Set(539 + 34 + 132 - 92 - 28, 0);
+				Environment_Time.Top.Set(539 + 34 + 132 - 92 - 28, 0);
+				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 - 28, 0);
+				DisplayBadBiomes.Top.Set(-6 + 539 + 132 - 92 - 28, 0);
+				DisplayDiet.Top.Set(-6 + 539 + 34 + 132 - 92 - 28, 0);
+				DisplayTime.Top.Set(-6 + 539 + 34 + 132 - 92 - 28, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			}
 			else if (RaceStatAmount > 32)
 			{
 				UI_DecorativeLine_StatBox3.Top.Set(129 - 124 + 108 + 156 + 260 + 132 - 92, 0);
 				Environment_GoodBiomes.Top.Set(539 + 132 - 92, 0);
+<<<<<<< HEAD
 				Environment_BadBiomes.Top.Set(539 + 34 + 132 - 92, 0);
 				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 + 2, 0);
 				DisplayBadBiomes.Top.Set(-6 + 539 + 34 + 132 - 92 + 2, 0);
+=======
+				Environment_BadBiomes.Top.Set(539 + 132 - 92, 0);
+				Environment_Diet.Top.Set(539 + 34 + 132 - 92, 0);
+				Environment_Time.Top.Set(539 + 34 + 132 - 92, 0);
+				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92, 0);
+				DisplayBadBiomes.Top.Set(-6 + 539 + 132 - 92, 0);
+				DisplayDiet.Top.Set(-6 + 539 + 34 + 132 - 92, 0);
+				DisplayTime.Top.Set(-6 + 539 + 34 + 132 - 92, 0);
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			}
 			HoverText.Left.Set(Main.mouseX + 5, 0);
             HoverText.Top.Set(Main.mouseY + 5, 0);

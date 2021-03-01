@@ -5,12 +5,20 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
+<<<<<<< HEAD:Common/Races/_999990_Dragonkins/Dragonkin.cs
 namespace MrPlagueRaces.Common.Races._999990_Dragonkins
 {
 	public class Dragonkin : Race
 	{
         public override int? LegacyId => 4;
 		public override string RaceEnvironmentIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/Environment/Environment_Desert");
+=======
+namespace MrPlagueRaces.Common.Races._999987_Dragonkins
+{
+	public class Dragonkin : Race
+	{
+		public override int? LegacyId => 4;
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/_999987_Dragonkins/Dragonkin.cs
 		public override string RaceSelectIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/DragonkinSelect");
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/DragonkinDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/DragonkinDisplayFemale");
@@ -31,7 +39,11 @@ namespace MrPlagueRaces.Common.Races._999990_Dragonkins
 		public override string RaceAdditionalNotesDescription5 => "";
 		public override string RaceAdditionalNotesDescription6 => "";
 		public override bool UsesCustomHurtSound => true;
+<<<<<<< HEAD:Common/Races/_999990_Dragonkins/Dragonkin.cs
         public override bool HasFemaleHurtSound => true;
+=======
+        public override bool HasFemaleHurt => true;
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/_999987_Dragonkins/Dragonkin.cs
 
 		public override string RaceHealthDisplayText => "[c/34EB93:+20%]";
 		public override string RaceRegenerationDisplayText => "";
@@ -56,6 +68,7 @@ namespace MrPlagueRaces.Common.Races._999990_Dragonkins
 		public override string RaceMeleeCritChanceDisplayText => "";
 		public override string RaceRangedCritChanceDisplayText => "";
 		public override string RaceMagicCritChanceDisplayText => "";
+<<<<<<< HEAD:Common/Races/_999990_Dragonkins/Dragonkin.cs
 		public override string RaceMiningSpeedDisplayText => "[c/FF4F64:-20%]";
 		public override string RaceBuildingSpeedDisplayText => "[c/FF4F64:-10%]";
         public override string RaceBuildingWallSpeedDisplayText => "[c/FF4F64:-10%]";
@@ -63,6 +76,15 @@ namespace MrPlagueRaces.Common.Races._999990_Dragonkins
 		public override string RaceArrowDamageDisplayText => "";
 		public override string RaceMovementSpeedDisplayText => "";
 		public override string RaceJumpSpeedDisplayText => "[c/FF4F64:-10%]";
+=======
+		public override string RaceMiningSpeedDisplayText => "[c/FC4258:-20%]";
+		public override string RaceBuildingSpeedDisplayText => "[c/FC4258:-10%]";
+        public override string RaceBuildingWallSpeedDisplayText => "[c/FC4258:-10%]";
+		public override string RaceBuildingRangeDisplayText => "";
+		public override string RaceArrowDamageDisplayText => "";
+		public override string RaceMovementSpeedDisplayText => "";
+		public override string RaceJumpSpeedDisplayText => "[c/FC4258:-10%]";
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/_999987_Dragonkins/Dragonkin.cs
         public override string RaceFallDamageResistanceDisplayText => "";
 		public override string RaceAllDamageDisplayText => "";
 		public override string RaceFishingSkillDisplayText => "";
@@ -72,6 +94,11 @@ namespace MrPlagueRaces.Common.Races._999990_Dragonkins
 
 		public override string RaceGoodBiomesDisplayText => "Desert";
 		public override string RaceBadBiomesDisplayText => "Tundra";
+<<<<<<< HEAD:Common/Races/_999990_Dragonkins/Dragonkin.cs
+=======
+		public override string RaceDietDisplayText => "Omnivore";
+		public override string RaceTimeDisplayText => "Day";
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/_999987_Dragonkins/Dragonkin.cs
 
 		public override bool PreHurt(Player player, bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
@@ -113,11 +140,19 @@ namespace MrPlagueRaces.Common.Races._999990_Dragonkins
             var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
 			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
 			{
+<<<<<<< HEAD:Common/Races/_999990_Dragonkins/Dragonkin.cs
 				if (player.Male || !HasFemaleHurtSound)
 				{
 					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/" + this.Name + "_Hurt"));
 				}
 				else if (!player.Male && HasFemaleHurtSound)
+=======
+				if (player.Male || !HasFemaleHurt)
+				{
+					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/" + this.Name + "_Hurt"));
+				}
+				else if (!player.Male && HasFemaleHurt)
+>>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/_999987_Dragonkins/Dragonkin.cs
 				{
 					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/" + this.Name + "_Hurt_Female"));
 				}
