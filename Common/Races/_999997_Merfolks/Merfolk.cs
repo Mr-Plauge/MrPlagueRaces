@@ -10,10 +10,7 @@ namespace MrPlagueRaces.Common.Races._999997_Merfolks
 	public class Merfolk : Race
 	{
         public override int? LegacyId => 5;
-<<<<<<< HEAD:Common/Races/_999997_Merfolks/Merfolk.cs
 		public override string RaceEnvironmentIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/Environment/Environment_Ocean");
-=======
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/Merfolks/Merfolk.cs
 		public override string RaceSelectIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/MerfolkSelect");
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/MerfolkDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/MerfolkDisplayFemale");
@@ -27,19 +24,11 @@ namespace MrPlagueRaces.Common.Races._999997_Merfolks
 		public override string RaceAbilityDescription4 => "";
 		public override string RaceAbilityDescription5 => "";
 		public override string RaceAbilityDescription6 => "";
-<<<<<<< HEAD:Common/Races/_999997_Merfolks/Merfolk.cs
 		public override string RaceAdditionalNotesDescription1 => "-Can breathe underwater";
 		public override string RaceAdditionalNotesDescription2 => "-Unhindered by water";
 		public override string RaceAdditionalNotesDescription3 => "-Can swim in water";
 		public override string RaceAdditionalNotesDescription4 => "-Attack Damage increases by [c/34EB93:+25%] in water";
 		public override string RaceAdditionalNotesDescription5 => "-Can't breathe on land";
-=======
-		public override string RaceAdditionalNotesDescription1 => "-Can breathe underwater, but can't breathe on land";
-		public override string RaceAdditionalNotesDescription2 => "-Unhindered by water";
-		public override string RaceAdditionalNotesDescription3 => "-Can swim in water";
-		public override string RaceAdditionalNotesDescription4 => "";
-		public override string RaceAdditionalNotesDescription5 => "";
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/Merfolks/Merfolk.cs
 		public override string RaceAdditionalNotesDescription6 => "";
 		public override bool UsesCustomHurtSound => true;
 
@@ -81,13 +70,7 @@ namespace MrPlagueRaces.Common.Races._999997_Merfolks
         public override string RaceRunAccelerationDisplayText => "";
 
 		public override string RaceGoodBiomesDisplayText => "Ocean";
-<<<<<<< HEAD:Common/Races/_999997_Merfolks/Merfolk.cs
 		public override string RaceBadBiomesDisplayText => "None";
-=======
-		public override string RaceBadBiomesDisplayText => "Desert";
-		public override string RaceDietDisplayText => "Omnivore";
-        public override string RaceTimeDisplayText => "Day";
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/Merfolks/Merfolk.cs
 
 		public int merfolkBreathHurt;
 		public int merfolkBreathControl = 7;
@@ -133,19 +116,11 @@ namespace MrPlagueRaces.Common.Races._999997_Merfolks
             var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
 			if (player.HasBuff(mod.BuffType("DetectHurt")) && (player.statLife != player.statLifeMax2))
 			{
-<<<<<<< HEAD:Common/Races/_999997_Merfolks/Merfolk.cs
 				if (player.Male || !HasFemaleHurtSound)
 				{
 					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/" + this.Name + "_Hurt"));
 				}
 				else if (!player.Male && HasFemaleHurtSound)
-=======
-				if (player.Male || !HasFemaleHurt)
-				{
-					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/" + this.Name + "_Hurt"));
-				}
-				else if (!player.Male && HasFemaleHurt)
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319:Common/Races/Merfolks/Merfolk.cs
 				{
 					Main.PlaySound(SoundLoader.customSoundType, (int)player.Center.X, (int)player.Center.Y, mod.GetSoundSlot(SoundType.Custom, "Sounds/" + this.Name + "_Hurt_Female"));
 				}

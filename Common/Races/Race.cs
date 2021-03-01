@@ -17,7 +17,6 @@ namespace MrPlagueRaces.Common.Races
         public virtual string RaceDisplayName => null;
 		public virtual bool UsesCustomHurtSound => false;
 		public virtual bool UsesCustomDeathSound => false;
-<<<<<<< HEAD
 		public virtual bool HasFemaleHurtSound => false;
         public virtual int? LegacyId => null;
 		public Mod mod { get; internal set; }
@@ -25,21 +24,12 @@ namespace MrPlagueRaces.Common.Races
         public virtual string RaceEnvironmentIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/Environment/Environment_Forest");
         public virtual string RaceEnvironmentOverlay1Icon => ($"MrPlagueRaces/Common/UI/RaceDisplay/Environment/EnvironmentOverlay_Sun");
 		public virtual string RaceEnvironmentOverlay2Icon => ($"MrPlagueRaces/Common/UI/RaceDisplay/BlankDisplay");
-=======
-		public virtual bool HasFemaleHurt => false;
-        public virtual int? LegacyId => null;
-		public Mod mod { get; internal set; }
-
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 		public virtual string RaceSelectIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 		public virtual string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/BlankDisplay");
         public virtual string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/BlankDisplay");
 
-<<<<<<< HEAD
 		public virtual bool DarkenEnvironment => false;
 
-=======
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 		public virtual string RaceLore1 => "";
         public virtual string RaceLore2 => "";
 		public virtual string RaceAbilityName => "";
@@ -95,11 +85,6 @@ namespace MrPlagueRaces.Common.Races
 
 		public virtual string RaceGoodBiomesDisplayText => "";
 		public virtual string RaceBadBiomesDisplayText => "";
-<<<<<<< HEAD
-=======
-		public virtual string RaceDietDisplayText => "";
-		public virtual string RaceTimeDisplayText => "";
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 
 		public virtual void Initialize(Player player) { }
 		public virtual void ResetEffects(Player player) { }

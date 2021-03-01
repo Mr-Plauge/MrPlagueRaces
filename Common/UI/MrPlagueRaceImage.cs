@@ -33,11 +33,7 @@ namespace MrPlagueRaces.Common.UI
         {
             CalculatedStyle dimensions = GetDimensions();
             spriteBatch.Draw(_texture, dimensions.Position(), Color.White);
-<<<<<<< HEAD
 		}
-=======
-        }
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 
         public override void MouseOver(UIMouseEvent evt)
         {

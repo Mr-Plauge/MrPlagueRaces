@@ -10,11 +10,7 @@ using MrPlagueRaces.Content.Mounts;
 using MrPlagueRaces.Common.UI;
 using MrPlagueRaces.Common.Races;
 using MrPlagueRaces.Common.Races._999999_Humans;
-<<<<<<< HEAD
 using MrPlagueRaces.Common.Races._999994_Vampires;
-=======
-using MrPlagueRaces.Common.Races._999991_Vampires;
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 
 namespace MrPlagueRaces
 {
@@ -42,7 +38,6 @@ namespace MrPlagueRaces
 
 		public override void Initialize()
 		{
-<<<<<<< HEAD
             race = ModContent.GetInstance<Human>();
 		}
 
@@ -60,25 +55,6 @@ namespace MrPlagueRaces
         }
 
 		public override void Load(TagCompound tag)
-=======
-			race = ModContent.GetInstance<Human>();
-		}
-
-		public override TagCompound Save()
-		{
-			return new TagCompound
-			{
-				{ "Race", race.FullName },
-				{ "RaceStats", RaceStats },
-				{ "GotStatToggler", GotStatToggler },
-				{ "GotRaceItems", GotRaceItems },
-				{ "IsNewCharacter1", IsNewCharacter1 },
-				{ "IsNewCharacter2", IsNewCharacter2 }
-			};
-		}
-
-        public override void Load(TagCompound tag)
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
         {
             resetDefaultColors = false;
 			if ((tag.ContainsKey("Race") && RaceLoader.TryGetRace(tag.GetString("Race"), out var loadedRace)) || (tag.ContainsKey("PlayerRace") && RaceLoader.TryGetRaceFromLegacyId(tag.GetInt("PlayerRace"), out loadedRace)))
@@ -89,11 +65,7 @@ namespace MrPlagueRaces
             GotStatToggler = tag.GetBool("GotStatToggler");
             GotRaceItems = tag.GetBool("GotRaceItems");
             IsNewCharacter1 = tag.GetBool("IsNewCharacter1");
-<<<<<<< HEAD
             IsNewCharacter2 = tag.GetBool("IsNewCharacter2");
-=======
-			IsNewCharacter2 = tag.GetBool("IsNewCharacter2");
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			race.Load(player);
         }
 
@@ -113,12 +85,8 @@ namespace MrPlagueRaces
 			packet.Write(GotStatToggler);
 			packet.Write(GotRaceItems);
             packet.Write(IsNewCharacter1);
-<<<<<<< HEAD
             packet.Write(IsNewCharacter2);
 			packet.Write(MrPlagueRaceInfo);
-=======
-			packet.Write(IsNewCharacter2);
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			packet.Write(MrPlagueRacesNonStopParty);
 			packet.Send(toWho, fromWho);
 		}
@@ -147,31 +115,18 @@ namespace MrPlagueRaces
 
 		public override void PostItemCheck()
 		{
-<<<<<<< HEAD
             race.PostItemCheck(player, mod);
-=======
-			race.PostItemCheck(player, mod);
-			if (!GotStatToggler)
-            {
-                GotStatToggler = true;
-                RaceStats = true;
-                player.QuickSpawnItem(mod.ItemType("Stat_Toggler"));
-            }
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			if (!GotRaceItems)
 			{
 				GotRaceItems = true;
 				player.QuickSpawnItem(mod.ItemType("Race_Info_Tablet"));
 			}
-<<<<<<< HEAD
 			if (!GotStatToggler)
             {
                 GotStatToggler = true;
                 RaceStats = true;
                 player.QuickSpawnItem(mod.ItemType("Stat_Toggler"));
             }
-=======
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 		}
 		private void HideArmor()
         {
@@ -417,17 +372,10 @@ namespace MrPlagueRaces
 
 		public override void PreUpdate()
 		{
-<<<<<<< HEAD
             /*if (!(race is Common.Races._999989_Fluftrodons.Fluftrodon))
             {
                 FluftrodonPaintUIPanel.Visible = false;
             }*/
-=======
-            if (!(race is Common.Races._999989_Fluftrodons.Fluftrodon))
-            {
-                FluftrodonPaintUIPanel.Visible = false;
-            }
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
             if (MrPlagueRaceInfo)
             {
                 MrPlagueRaceInformation.Visible = true;
@@ -447,10 +395,7 @@ namespace MrPlagueRaces
 
 		public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
-<<<<<<< HEAD
 			MrPlagueRaceInfo = false;
-=======
->>>>>>> 169fa3e2245a5a331199c3ef20601bfdd7f9e319
 			if (race.UsesCustomDeathSound)
 			{
                 playSound = false;
