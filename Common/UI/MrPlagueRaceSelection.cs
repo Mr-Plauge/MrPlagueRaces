@@ -15,12 +15,16 @@ namespace MrPlagueRaces.Common.UI
 	public class MrPlagueRaceSelection : UIState
 	{
         public UIPanel MrPlagueRaceBackground;
+		public UIPanel MrPlagueRaceSelectButtonsBackground;
         public UIPanel MrPlagueRaceStatDisplayBackground;
-        public UIPanel MrPlagueRaceAbilityDisplayBackground;
-		public UIPanel MrPlagueRaceSelectionMenuBackground;
+		public MrPlagueRaceButton UI_ButtonHorizontalScrollLeft;
+        public MrPlagueRaceButton UI_ButtonHorizontalScrollRight;
+		public UITextPanel<string> MrPlagueRaceSelectionBackButton;
+		public UITextPanel<string> MrPlagueRaceSelectionProceedButton;
 		public static string RaceHoverTextString = ("");
-        public int RaceIndex = 0;
-        public int RacePage = 0;
+        public static int RaceIndex = 0;
+        public static int RacePage = 0;
+		public int MrPlagueRaceStatDisplayHorizontal = 0;
         public int RaceStatAmount = 0;
 
 		public int StatHealth = 0;
@@ -97,366 +101,6 @@ namespace MrPlagueRaces.Common.UI
 		public bool StatPosition35Taken = false;
         public bool StatPosition36Taken = false;
 
-        private Texture2D UI_RaceEnvironmentImageIcon()
-        {
-            return GetTexture(RaceLoader.Races[RaceIndex].RaceEnvironmentIcon);
-        }
-        private Texture2D UI_RaceEnvironmentOverlay1ImageIcon()
-        {
-            return GetTexture(RaceLoader.Races[RaceIndex].RaceEnvironmentOverlay1Icon);
-        }
-		private Texture2D UI_RaceEnvironmentOverlay2ImageIcon()
-		{
-			return GetTexture(RaceLoader.Races[RaceIndex].RaceEnvironmentOverlay2Icon);
-		}
-		public Texture2D UI_RaceDisplayMaleImageIcon()
-		{
-			return GetTexture(RaceLoader.Races[RaceIndex].RaceDisplayMaleIcon);
-		}
-		public Texture2D UI_RaceDisplayFemaleImageIcon()
-		{
-			return GetTexture(RaceLoader.Races[RaceIndex].RaceDisplayFemaleIcon);
-		}
-		public Texture2D UI_RaceSelectImageIcon1()
-        {
-			switch (RaceLoader.Races.Count > (0 + (RacePage * 34)))
-            {
-				case true:
-                    return GetTexture(RaceLoader.Races[0 + (RacePage * 34)].RaceSelectIcon);
-                default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-        }
-		public Texture2D UI_RaceSelectImageIcon2()
-        {
-			switch (RaceLoader.Races.Count > (1 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[1 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon3()
-		{
-			switch (RaceLoader.Races.Count > (2 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[2 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon4()
-		{
-			switch (RaceLoader.Races.Count > (3 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[3 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon5()
-		{
-			switch (RaceLoader.Races.Count > (4 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[4 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon6()
-		{
-			switch (RaceLoader.Races.Count > (5 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[5 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon7()
-		{
-			switch (RaceLoader.Races.Count > (6 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[6 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon8()
-		{
-			switch (RaceLoader.Races.Count > (7 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[7 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon9()
-		{
-			switch (RaceLoader.Races.Count > (8 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[8 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon10()
-		{
-			switch (RaceLoader.Races.Count > (9 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[9 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon11()
-		{
-			switch (RaceLoader.Races.Count > (10 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[10 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon12()
-		{
-			switch (RaceLoader.Races.Count > (11 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[11 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon13()
-		{
-			switch (RaceLoader.Races.Count > (12 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[12 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon14()
-		{
-			switch (RaceLoader.Races.Count > (13 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[13 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon15()
-		{
-			switch (RaceLoader.Races.Count > (14 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[14 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon16()
-		{
-			switch (RaceLoader.Races.Count > (15 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[15 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon17()
-		{
-			switch (RaceLoader.Races.Count > (16 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[16 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon18()
-		{
-			switch (RaceLoader.Races.Count > (17 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[17 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon19()
-		{
-			switch (RaceLoader.Races.Count > (18 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[18 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon20()
-		{
-			switch (RaceLoader.Races.Count > (19 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[19 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon21()
-		{
-			switch (RaceLoader.Races.Count > (20 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[20 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon22()
-		{
-			switch (RaceLoader.Races.Count > (21 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[21 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon23()
-		{
-			switch (RaceLoader.Races.Count > (22 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[22 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon24()
-		{
-			switch (RaceLoader.Races.Count > (23 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[23 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon25()
-		{
-			switch (RaceLoader.Races.Count > (24 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[24 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon26()
-		{
-			switch (RaceLoader.Races.Count > (25 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[25 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon27()
-		{
-			switch (RaceLoader.Races.Count > (26 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[26 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon28()
-		{
-			switch (RaceLoader.Races.Count > (27 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[27 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon29()
-		{
-			switch (RaceLoader.Races.Count > (28 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[28 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon30()
-		{
-			switch (RaceLoader.Races.Count > (29 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[29 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon31()
-		{
-			switch (RaceLoader.Races.Count > (30 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[30 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon32()
-		{
-			switch (RaceLoader.Races.Count > (31 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[31 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon33()
-		{
-			switch (RaceLoader.Races.Count > (32 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[32 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
-		public Texture2D UI_RaceSelectImageIcon34()
-		{
-			switch (RaceLoader.Races.Count > (33 + (RacePage * 34)))
-			{
-				case true:
-					return GetTexture(RaceLoader.Races[33 + (RacePage * 34)].RaceSelectIcon);
-				default:
-					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-			}
-		}
 		UITextPanel<string> HoverText = new UITextPanel<string>("");
 		UITextPanel<string> RaceNameDisplay = new UITextPanel<string>("");
 		UITextPanel<string> Lore1Description = new UITextPanel<string>("");
@@ -556,107 +200,134 @@ namespace MrPlagueRaces.Common.UI
 		MrPlagueRaceImage UI_DecorativeLine_StatBox1 = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
 		MrPlagueRaceImage UI_DecorativeLine_StatBox2 = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
 		MrPlagueRaceImage UI_DecorativeLine_StatBox3 = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
-		MrPlagueRaceImage UI_DecorativeLine_StatBox4 = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
+        MrPlagueRaceImage UI_DecorativeLine_StatBox4 = new MrPlagueRaceImage(Stat_HealthIconPlaceholder, "");
+        private UIList RaceSelectionContentList;
 
 		public override void OnInitialize()
         {
-			Width.Set(Main.screenWidth, 0);
-            Height.Set(Main.screenHeight, 0);
+			Width.Set(0f, 1f);
+            Height.Set(-220f, 1f);
             Top.Set(0, 0);
             Left.Set(0, 0);
+            HAlign = 0.5f;
+			VAlign = 0.4f;
 
-            MrPlagueRaceBackground = new UIPanel();
+			MrPlagueRaceBackground = new UIPanel();
             MrPlagueRaceBackground.HAlign = 0.5f;
             MrPlagueRaceBackground.VAlign = 0.4f;
-            MrPlagueRaceBackground.Width.Set(1600, 0);
-            MrPlagueRaceBackground.Height.Set(800, 0);
-            MrPlagueRaceBackground.BackgroundColor = new Color(33, 43, 79) * 0.8f;
+            MrPlagueRaceBackground.Width.Set(1630, 0);
+            MrPlagueRaceBackground.Height.Set(-80f, 0.755f);
+			MrPlagueRaceBackground.BackgroundColor = new Color(33, 43, 79) * 0.8f;
             Append(MrPlagueRaceBackground);
 
-            MrPlagueRaceStatDisplayBackground = new UIPanel();
-            MrPlagueRaceStatDisplayBackground.Width.Set(300, 0);
-            MrPlagueRaceStatDisplayBackground.Height.Set(680, 0);
-            MrPlagueRaceStatDisplayBackground.Left.Set(5 + 16 - 13 + 2, 0);
-            MrPlagueRaceStatDisplayBackground.Top.Set(80, 0);
-            MrPlagueRaceStatDisplayBackground.BackgroundColor = new Color(72, 94, 170);
-            MrPlagueRaceBackground.Append(MrPlagueRaceStatDisplayBackground);
+			RaceSelectionContentList = new UIList();
+			RaceSelectionContentList.Width.Set(-25f, 1f);
+			RaceSelectionContentList.Height.Set(0f, 1f);
+			RaceSelectionContentList.ListPadding = 5f;
+			MrPlagueRaceBackground.Append(RaceSelectionContentList);
 
-            MrPlagueRaceAbilityDisplayBackground = new UIPanel();
-            MrPlagueRaceAbilityDisplayBackground.Width.Set(1216 + 20, 0);
-            MrPlagueRaceAbilityDisplayBackground.Height.Set(740 - 252, 0);
-            MrPlagueRaceAbilityDisplayBackground.Left.Set(330, 0);
-            MrPlagueRaceAbilityDisplayBackground.Top.Set(20 + 252, 0);
-            MrPlagueRaceAbilityDisplayBackground.BackgroundColor = new Color(72, 94, 170);
-            MrPlagueRaceBackground.Append(MrPlagueRaceAbilityDisplayBackground);
+			UIScrollbar RaceSelectionContentScrollbar = new UIScrollbar();
+            RaceSelectionContentScrollbar.SetView(100f, 1000f);
+			RaceSelectionContentScrollbar.Height.Set(0f, 1f);
+			RaceSelectionContentScrollbar.HAlign = 1f;
+			MrPlagueRaceBackground.Append(RaceSelectionContentScrollbar);
+            RaceSelectionContentList.SetScrollbar(RaceSelectionContentScrollbar);
 
-			MrPlagueRaceSelectionMenuBackground = new UIPanel();
-			MrPlagueRaceSelectionMenuBackground.Width.Set(1216 + 20, 0);
-			MrPlagueRaceSelectionMenuBackground.Height.Set(172, 0);
-			MrPlagueRaceSelectionMenuBackground.Left.Set(330, 0);
-			MrPlagueRaceSelectionMenuBackground.Top.Set(20 + 252 - 192, 0);
-			MrPlagueRaceSelectionMenuBackground.BackgroundColor = new Color(72, 94, 170);
-			MrPlagueRaceBackground.Append(MrPlagueRaceSelectionMenuBackground);
+			MrPlagueRaceSelectButtonsBackground = new UIPanel();
+			MrPlagueRaceSelectButtonsBackground.Width.Set(1216 + 20 + 320 + 50, 0);
+			MrPlagueRaceSelectButtonsBackground.MinWidth.Set(1216 + 20 + 320 + 50, 0);
+			MrPlagueRaceSelectButtonsBackground.Height.Set(80, 0);
+            MrPlagueRaceSelectButtonsBackground.MinHeight.Set(80, 0);
+			MrPlagueRaceSelectButtonsBackground.Left.Set(-22, 0);
+			MrPlagueRaceSelectButtonsBackground.BackgroundColor = Color.Transparent;
+			MrPlagueRaceSelectButtonsBackground.BorderColor = Color.Transparent;
+			RaceSelectionContentList.Add(MrPlagueRaceSelectButtonsBackground);
 
-			UITextPanel<string> SelectRace = new UITextPanel<string>("Select Race", 0.8f, true);
-            SelectRace.HAlign = 0.5f;
-            SelectRace.VAlign = 0.25f;
-            SelectRace.Top.Set(-130f, 0);
-            SelectRace.BackgroundColor = new Color(73, 94, 171);
-            Append(SelectRace);
-
-            UITextPanel<string> MrPlagueRaceSelectionBackButton = new UITextPanel<string>("Back", 0.7f, true);
-            MrPlagueRaceSelectionBackButton.HAlign = 0.5f;
-            MrPlagueRaceSelectionBackButton.VAlign = 0.4f;
-            MrPlagueRaceSelectionBackButton.Width.Set(315, 0f);
-            MrPlagueRaceSelectionBackButton.Height.Set(50, 0f);
-            MrPlagueRaceSelectionBackButton.Left.Set(0 - 642, 0);
-            MrPlagueRaceSelectionBackButton.Top.Set(515, 0);
-            MrPlagueRaceSelectionBackButton.OnMouseOver += new MouseEvent(FadedMouseOver);
-            MrPlagueRaceSelectionBackButton.OnMouseOut += new MouseEvent(FadedMouseOut);
-            MrPlagueRaceSelectionBackButton.OnClick += new MouseEvent(MrPlagueRaceSelectionBack);
-            Append(MrPlagueRaceSelectionBackButton);
-
-            UITextPanel<string> MrPlagueRaceSelectionProceedButton = new UITextPanel<string>("Proceed", 0.7f, true);
-            MrPlagueRaceSelectionProceedButton.HAlign = 0.5f;
-            MrPlagueRaceSelectionProceedButton.VAlign = 0.4f;
-            MrPlagueRaceSelectionProceedButton.Width.Set(315, 0f);
-            MrPlagueRaceSelectionProceedButton.Height.Set(50, 0f);
-            MrPlagueRaceSelectionProceedButton.Left.Set(643, 0);
-            MrPlagueRaceSelectionProceedButton.Top.Set(515, 0);
-            MrPlagueRaceSelectionProceedButton.OnMouseOver += new MouseEvent(FadedMouseOver);
-            MrPlagueRaceSelectionProceedButton.OnMouseOut += new MouseEvent(FadedMouseOut);
-            MrPlagueRaceSelectionProceedButton.OnClick += new MouseEvent(MrPlagueRaceSelectionProceed);
-            Append(MrPlagueRaceSelectionProceedButton);
-
-            Texture2D UI_ButtonPreviousIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonPrevious");
+			Texture2D UI_ButtonPreviousIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonPrevious");
 			Texture2D UI_ButtonPrevious_ActiveIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonPrevious_Active");
 			MrPlagueRaceButton UI_ButtonPrevious = new MrPlagueRaceButton(UI_ButtonPreviousIcon, UI_ButtonPrevious_ActiveIcon);
-            UI_ButtonPrevious.Width.Set(56, 0);
-            UI_ButtonPrevious.Height.Set(56, 0);
-            UI_ButtonPrevious.Left.Set(10, 0);
-            UI_ButtonPrevious.Top.Set(129 - 124, 0);
+			UI_ButtonPrevious.Width.Set(56, 0);
+			UI_ButtonPrevious.Height.Set(56, 0);
+			UI_ButtonPrevious.Left.Set(20, 0);
+			UI_ButtonPrevious.Top.Set(129 - 124 - 17 + 12, 0);
 			UI_ButtonPrevious.OnClick += new MouseEvent(UI_ButtonPrevious_Clicked);
-            MrPlagueRaceBackground.Append(UI_ButtonPrevious);
+			MrPlagueRaceSelectButtonsBackground.Append(UI_ButtonPrevious);
 
-            Texture2D UI_ButtonRandomIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonRandom");
+			Texture2D UI_ButtonRandomIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonRandom");
 			Texture2D UI_ButtonRandom_ActiveIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonRandom_Active");
 			MrPlagueRaceButton UI_ButtonRandom = new MrPlagueRaceButton(UI_ButtonRandomIcon, UI_ButtonRandom_ActiveIcon);
 			UI_ButtonRandom.Width.Set(56, 0);
 			UI_ButtonRandom.Height.Set(56, 0);
-			UI_ButtonRandom.Left.Set(80, 0);
-			UI_ButtonRandom.Top.Set(129 - 124, 0);
+			UI_ButtonRandom.Left.Set(90, 0);
+			UI_ButtonRandom.Top.Set(129 - 124 - 17 + 12, 0);
 			UI_ButtonRandom.OnClick += new MouseEvent(UI_ButtonRandom_Clicked);
-			MrPlagueRaceBackground.Append(UI_ButtonRandom);
+			MrPlagueRaceSelectButtonsBackground.Append(UI_ButtonRandom);
 
-            Texture2D UI_ButtonNextIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonNext");
+			Texture2D UI_ButtonNextIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonNext");
 			Texture2D UI_ButtonNext_ActiveIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonNext_Active");
 			MrPlagueRaceButton UI_ButtonNext = new MrPlagueRaceButton(UI_ButtonNextIcon, UI_ButtonNext_ActiveIcon);
-            UI_ButtonNext.Width.Set(56, 0);
-            UI_ButtonNext.Height.Set(56, 0);
-            UI_ButtonNext.Left.Set(80 + 70, 0);
-            UI_ButtonNext.Top.Set(129 - 124, 0);
-            UI_ButtonNext.OnClick += new MouseEvent(UI_ButtonNext_Clicked);
-            MrPlagueRaceBackground.Append(UI_ButtonNext);
+			UI_ButtonNext.Width.Set(56, 0);
+			UI_ButtonNext.Height.Set(56, 0);
+			UI_ButtonNext.Left.Set(80 + 80, 0);
+			UI_ButtonNext.Top.Set(129 - 124 - 17 + 12, 0);
+			UI_ButtonNext.OnClick += new MouseEvent(UI_ButtonNext_Clicked);
+            MrPlagueRaceSelectButtonsBackground.Append(UI_ButtonNext);
+
+			Texture2D UI_ButtonHorizontalScrollLeftIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonHorizontalScrollLeft");
+			Texture2D UI_ButtonHorizontalScrollLeft_ActiveIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonHorizontalScrollLeft_Active");
+			UI_ButtonHorizontalScrollLeft = new MrPlagueRaceButton(UI_ButtonHorizontalScrollLeftIcon, UI_ButtonHorizontalScrollLeft_ActiveIcon);
+			UI_ButtonHorizontalScrollLeft.Width.Set(56, 0);
+			UI_ButtonHorizontalScrollLeft.Height.Set(56, 0);
+			UI_ButtonHorizontalScrollLeft.Left.Set(999999 - 156, 0);
+			UI_ButtonHorizontalScrollLeft.Top.Set(129 - 124 - 17 + 12, 0);
+			UI_ButtonHorizontalScrollLeft.OnClick += new MouseEvent(UI_ButtonHorizontalScrollLeft_Clicked);
+			MrPlagueRaceSelectButtonsBackground.Append(UI_ButtonHorizontalScrollLeft);
+
+			Texture2D UI_ButtonHorizontalScrollRightIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonHorizontalScrollRight");
+			Texture2D UI_ButtonHorizontalScrollRight_ActiveIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonHorizontalScrollRight_Active");
+			UI_ButtonHorizontalScrollRight = new MrPlagueRaceButton(UI_ButtonHorizontalScrollRightIcon, UI_ButtonHorizontalScrollRight_ActiveIcon);
+			UI_ButtonHorizontalScrollRight.Width.Set(56, 0);
+			UI_ButtonHorizontalScrollRight.Height.Set(56, 0);
+			UI_ButtonHorizontalScrollRight.Left.Set(999999 + 70 - 156, 0);
+			UI_ButtonHorizontalScrollRight.Top.Set(129 - 124 - 17 + 12, 0);
+			UI_ButtonHorizontalScrollRight.OnClick += new MouseEvent(UI_ButtonHorizontalScrollRight_Clicked);
+			MrPlagueRaceSelectButtonsBackground.Append(UI_ButtonHorizontalScrollRight);
+
+			MrPlagueRaceStatDisplayBackground = new UIPanel();
+            MrPlagueRaceStatDisplayBackground.Width.Set(1216 + 20, 0);
+			MrPlagueRaceStatDisplayBackground.MinWidth.Set(1216 + 20 + 320, 0);
+			MrPlagueRaceStatDisplayBackground.Height.Set(680, 0);
+			MrPlagueRaceStatDisplayBackground.MinHeight.Set(680, 0);
+			MrPlagueRaceStatDisplayBackground.Left.Set(10, 0);
+            MrPlagueRaceStatDisplayBackground.Top.Set(80, 0);
+            MrPlagueRaceStatDisplayBackground.BackgroundColor = new Color(72, 94, 170);
+            RaceSelectionContentList.Add(MrPlagueRaceStatDisplayBackground);
+
+			UITextPanel<string> SelectRace = new UITextPanel<string>("Select Race", 0.8f, true);
+            SelectRace.HAlign = 0.5f;
+            SelectRace.Top.Set(-35f, 0f);
+            SelectRace.BackgroundColor = new Color(73, 94, 171);
+			MrPlagueRaceBackground.Append(SelectRace);
+
+            MrPlagueRaceSelectionBackButton = new UITextPanel<string>("Back", 0.7f, true);
+			MrPlagueRaceSelectionBackButton.VAlign = 0.865f;
+            MrPlagueRaceSelectionBackButton.Width.Set(250, 0f);
+            MrPlagueRaceSelectionBackButton.Height.Set(50f, 0f);
+			MrPlagueRaceSelectionBackButton.Left.Set(999999, 0f);
+			MrPlagueRaceSelectionBackButton.OnMouseOver += new MouseEvent(FadedMouseOver);
+            MrPlagueRaceSelectionBackButton.OnMouseOut += new MouseEvent(FadedMouseOut);
+            MrPlagueRaceSelectionBackButton.OnClick += new MouseEvent(MrPlagueRaceSelectionBack);
+            Append(MrPlagueRaceSelectionBackButton);
+
+            MrPlagueRaceSelectionProceedButton = new UITextPanel<string>("Proceed", 0.7f, true);
+			MrPlagueRaceSelectionProceedButton.VAlign = 0.865f;
+            MrPlagueRaceSelectionProceedButton.Width.Set(250, 0f);
+            MrPlagueRaceSelectionProceedButton.Height.Set(50f, 0f);
+			MrPlagueRaceSelectionProceedButton.Left.Set(999999, 0f);
+			MrPlagueRaceSelectionProceedButton.OnMouseOver += new MouseEvent(FadedMouseOver);
+            MrPlagueRaceSelectionProceedButton.OnMouseOut += new MouseEvent(FadedMouseOut);
+            MrPlagueRaceSelectionProceedButton.OnClick += new MouseEvent(MrPlagueRaceSelectionProceed);
+            Append(MrPlagueRaceSelectionProceedButton);
 
             Texture2D UI_DecorativeLine_StatBoxIcon = GetTexture("MrPlagueRaces/Common/UI/UI_DecorativeLine_StatBox");
 			UI_DecorativeLine_StatBox1 = new MrPlagueRaceImage(UI_DecorativeLine_StatBoxIcon, "");
@@ -691,23 +362,23 @@ namespace MrPlagueRaces.Common.UI
 			MrPlagueRaceImage UI_DecorativeLine_AbilityBox1 = new MrPlagueRaceImage(UI_DecorativeLine_AbilityBoxIcon, "");
             UI_DecorativeLine_AbilityBox1.Width.Set(1216, 0);
             UI_DecorativeLine_AbilityBox1.Height.Set(4, 0);
-            UI_DecorativeLine_AbilityBox1.Left.Set(360 - 362, 0);
-            UI_DecorativeLine_AbilityBox1.Top.Set(129 - 124 + 108 - 59 - 34 + 1, 0);
-			MrPlagueRaceAbilityDisplayBackground.Append(UI_DecorativeLine_AbilityBox1);
+            UI_DecorativeLine_AbilityBox1.Left.Set(360 - 362 + 320, 0);
+            UI_DecorativeLine_AbilityBox1.Top.Set(129 - 124 + 108 - 59 - 34 + 1 + 271 - 79, 0);
+			MrPlagueRaceStatDisplayBackground.Append(UI_DecorativeLine_AbilityBox1);
 
 			MrPlagueRaceImage UI_DecorativeLine_AbilityBox2 = new MrPlagueRaceImage(UI_DecorativeLine_AbilityBoxIcon, "");
             UI_DecorativeLine_AbilityBox2.Width.Set(1216, 0);
             UI_DecorativeLine_AbilityBox2.Height.Set(4, 0);
-            UI_DecorativeLine_AbilityBox2.Left.Set(360 - 362, 0);
-            UI_DecorativeLine_AbilityBox2.Top.Set(129 - 124 + 108 + 169 - 34 + 1, 0);
-            MrPlagueRaceAbilityDisplayBackground.Append(UI_DecorativeLine_AbilityBox2);
+            UI_DecorativeLine_AbilityBox2.Left.Set(360 - 362 + 320, 0);
+            UI_DecorativeLine_AbilityBox2.Top.Set(129 - 124 + 108 + 169 - 34 + 1 + 271 - 79, 0);
+            MrPlagueRaceStatDisplayBackground.Append(UI_DecorativeLine_AbilityBox2);
 
 			MrPlagueRaceImage UI_DecorativeLine_RaceSelectBox = new MrPlagueRaceImage(UI_DecorativeLine_AbilityBoxIcon, "");
 			UI_DecorativeLine_RaceSelectBox.Width.Set(1216, 0);
 			UI_DecorativeLine_RaceSelectBox.Height.Set(4, 0);
-			UI_DecorativeLine_RaceSelectBox.Left.Set(360 - 362, 0);
+			UI_DecorativeLine_RaceSelectBox.Left.Set(360 - 362 + 320, 0);
 			UI_DecorativeLine_RaceSelectBox.Top.Set(129 - 124 + 108 - 92, 0);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_DecorativeLine_RaceSelectBox);
+			MrPlagueRaceStatDisplayBackground.Append(UI_DecorativeLine_RaceSelectBox);
 
 			Texture2D UI_LoreBoxIcon = GetTexture("MrPlagueRaces/Common/UI/UI_LoreBox");
 			MrPlagueRaceImage UI_LoreBox = new MrPlagueRaceImage(UI_LoreBoxIcon, "");
@@ -729,16 +400,16 @@ namespace MrPlagueRaces.Common.UI
 			MrPlagueRaceImage UI_AbilityBox1 = new MrPlagueRaceImage(UI_AbilityBoxIcon, "");
             UI_AbilityBox1.Width.Set(1216, 0);
             UI_AbilityBox1.Height.Set(188, 0);
-            UI_AbilityBox1.Left.Set(360 - 362, 0);
-            UI_AbilityBox1.Top.Set(129 - 124 + 120 - 61 - 34 + 1, 0);
-			MrPlagueRaceAbilityDisplayBackground.Append(UI_AbilityBox1);
+            UI_AbilityBox1.Left.Set(360 - 362 + 320, 0);
+            UI_AbilityBox1.Top.Set(129 - 124 + 120 - 61 - 34 + 1 + 271 - 79, 0);
+			MrPlagueRaceStatDisplayBackground.Append(UI_AbilityBox1);
 
 			MrPlagueRaceImage UI_AbilityBox2 = new MrPlagueRaceImage(UI_AbilityBoxIcon, "");
             UI_AbilityBox2.Width.Set(1216, 0);
             UI_AbilityBox2.Height.Set(188, 0);
-            UI_AbilityBox2.Left.Set(360 - 362, 0);
-            UI_AbilityBox2.Top.Set(129 - 124 + 120 - 61 + 228 - 34 + 1, 0);
-			MrPlagueRaceAbilityDisplayBackground.Append(UI_AbilityBox2);
+            UI_AbilityBox2.Left.Set(360 - 362 + 320, 0);
+            UI_AbilityBox2.Top.Set(129 - 124 + 120 - 61 + 228 - 34 + 1 + 271 - 79, 0);
+			MrPlagueRaceStatDisplayBackground.Append(UI_AbilityBox2);
 
             Texture2D UI_RaceDisplayBoxIcon = GetTexture("MrPlagueRaces/Common/UI/UI_RaceDisplayBox");
 			MrPlagueRaceImage UI_RaceDisplayBox = new MrPlagueRaceImage(UI_RaceDisplayBoxIcon, "");
@@ -746,9 +417,17 @@ namespace MrPlagueRaces.Common.UI
             UI_RaceDisplayBox.Height.Set(138, 0);
             UI_RaceDisplayBox.Left.Set(20 - 22, 0);
             UI_RaceDisplayBox.Top.Set(129 - 124 + 120 - 92, 0);
-			MrPlagueRaceStatDisplayBackground.Append(UI_RaceDisplayBox);
+            MrPlagueRaceStatDisplayBackground.Append(UI_RaceDisplayBox);
 
-            Texture2D Stat_HealthIcon = GetTexture("MrPlagueRaces/Common/UI/Stat_Health");
+			Texture2D BlankDisplay = GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankDisplay");
+			MrPlagueRaceDisplayImage UI_RaceDisplay = new MrPlagueRaceDisplayImage(BlankDisplay);
+			UI_RaceDisplay.Width.Set(100, 0);
+			UI_RaceDisplay.Height.Set(138, 0);
+			UI_RaceDisplay.Left.Set(20 - 22, 0);
+			UI_RaceDisplay.Top.Set(129 - 124 + 120 - 92, 0);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceDisplay);
+
+			Texture2D Stat_HealthIcon = GetTexture("MrPlagueRaces/Common/UI/Stat_Health");
 			Stat_Health = new MrPlagueRaceImage(Stat_HealthIcon, "Health");
             Stat_Health.Width.Set(64, 0);
             Stat_Health.Height.Set(20, 0);
@@ -1055,155 +734,155 @@ namespace MrPlagueRaces.Common.UI
             Ability = new UITextPanel<string>("Ability:" + "\n                                                                                                                                                                       ");
             Ability.Width.Set(1216, 0);
             Ability.Height.Set(40, 0);
-            Ability.Left.Set(350 - 362 - 10, 0);
-            Ability.Top.Set(20 - 34 + 1, 0);
+            Ability.Left.Set(350 - 362 - 10 + 320, 0);
+            Ability.Top.Set(20 - 34 + 1 + 271 - 79, 0);
             Ability.BackgroundColor = Color.Transparent;
             Ability.BorderColor = Color.Transparent;
-			MrPlagueRaceAbilityDisplayBackground.Append(Ability);
+			MrPlagueRaceStatDisplayBackground.Append(Ability);
 
             AdditionalNotes = new UITextPanel<string>("Additional Notes:" + "\n                                                                                                                                                                       ");
             AdditionalNotes.Width.Set(1216, 0);
             AdditionalNotes.Height.Set(40, 0);
-            AdditionalNotes.Left.Set(350 - 362 - 10, 0);
-            AdditionalNotes.Top.Set(80 + 168 - 34 + 1, 0);
+            AdditionalNotes.Left.Set(350 - 362 - 10 + 320, 0);
+            AdditionalNotes.Top.Set(80 + 168 - 34 + 1 + 271 - 79, 0);
             AdditionalNotes.BackgroundColor = Color.Transparent;
             AdditionalNotes.BorderColor = Color.Transparent;
-			MrPlagueRaceAbilityDisplayBackground.Append(AdditionalNotes);
+			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotes);
 
             AbilityDescription1 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
             AbilityDescription1.Width.Set(1216, 0);
             AbilityDescription1.Height.Set(40, 0);
-            AbilityDescription1.Left.Set(350 - 362 - 8, 0);
-            AbilityDescription1.Top.Set(20 + 40 - 34 + 1, 0);
+            AbilityDescription1.Left.Set(350 - 362 - 8 + 320, 0);
+            AbilityDescription1.Top.Set(20 + 40 - 34 + 1 + 271 - 79, 0);
             AbilityDescription1.BackgroundColor = Color.Transparent;
             AbilityDescription1.BorderColor = Color.Transparent;
-            MrPlagueRaceAbilityDisplayBackground.Append(AbilityDescription1);
+            MrPlagueRaceStatDisplayBackground.Append(AbilityDescription1);
 
 			AbilityDescription2 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AbilityDescription2.Width.Set(1216, 0);
 			AbilityDescription2.Height.Set(40, 0);
-			AbilityDescription2.Left.Set(350 - 362 - 8, 0);
-			AbilityDescription2.Top.Set(20 + 40 - 34 + 1 + 28, 0);
+			AbilityDescription2.Left.Set(350 - 362 - 8 + 320, 0);
+			AbilityDescription2.Top.Set(20 + 40 - 34 + 1 + 28 + 271 - 79, 0);
 			AbilityDescription2.BackgroundColor = Color.Transparent;
 			AbilityDescription2.BorderColor = Color.Transparent;
-            MrPlagueRaceAbilityDisplayBackground.Append(AbilityDescription2);
+            MrPlagueRaceStatDisplayBackground.Append(AbilityDescription2);
 
 			AbilityDescription3 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AbilityDescription3.Width.Set(1216, 0);
 			AbilityDescription3.Height.Set(40, 0);
-			AbilityDescription3.Left.Set(350 - 362 - 8, 0);
-			AbilityDescription3.Top.Set(20 + 40 - 34 + 1 + 28 + 28, 0);
+			AbilityDescription3.Left.Set(350 - 362 - 8 + 320, 0);
+			AbilityDescription3.Top.Set(20 + 40 - 34 + 1 + 28 + 28 + 271 - 79, 0);
 			AbilityDescription3.BackgroundColor = Color.Transparent;
 			AbilityDescription3.BorderColor = Color.Transparent;
-            MrPlagueRaceAbilityDisplayBackground.Append(AbilityDescription3);
+            MrPlagueRaceStatDisplayBackground.Append(AbilityDescription3);
 
 			AbilityDescription4 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AbilityDescription4.Width.Set(1216, 0);
 			AbilityDescription4.Height.Set(40, 0);
-			AbilityDescription4.Left.Set(350 - 362 - 8, 0);
-			AbilityDescription4.Top.Set(20 + 40 - 34 + 1 + 28 + 28 + 28, 0);
+			AbilityDescription4.Left.Set(350 - 362 - 8 + 320, 0);
+			AbilityDescription4.Top.Set(20 + 40 - 34 + 1 + 28 + 28 + 28 + 271 - 79, 0);
 			AbilityDescription4.BackgroundColor = Color.Transparent;
 			AbilityDescription4.BorderColor = Color.Transparent;
-            MrPlagueRaceAbilityDisplayBackground.Append(AbilityDescription4);
+            MrPlagueRaceStatDisplayBackground.Append(AbilityDescription4);
 
 			AbilityDescription5 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AbilityDescription5.Width.Set(1216, 0);
 			AbilityDescription5.Height.Set(40, 0);
-			AbilityDescription5.Left.Set(350 - 362 - 8, 0);
-			AbilityDescription5.Top.Set(20 + 40 - 34 + 1 + 28 + 28 + 28 + 28, 0);
+			AbilityDescription5.Left.Set(350 - 362 - 8 + 320, 0);
+			AbilityDescription5.Top.Set(20 + 40 - 34 + 1 + 28 + 28 + 28 + 28 + 271 - 79, 0);
 			AbilityDescription5.BackgroundColor = Color.Transparent;
 			AbilityDescription5.BorderColor = Color.Transparent;
-            MrPlagueRaceAbilityDisplayBackground.Append(AbilityDescription5);
+            MrPlagueRaceStatDisplayBackground.Append(AbilityDescription5);
 
 			AbilityDescription6 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AbilityDescription6.Width.Set(1216, 0);
 			AbilityDescription6.Height.Set(40, 0);
-			AbilityDescription6.Left.Set(350 - 362 - 8, 0);
-			AbilityDescription6.Top.Set(20 + 40 - 34 + 1 + 28 + 28 + 28 + 28 + 28, 0);
+			AbilityDescription6.Left.Set(350 - 362 - 8 + 320, 0);
+			AbilityDescription6.Top.Set(20 + 40 - 34 + 1 + 28 + 28 + 28 + 28 + 28 + 271 - 79, 0);
 			AbilityDescription6.BackgroundColor = Color.Transparent;
 			AbilityDescription6.BorderColor = Color.Transparent;
-			MrPlagueRaceAbilityDisplayBackground.Append(AbilityDescription6);
+			MrPlagueRaceStatDisplayBackground.Append(AbilityDescription6);
 
 			AdditionalNotesDescription1 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
             AdditionalNotesDescription1.Width.Set(1216, 0);
             AdditionalNotesDescription1.Height.Set(40, 0);
-            AdditionalNotesDescription1.Left.Set(350 - 362 - 8, 0);
-            AdditionalNotesDescription1.Top.Set(80 + 168 + 40 - 34 + 1, 0);
+            AdditionalNotesDescription1.Left.Set(350 - 362 - 8 + 320, 0);
+            AdditionalNotesDescription1.Top.Set(80 + 168 + 40 - 34 + 1 + 271 - 79, 0);
             AdditionalNotesDescription1.BackgroundColor = Color.Transparent;
             AdditionalNotesDescription1.BorderColor = Color.Transparent;
-            MrPlagueRaceAbilityDisplayBackground.Append(AdditionalNotesDescription1);
+            MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription1);
 
 			AdditionalNotesDescription2 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription2.Width.Set(1216, 0);
 			AdditionalNotesDescription2.Height.Set(40, 0);
-			AdditionalNotesDescription2.Left.Set(350 - 362 - 8, 0);
-			AdditionalNotesDescription2.Top.Set(80 + 168 + 40 - 34 + 1 + 28, 0);
+			AdditionalNotesDescription2.Left.Set(350 - 362 - 8 + 320, 0);
+			AdditionalNotesDescription2.Top.Set(80 + 168 + 40 - 34 + 1 + 28 + 271 - 79, 0);
 			AdditionalNotesDescription2.BackgroundColor = Color.Transparent;
 			AdditionalNotesDescription2.BorderColor = Color.Transparent;
-            MrPlagueRaceAbilityDisplayBackground.Append(AdditionalNotesDescription2);
+            MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription2);
 
 			AdditionalNotesDescription3 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription3.Width.Set(1216, 0);
 			AdditionalNotesDescription3.Height.Set(40, 0);
-			AdditionalNotesDescription3.Left.Set(350 - 362 - 8, 0);
-			AdditionalNotesDescription3.Top.Set(80 + 168 + 40 - 34 + 1 + 28 + 28, 0);
+			AdditionalNotesDescription3.Left.Set(350 - 362 - 8 + 320, 0);
+			AdditionalNotesDescription3.Top.Set(80 + 168 + 40 - 34 + 1 + 28 + 28 + 271 - 79, 0);
 			AdditionalNotesDescription3.BackgroundColor = Color.Transparent;
 			AdditionalNotesDescription3.BorderColor = Color.Transparent;
-            MrPlagueRaceAbilityDisplayBackground.Append(AdditionalNotesDescription3);
+            MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription3);
 
 			AdditionalNotesDescription4 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription4.Width.Set(1216, 0);
 			AdditionalNotesDescription4.Height.Set(40, 0);
-			AdditionalNotesDescription4.Left.Set(350 - 362 - 8, 0);
-			AdditionalNotesDescription4.Top.Set(80 + 168 + 40 - 34 + 1 + 28 + 28 + 28, 0);
+			AdditionalNotesDescription4.Left.Set(350 - 362 - 8 + 320, 0);
+			AdditionalNotesDescription4.Top.Set(80 + 168 + 40 - 34 + 1 + 28 + 28 + 28 + 271 - 79, 0);
 			AdditionalNotesDescription4.BackgroundColor = Color.Transparent;
 			AdditionalNotesDescription4.BorderColor = Color.Transparent;
-			MrPlagueRaceAbilityDisplayBackground.Append(AdditionalNotesDescription4);
+			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription4);
 
 			AdditionalNotesDescription5 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription5.Width.Set(1216, 0);
 			AdditionalNotesDescription5.Height.Set(40, 0);
-			AdditionalNotesDescription5.Left.Set(350 - 362 - 8, 0);
-			AdditionalNotesDescription5.Top.Set(80 + 168 + 40 - 34 + 1 + 28 + 28 + 28 + 28, 0);
+			AdditionalNotesDescription5.Left.Set(350 - 362 - 8 + 320, 0);
+			AdditionalNotesDescription5.Top.Set(80 + 168 + 40 - 34 + 1 + 28 + 28 + 28 + 28 + 271 - 79, 0);
 			AdditionalNotesDescription5.BackgroundColor = Color.Transparent;
 			AdditionalNotesDescription5.BorderColor = Color.Transparent;
-			MrPlagueRaceAbilityDisplayBackground.Append(AdditionalNotesDescription5);
+			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription5);
 
 			AdditionalNotesDescription6 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription6.Width.Set(1216, 0);
 			AdditionalNotesDescription6.Height.Set(40, 0);
-			AdditionalNotesDescription6.Left.Set(350 - 362 - 8, 0);
-			AdditionalNotesDescription6.Top.Set(80 + 168 + 40 - 34 + 1 + 28 + 28 + 28 + 28 + 28, 0);
+			AdditionalNotesDescription6.Left.Set(350 - 362 - 8 + 320, 0);
+			AdditionalNotesDescription6.Top.Set(80 + 168 + 40 - 34 + 1 + 28 + 28 + 28 + 28 + 28 + 271 - 79, 0);
 			AdditionalNotesDescription6.BackgroundColor = Color.Transparent;
 			AdditionalNotesDescription6.BorderColor = Color.Transparent;
-			MrPlagueRaceAbilityDisplayBackground.Append(AdditionalNotesDescription6);
+			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription6);
 
 			Lore1Description = new UITextPanel<string>("A diverse race with" + "\na surprising amount" + "\nof resilience, known" + "\nfor their adaptivity." + "\n                                                                                                                                                                       ");
             Lore1Description.Width.Set(280, 0);
             Lore1Description.Height.Set(40, 0);
-            Lore1Description.Left.Set(118 - 20, 0);
-            Lore1Description.Top.Set(129 - 124 + 117 - 92, 0);
+            Lore1Description.Left.Set(-8, 0);
+            Lore1Description.Top.Set(0, 0);
             Lore1Description.BackgroundColor = Color.Transparent;
             Lore1Description.BorderColor = Color.Transparent;
-            MrPlagueRaceStatDisplayBackground.Append(Lore1Description);
+			UI_LoreBox.Append(Lore1Description);
 
             Lore2Description = new UITextPanel<string>("Old records seem to suggest they" + "\nonce built advanced technology," + "\nalthough there are no remnants." + "\n                                                                                                                                                                       ");
             Lore2Description.Width.Set(280, 0);
             Lore2Description.Height.Set(40, 0);
-            Lore2Description.Left.Set(10 - 20, 0);
-            Lore2Description.Top.Set(612 - 336 - 92, 0);
+            Lore2Description.Left.Set(-8, 0);
+            Lore2Description.Top.Set(0, 0);
             Lore2Description.BackgroundColor = Color.Transparent;
             Lore2Description.BorderColor = Color.Transparent;
-            MrPlagueRaceStatDisplayBackground.Append(Lore2Description);
+            UI_LoreBox2.Append(Lore2Description);
 
 			RaceSelect = new UITextPanel<string>("Select Race (page " + (RacePage + 1) + ")" + "\n                                                                                                                                                                       ");
 			RaceSelect.Width.Set(1216, 0);
 			RaceSelect.Height.Set(40, 0);
-			RaceSelect.Left.Set(350 - 362 - 10, 0);
+			RaceSelect.Left.Set(350 - 362 - 10 + 320, 0);
 			RaceSelect.Top.Set(20 - 34 + 1, 0);
 			RaceSelect.BackgroundColor = Color.Transparent;
 			RaceSelect.BorderColor = Color.Transparent;
-			MrPlagueRaceSelectionMenuBackground.Append(RaceSelect);
+			MrPlagueRaceStatDisplayBackground.Append(RaceSelect);
 
 			RaceNameDisplay = new UITextPanel<string>("Human");
             RaceNameDisplay.Width.Set(300, 0);
@@ -1558,279 +1237,279 @@ namespace MrPlagueRaces.Common.UI
 
             Texture2D UI_RaceSelectButtonIcon = GetTexture("MrPlagueRaces/Common/UI/UI_RaceSelectButton");
 			Texture2D UI_RaceSelectButton_ActiveIcon = GetTexture("MrPlagueRaces/Common/UI/UI_RaceSelectButton_Active");
-			MrPlagueRaceSelectButton UI_RaceSelectButton1 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton1 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 0);
 			UI_RaceSelectButton1.Width.Set(64, 0);
 			UI_RaceSelectButton1.Height.Set(56, 0);
-			UI_RaceSelectButton1.Left.Set(20 - 22, 0);
+			UI_RaceSelectButton1.Left.Set(20 - 22 + 320, 0);
             UI_RaceSelectButton1.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton1.OnClick += new MouseEvent(Select_RaceSelectButton1);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton1);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton1);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton2 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton2 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 1);
 			UI_RaceSelectButton2.Width.Set(64, 0);
 			UI_RaceSelectButton2.Height.Set(56, 0);
-			UI_RaceSelectButton2.Left.Set(20 - 22 + 72, 0);
+			UI_RaceSelectButton2.Left.Set(20 - 22 + 72 + 320, 0);
             UI_RaceSelectButton2.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton2.OnClick += new MouseEvent(Select_RaceSelectButton2);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton2);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton2);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton3 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton3 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 2);
 			UI_RaceSelectButton3.Width.Set(64, 0);
 			UI_RaceSelectButton3.Height.Set(56, 0);
-			UI_RaceSelectButton3.Left.Set(20 - 22 + 72 + 72, 0);
+			UI_RaceSelectButton3.Left.Set(20 - 22 + 72 + 72 + 320, 0);
             UI_RaceSelectButton3.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton3.OnClick += new MouseEvent(Select_RaceSelectButton3);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton3);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton3);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton4 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton4 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 3);
 			UI_RaceSelectButton4.Width.Set(64, 0);
 			UI_RaceSelectButton4.Height.Set(56, 0);
-			UI_RaceSelectButton4.Left.Set(20 - 22 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton4.Left.Set(20 - 22 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton4.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton4.OnClick += new MouseEvent(Select_RaceSelectButton4);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton4);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton4);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton5 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton5 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 4);
 			UI_RaceSelectButton5.Width.Set(64, 0);
 			UI_RaceSelectButton5.Height.Set(56, 0);
-			UI_RaceSelectButton5.Left.Set(20 - 22 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton5.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton5.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton5.OnClick += new MouseEvent(Select_RaceSelectButton5);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton5);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton5);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton6 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton6 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 5);
 			UI_RaceSelectButton6.Width.Set(64, 0);
 			UI_RaceSelectButton6.Height.Set(56, 0);
-			UI_RaceSelectButton6.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton6.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton6.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton6.OnClick += new MouseEvent(Select_RaceSelectButton6);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton6);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton6);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton7 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton7 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 6);
 			UI_RaceSelectButton7.Width.Set(64, 0);
 			UI_RaceSelectButton7.Height.Set(56, 0);
-			UI_RaceSelectButton7.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton7.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton7.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton7.OnClick += new MouseEvent(Select_RaceSelectButton7);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton7);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton7);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton8 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton8 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 7);
 			UI_RaceSelectButton8.Width.Set(64, 0);
 			UI_RaceSelectButton8.Height.Set(56, 0);
-			UI_RaceSelectButton8.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton8.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton8.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton8.OnClick += new MouseEvent(Select_RaceSelectButton8);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton8);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton8);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton9 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton9 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 8);
 			UI_RaceSelectButton9.Width.Set(64, 0);
 			UI_RaceSelectButton9.Height.Set(56, 0);
-			UI_RaceSelectButton9.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton9.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton9.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton9.OnClick += new MouseEvent(Select_RaceSelectButton9);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton9);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton9);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton10 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton10 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 9);
 			UI_RaceSelectButton10.Width.Set(64, 0);
 			UI_RaceSelectButton10.Height.Set(56, 0);
-			UI_RaceSelectButton10.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton10.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton10.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton10.OnClick += new MouseEvent(Select_RaceSelectButton10);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton10);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton10);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton11 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton11 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 10);
 			UI_RaceSelectButton11.Width.Set(64, 0);
 			UI_RaceSelectButton11.Height.Set(56, 0);
-			UI_RaceSelectButton11.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton11.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton11.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton11.OnClick += new MouseEvent(Select_RaceSelectButton11);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton11);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton11);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton12 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton12 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 11);
 			UI_RaceSelectButton12.Width.Set(64, 0);
 			UI_RaceSelectButton12.Height.Set(56, 0);
-			UI_RaceSelectButton12.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton12.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton12.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton12.OnClick += new MouseEvent(Select_RaceSelectButton12);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton12);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton12);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton13 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton13 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 12);
 			UI_RaceSelectButton13.Width.Set(64, 0);
 			UI_RaceSelectButton13.Height.Set(56, 0);
-			UI_RaceSelectButton13.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton13.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton13.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton13.OnClick += new MouseEvent(Select_RaceSelectButton13);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton13);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton13);
 
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton14 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton14 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 13);
 			UI_RaceSelectButton14.Width.Set(64, 0);
 			UI_RaceSelectButton14.Height.Set(56, 0);
-			UI_RaceSelectButton14.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton14.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton14.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton14.OnClick += new MouseEvent(Select_RaceSelectButton14);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton14);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton14);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton15 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton15 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 14);
 			UI_RaceSelectButton15.Width.Set(64, 0);
 			UI_RaceSelectButton15.Height.Set(56, 0);
-			UI_RaceSelectButton15.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton15.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton15.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton15.OnClick += new MouseEvent(Select_RaceSelectButton15);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton15);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton15);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton16 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton16 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 15);
 			UI_RaceSelectButton16.Width.Set(64, 0);
 			UI_RaceSelectButton16.Height.Set(56, 0);
-			UI_RaceSelectButton16.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton16.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton16.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton16.OnClick += new MouseEvent(Select_RaceSelectButton16);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton16);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton16);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton17 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton17 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 16);
 			UI_RaceSelectButton17.Width.Set(64, 0);
 			UI_RaceSelectButton17.Height.Set(56, 0);
-			UI_RaceSelectButton17.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton17.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton17.Top.Set(129 - 124 + 120 - 92, 0);
 			UI_RaceSelectButton17.OnClick += new MouseEvent(Select_RaceSelectButton17);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton17);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton17);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton18 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton18 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 17);
 			UI_RaceSelectButton18.Width.Set(64, 0);
 			UI_RaceSelectButton18.Height.Set(56, 0);
-			UI_RaceSelectButton18.Left.Set(20 - 22, 0);
+			UI_RaceSelectButton18.Left.Set(20 - 22 + 320, 0);
             UI_RaceSelectButton18.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton18.OnClick += new MouseEvent(Select_RaceSelectButton18);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton18);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton18);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton19 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton19 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 18);
 			UI_RaceSelectButton19.Width.Set(64, 0);
 			UI_RaceSelectButton19.Height.Set(56, 0);
-			UI_RaceSelectButton19.Left.Set(20 - 22 + 72, 0);
+			UI_RaceSelectButton19.Left.Set(20 - 22 + 72 + 320, 0);
             UI_RaceSelectButton19.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton19.OnClick += new MouseEvent(Select_RaceSelectButton19);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton19);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton19);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton20 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton20 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 19);
 			UI_RaceSelectButton20.Width.Set(64, 0);
 			UI_RaceSelectButton20.Height.Set(56, 0);
-			UI_RaceSelectButton20.Left.Set(20 - 22 + 72 + 72, 0);
+			UI_RaceSelectButton20.Left.Set(20 - 22 + 72 + 72 + 320, 0);
             UI_RaceSelectButton20.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton20.OnClick += new MouseEvent(Select_RaceSelectButton20);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton20);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton20);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton21 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton21 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 20);
 			UI_RaceSelectButton21.Width.Set(64, 0);
 			UI_RaceSelectButton21.Height.Set(56, 0);
-			UI_RaceSelectButton21.Left.Set(20 - 22 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton21.Left.Set(20 - 22 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton21.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton21.OnClick += new MouseEvent(Select_RaceSelectButton21);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton21);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton21);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton22 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton22 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 21);
 			UI_RaceSelectButton22.Width.Set(64, 0);
 			UI_RaceSelectButton22.Height.Set(56, 0);
-			UI_RaceSelectButton22.Left.Set(20 - 22 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton22.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton22.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton22.OnClick += new MouseEvent(Select_RaceSelectButton22);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton22);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton22);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton23 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton23 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 22);
 			UI_RaceSelectButton23.Width.Set(64, 0);
 			UI_RaceSelectButton23.Height.Set(56, 0);
-			UI_RaceSelectButton23.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton23.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton23.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton23.OnClick += new MouseEvent(Select_RaceSelectButton23);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton23);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton23);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton24 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton24 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 23);
 			UI_RaceSelectButton24.Width.Set(64, 0);
 			UI_RaceSelectButton24.Height.Set(56, 0);
-			UI_RaceSelectButton24.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton24.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton24.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton24.OnClick += new MouseEvent(Select_RaceSelectButton24);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton24);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton24);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton25 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton25 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 24);
 			UI_RaceSelectButton25.Width.Set(64, 0);
 			UI_RaceSelectButton25.Height.Set(56, 0);
-			UI_RaceSelectButton25.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton25.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton25.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton25.OnClick += new MouseEvent(Select_RaceSelectButton25);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton25);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton25);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton26 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton26 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 25);
 			UI_RaceSelectButton26.Width.Set(64, 0);
 			UI_RaceSelectButton26.Height.Set(56, 0);
-			UI_RaceSelectButton26.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton26.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton26.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton26.OnClick += new MouseEvent(Select_RaceSelectButton26);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton26);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton26);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton27 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton27 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 26);
 			UI_RaceSelectButton27.Width.Set(64, 0);
 			UI_RaceSelectButton27.Height.Set(56, 0);
-			UI_RaceSelectButton27.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton27.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton27.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton27.OnClick += new MouseEvent(Select_RaceSelectButton27);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton27);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton27);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton28 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton28 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 27);
 			UI_RaceSelectButton28.Width.Set(64, 0);
 			UI_RaceSelectButton28.Height.Set(56, 0);
-			UI_RaceSelectButton28.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton28.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton28.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton28.OnClick += new MouseEvent(Select_RaceSelectButton28);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton28);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton28);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton29 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton29 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 28);
 			UI_RaceSelectButton29.Width.Set(64, 0);
 			UI_RaceSelectButton29.Height.Set(56, 0);
-			UI_RaceSelectButton29.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton29.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton29.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton29.OnClick += new MouseEvent(Select_RaceSelectButton29);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton29);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton29);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton30 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton30 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 29);
 			UI_RaceSelectButton30.Width.Set(64, 0);
 			UI_RaceSelectButton30.Height.Set(56, 0);
-			UI_RaceSelectButton30.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton30.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton30.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton30.OnClick += new MouseEvent(Select_RaceSelectButton30);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton30);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton30);
 
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton31 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton31 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 30);
 			UI_RaceSelectButton31.Width.Set(64, 0);
 			UI_RaceSelectButton31.Height.Set(56, 0);
-			UI_RaceSelectButton31.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton31.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton31.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton31.OnClick += new MouseEvent(Select_RaceSelectButton31);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton31);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton31);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton32 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton32 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 31);
 			UI_RaceSelectButton32.Width.Set(64, 0);
 			UI_RaceSelectButton32.Height.Set(56, 0);
-			UI_RaceSelectButton32.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton32.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton32.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton32.OnClick += new MouseEvent(Select_RaceSelectButton32);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton32);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton32);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton33 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton33 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 32);
 			UI_RaceSelectButton33.Width.Set(64, 0);
 			UI_RaceSelectButton33.Height.Set(56, 0);
-			UI_RaceSelectButton33.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton33.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton33.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton33.OnClick += new MouseEvent(Select_RaceSelectButton33);
-			MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton33);
+			MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton33);
 
-			MrPlagueRaceSelectButton UI_RaceSelectButton34 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon);
+			MrPlagueRaceSelectButton UI_RaceSelectButton34 = new MrPlagueRaceSelectButton(UI_RaceSelectButtonIcon, UI_RaceSelectButton_ActiveIcon, 33);
 			UI_RaceSelectButton34.Width.Set(64, 0);
 			UI_RaceSelectButton34.Height.Set(56, 0);
-			UI_RaceSelectButton34.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72, 0);
+			UI_RaceSelectButton34.Left.Set(20 - 22 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 72 + 320, 0);
             UI_RaceSelectButton34.Top.Set(129 - 124 + 120 - 92 + 60, 0);
 			UI_RaceSelectButton34.OnClick += new MouseEvent(Select_RaceSelectButton34);
-            MrPlagueRaceSelectionMenuBackground.Append(UI_RaceSelectButton34);
+            MrPlagueRaceStatDisplayBackground.Append(UI_RaceSelectButton34);
 
 			HoverText = new UITextPanel<string>("");
 			HoverText.Width.Set(40, 0);
@@ -1855,15 +1534,16 @@ namespace MrPlagueRaces.Common.UI
 
 		public void MrPlagueRaceSelectionProceed(UIMouseEvent mouseEvent, UIElement targetElement)
 		{
-			if (RaceLoader.Races.Count == 12)
+            if (RaceLoader.Races.Count == 12)
             {
-				Main.PlaySound(SoundID.MenuOpen, -1, -1, 1, 1f, 0f);
-			}
-			else
+                Main.PlaySound(SoundID.MenuOpen, -1, -1, 1, 1f, 0f);
+            }
+            else
             {
-				Main.PlaySound(SoundID.MenuClose, -1, -1, 1, 1f, 0f);
-			}
-            Main.menuMode = 2;
+                Main.PlaySound(SoundID.MenuClose, -1, -1, 1, 1f, 0f);
+            }
+			MrPlagueRaceStatDisplayHorizontal = 0;
+			Main.menuMode = 2;
 		}
 
         public void MrPlagueRaceSelectionBack(UIMouseEvent mouseEvent, UIElement targetElement)
@@ -1871,7 +1551,8 @@ namespace MrPlagueRaces.Common.UI
             Main.PlaySound(SoundID.MenuClose, -1, -1, 1, 1f, 0f);
             Main.menuMode = 1;
 			RaceIndex = 0;
-			RacePage = 0;
+            RacePage = 0;
+			MrPlagueRaceStatDisplayHorizontal = 0;
 			MrPlagueRacesPlayer.StaticRace = null;
         }
 
@@ -1898,9 +1579,35 @@ namespace MrPlagueRaces.Common.UI
         {
             Main.PlaySound(SoundID.MenuTick, -1, -1, 1, 1f, 0f);
             RaceIndex = Main.rand.Next((RaceLoader.Races.Count - 1));
+        }
+
+		public void UI_ButtonHorizontalScrollLeft_Clicked(UIMouseEvent mouseEvent, UIElement targetElement)
+		{
+			Main.PlaySound(SoundID.MenuTick, -1, -1, 1, 1f, 0f);
+			if (MrPlagueRaceStatDisplayHorizontal < 1600)
+			{
+				MrPlagueRaceStatDisplayHorizontal += 100;
+			}
+			else
+			{
+				MrPlagueRaceStatDisplayHorizontal = -1500;
+			}
 		}
 
-        public void Select_RaceSelectButton1(UIMouseEvent mouseEvent, UIElement targetElement)
+		public void UI_ButtonHorizontalScrollRight_Clicked(UIMouseEvent mouseEvent, UIElement targetElement)
+		{
+			Main.PlaySound(SoundID.MenuTick, -1, -1, 1, 1f, 0f);
+			if (MrPlagueRaceStatDisplayHorizontal > -1600)
+			{
+				MrPlagueRaceStatDisplayHorizontal -= 100;
+			}
+			else
+			{
+				MrPlagueRaceStatDisplayHorizontal = 1500;
+			}
+		}
+
+		public void Select_RaceSelectButton1(UIMouseEvent mouseEvent, UIElement targetElement)
         {
             
             if (RaceLoader.Races.Count > (0 + RacePage * 34))
@@ -2244,103 +1951,12 @@ namespace MrPlagueRaces.Common.UI
 		protected override void DrawChildren(SpriteBatch spriteBatch)
 		{
 			base.DrawChildren(spriteBatch);
-            CalculatedStyle MrPlagueRaceSelectionMenuInnerDimension = MrPlagueRaceSelectionMenuBackground.GetInnerDimensions();
-            CalculatedStyle MrPlagueRaceStatDisplayInnerDimension = MrPlagueRaceStatDisplayBackground.GetInnerDimensions();
-            var RaceEnvironmentImageIcon = UI_RaceEnvironmentImageIcon();
-            var RaceEnvironmentOverlay1ImageIcon = UI_RaceEnvironmentOverlay1ImageIcon();
-			var RaceEnvironmentOverlay2ImageIcon = UI_RaceEnvironmentOverlay2ImageIcon();
-			var RaceDisplayMaleImageIcon = UI_RaceDisplayMaleImageIcon();
-			var RaceDisplayFemaleImageIcon = UI_RaceDisplayFemaleImageIcon();
-			var RaceSelectImageIcon1 = UI_RaceSelectImageIcon1();
-			var RaceSelectImageIcon2 = UI_RaceSelectImageIcon2();
-			var RaceSelectImageIcon3 = UI_RaceSelectImageIcon3();
-			var RaceSelectImageIcon4 = UI_RaceSelectImageIcon4();
-			var RaceSelectImageIcon5 = UI_RaceSelectImageIcon5();
-			var RaceSelectImageIcon6 = UI_RaceSelectImageIcon6();
-			var RaceSelectImageIcon7 = UI_RaceSelectImageIcon7();
-			var RaceSelectImageIcon8 = UI_RaceSelectImageIcon8();
-			var RaceSelectImageIcon9 = UI_RaceSelectImageIcon9();
-			var RaceSelectImageIcon10 = UI_RaceSelectImageIcon10();
-			var RaceSelectImageIcon11 = UI_RaceSelectImageIcon11();
-			var RaceSelectImageIcon12 = UI_RaceSelectImageIcon12();
-			var RaceSelectImageIcon13 = UI_RaceSelectImageIcon13();
-			var RaceSelectImageIcon14 = UI_RaceSelectImageIcon14();
-			var RaceSelectImageIcon15 = UI_RaceSelectImageIcon15();
-			var RaceSelectImageIcon16 = UI_RaceSelectImageIcon16();
-			var RaceSelectImageIcon17 = UI_RaceSelectImageIcon17();
-			var RaceSelectImageIcon18 = UI_RaceSelectImageIcon18();
-			var RaceSelectImageIcon19 = UI_RaceSelectImageIcon19();
-			var RaceSelectImageIcon20 = UI_RaceSelectImageIcon20();
-			var RaceSelectImageIcon21 = UI_RaceSelectImageIcon21();
-			var RaceSelectImageIcon22 = UI_RaceSelectImageIcon22();
-			var RaceSelectImageIcon23 = UI_RaceSelectImageIcon23();
-			var RaceSelectImageIcon24 = UI_RaceSelectImageIcon24();
-			var RaceSelectImageIcon25 = UI_RaceSelectImageIcon25();
-			var RaceSelectImageIcon26 = UI_RaceSelectImageIcon26();
-			var RaceSelectImageIcon27 = UI_RaceSelectImageIcon27();
-			var RaceSelectImageIcon28 = UI_RaceSelectImageIcon28();
-			var RaceSelectImageIcon29 = UI_RaceSelectImageIcon29();
-			var RaceSelectImageIcon30 = UI_RaceSelectImageIcon30();
-			var RaceSelectImageIcon31 = UI_RaceSelectImageIcon31();
-			var RaceSelectImageIcon32 = UI_RaceSelectImageIcon32();
-			var RaceSelectImageIcon33 = UI_RaceSelectImageIcon33();
-            var RaceSelectImageIcon34 = UI_RaceSelectImageIcon34();
-
-            Vector2 SelectButtonIconPosition = new Vector2(64 / 2 - RaceSelectImageIcon1.Width * 1f / 2,
-                56 / 2 - UI_RaceSelectImageIcon1().Height * 1f / 2);
-            Vector2 DisplayIconPosition = new Vector2(100 / 2 - RaceDisplayMaleImageIcon.Width * 1f / 2,
-                138 / 2 - UI_RaceDisplayMaleImageIcon().Height * 1f / 2);
-            if (RaceLoader.Races[RaceIndex].DarkenEnvironment)
-            {
-                spriteBatch.Draw(RaceEnvironmentImageIcon, new Vector2(MrPlagueRaceStatDisplayInnerDimension.X - 2f, MrPlagueRaceStatDisplayInnerDimension.Y + 33f) + DisplayIconPosition, null, new Color(100, 100, 100), 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-            }
-            else
-            {
-                spriteBatch.Draw(RaceEnvironmentImageIcon, new Vector2(MrPlagueRaceStatDisplayInnerDimension.X - 2f, MrPlagueRaceStatDisplayInnerDimension.Y + 33f) + DisplayIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-            }
-            spriteBatch.Draw(RaceEnvironmentOverlay1ImageIcon, new Vector2(MrPlagueRaceStatDisplayInnerDimension.X - 2f, MrPlagueRaceStatDisplayInnerDimension.Y + 33f) + DisplayIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceEnvironmentOverlay2ImageIcon, new Vector2(MrPlagueRaceStatDisplayInnerDimension.X - 2f, MrPlagueRaceStatDisplayInnerDimension.Y + 33f) + DisplayIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceDisplayMaleImageIcon, new Vector2(MrPlagueRaceStatDisplayInnerDimension.X - 2f, MrPlagueRaceStatDisplayInnerDimension.Y + 33f) + DisplayIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceDisplayFemaleImageIcon, new Vector2(MrPlagueRaceStatDisplayInnerDimension.X - 2f, MrPlagueRaceStatDisplayInnerDimension.Y + 33f) + DisplayIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon1, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-            spriteBatch.Draw(RaceSelectImageIcon2, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-            spriteBatch.Draw(RaceSelectImageIcon3, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon4, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon5, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon6, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon7, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon8, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon9, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon10, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon11, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon12, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon13, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon14, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon15, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon16, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-            spriteBatch.Draw(RaceSelectImageIcon17, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon18, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon19, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon20, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon21, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon22, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon23, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon24, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon25, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon26, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon27, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon28, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon29, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon30, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon31, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon32, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-			spriteBatch.Draw(RaceSelectImageIcon33, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
-            spriteBatch.Draw(RaceSelectImageIcon34, new Vector2(MrPlagueRaceSelectionMenuInnerDimension.X - 2f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f + 72f, MrPlagueRaceSelectionMenuInnerDimension.Y + 33f + 60f) + SelectButtonIconPosition, null, Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), SpriteEffects.None, 1f);
 		}
 
 		public override void Update(GameTime gameTime)
 		{
             base.Update(gameTime);
+			CalculatedStyle MrPlagueRaceBackgroundInnerDimensions = MrPlagueRaceBackground.GetInnerDimensions();
 			if (PlayerInput.Triggers.JustPressed.Inventory)
             {
 				Main.PlaySound(SoundID.MenuClose, -1, -1, 1, 1f, 0f);
@@ -2359,7 +1975,12 @@ namespace MrPlagueRaces.Common.UI
             {
                 RaceNameDisplay.SetText(MrPlagueRacesPlayer.StaticRace.Name);
             }
-            RaceSelect.SetText("Select Race (page " + (RacePage + 1) + ")" + "\n                                                                                                                                                                       ");
+			MrPlagueRaceSelectionBackButton.Left.Set(MrPlagueRaceBackgroundInnerDimensions.X - 12, 0);
+			MrPlagueRaceSelectionProceedButton.Left.Set(MrPlagueRaceBackgroundInnerDimensions.X + MrPlagueRaceBackgroundInnerDimensions.Width - 238, 0);
+			UI_ButtonHorizontalScrollLeft.Left.Set(MrPlagueRaceBackgroundInnerDimensions.Width - 156, 0);
+			UI_ButtonHorizontalScrollRight.Left.Set(MrPlagueRaceBackgroundInnerDimensions.Width + 70 - 156, 0);
+			MrPlagueRaceStatDisplayBackground.Left.Set(10 + MrPlagueRaceStatDisplayHorizontal, 0);
+			RaceSelect.SetText("Select Race (page " + (RacePage + 1) + ")" + "\n                                                                                                                                                                       ");
 			Lore1Description.SetText(MrPlagueRacesPlayer.StaticRace.RaceLore1 + "\n                                                                                                                                                                       ");
             Lore2Description.SetText(MrPlagueRacesPlayer.StaticRace.RaceLore2 + "\n                                                                                                                                                                       ");
 			Ability.SetText("Ability: " + MrPlagueRacesPlayer.StaticRace.RaceAbilityName + "\n                                                                                                                                                                       ");
@@ -8289,8 +7910,8 @@ namespace MrPlagueRaces.Common.UI
 				DisplayGoodBiomes.Top.Set(-6 + 539 + 132 - 92 + 2, 0);
 				DisplayBadBiomes.Top.Set(-6 + 539 + 34 + 132 - 92 + 2, 0);
 			}
-			HoverText.Left.Set(Main.mouseX + 5, 0);
-            HoverText.Top.Set(Main.mouseY + 5, 0);
+			HoverText.Left.Set(Main.mouseX + 4, 0);
+            HoverText.Top.Set(Main.mouseY - 82, 0);
 			Recalculate();
 		}
 	}

@@ -28,8 +28,6 @@ namespace MrPlagueRaces
 		public bool hideChestplate;
         public bool hideLeggings;
         public bool MrPlagueRaceInfo;
-        public int MrPlagueRaceInfoMouseX = 0;
-		public int MrPlagueRaceInfoMouseY = 0;
 
         public bool IsNewCharacter1;
 		public bool IsNewCharacter2;

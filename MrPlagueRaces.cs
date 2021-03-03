@@ -70,8 +70,8 @@ namespace MrPlagueRaces
 			{
                 justWentRaceSelection = false;
                 MrPlagueRacesPlayer.StaticRace = null;
-                _MrPlagueRaceSelection.RaceIndex = 0;
-				_MrPlagueRaceSelection.RacePage = 0;
+                MrPlagueRaceSelection.RaceIndex = 0;
+				MrPlagueRaceSelection.RacePage = 0;
 			}
 
 			if (Main.menuMode == 2 && !justWentRaceSelection)
@@ -80,8 +80,8 @@ namespace MrPlagueRaces
 
                 justWentRaceSelection = true;
                 MrPlagueRacesPlayer.StaticRace = null;
-				_MrPlagueRaceSelection.RaceIndex = 0;
-				_MrPlagueRaceSelection.RacePage = 0;
+				MrPlagueRaceSelection.RaceIndex = 0;
+				MrPlagueRaceSelection.RacePage = 0;
 			}
 		}
 

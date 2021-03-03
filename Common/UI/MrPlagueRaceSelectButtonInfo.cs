@@ -9,7 +9,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace MrPlagueRaces.Common.UI
 {
-    public class MrPlagueRaceSelectButton : UIElement
+    public class MrPlagueRaceSelectButtonInfo : UIElement
     {
         private Texture2D _texture;
         private Texture2D _textureActive;
@@ -17,346 +17,346 @@ namespace MrPlagueRaces.Common.UI
 
 		public Texture2D UI_RaceSelectImageIcon1()
 		{
-			switch (RaceLoader.Races.Count > (0 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (0 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[0 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[0 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon2()
 		{
-			switch (RaceLoader.Races.Count > (1 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (1 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[1 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[1 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon3()
 		{
-			switch (RaceLoader.Races.Count > (2 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (2 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[2 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[2 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon4()
 		{
-			switch (RaceLoader.Races.Count > (3 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (3 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[3 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[3 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon5()
 		{
-			switch (RaceLoader.Races.Count > (4 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (4 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[4 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[4 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon6()
 		{
-			switch (RaceLoader.Races.Count > (5 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (5 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[5 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[5 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon7()
 		{
-			switch (RaceLoader.Races.Count > (6 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (6 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[6 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[6 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon8()
 		{
-			switch (RaceLoader.Races.Count > (7 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (7 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[7 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[7 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon9()
 		{
-			switch (RaceLoader.Races.Count > (8 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (8 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[8 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[8 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon10()
 		{
-			switch (RaceLoader.Races.Count > (9 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (9 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[9 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[9 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon11()
 		{
-			switch (RaceLoader.Races.Count > (10 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (10 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[10 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[10 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon12()
 		{
-			switch (RaceLoader.Races.Count > (11 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (11 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[11 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[11 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon13()
 		{
-			switch (RaceLoader.Races.Count > (12 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (12 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[12 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[12 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon14()
 		{
-			switch (RaceLoader.Races.Count > (13 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (13 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[13 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[13 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon15()
 		{
-			switch (RaceLoader.Races.Count > (14 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (14 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[14 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[14 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon16()
 		{
-			switch (RaceLoader.Races.Count > (15 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (15 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[15 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[15 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon17()
 		{
-			switch (RaceLoader.Races.Count > (16 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (16 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[16 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[16 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon18()
 		{
-			switch (RaceLoader.Races.Count > (17 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (17 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[17 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[17 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon19()
 		{
-			switch (RaceLoader.Races.Count > (18 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (18 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[18 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[18 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon20()
 		{
-			switch (RaceLoader.Races.Count > (19 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (19 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[19 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[19 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon21()
 		{
-			switch (RaceLoader.Races.Count > (20 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (20 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[20 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[20 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon22()
 		{
-			switch (RaceLoader.Races.Count > (21 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (21 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[21 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[21 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon23()
 		{
-			switch (RaceLoader.Races.Count > (22 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (22 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[22 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[22 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon24()
 		{
-			switch (RaceLoader.Races.Count > (23 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (23 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[23 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[23 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon25()
 		{
-			switch (RaceLoader.Races.Count > (24 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (24 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[24 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[24 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon26()
 		{
-			switch (RaceLoader.Races.Count > (25 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (25 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[25 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[25 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon27()
 		{
-			switch (RaceLoader.Races.Count > (26 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (26 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[26 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[26 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon28()
 		{
-			switch (RaceLoader.Races.Count > (27 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (27 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[27 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[27 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon29()
 		{
-			switch (RaceLoader.Races.Count > (28 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (28 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[28 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[28 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon30()
 		{
-			switch (RaceLoader.Races.Count > (29 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (29 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[29 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[29 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon31()
 		{
-			switch (RaceLoader.Races.Count > (30 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (30 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[30 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[30 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon32()
 		{
-			switch (RaceLoader.Races.Count > (31 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (31 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[31 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[31 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon33()
 		{
-			switch (RaceLoader.Races.Count > (32 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (32 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[32 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[32 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 		public Texture2D UI_RaceSelectImageIcon34()
 		{
-			switch (RaceLoader.Races.Count > (33 + (MrPlagueRaceSelection.RacePage * 34)))
+			switch (RaceLoader.Races.Count > (33 + (MrPlagueRaceInformation.RacePage * 34)))
 			{
 				case true:
-					return GetTexture(RaceLoader.Races[33 + (MrPlagueRaceSelection.RacePage * 34)].RaceSelectIcon);
+					return GetTexture(RaceLoader.Races[33 + (MrPlagueRaceInformation.RacePage * 34)].RaceSelectIcon);
 				default:
 					return GetTexture("MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
 			}
 		}
 
-		public MrPlagueRaceSelectButton(Texture2D texture, Texture2D textureActive, int raceNumber)
+		public MrPlagueRaceSelectButtonInfo(Texture2D texture, Texture2D textureActive, int raceNumber)
         {
             if (!Main.dedServ)
             {

@@ -49,16 +49,12 @@ namespace MrPlagueRaces.Content.Items
 			if (modPlayer.MrPlagueRaceInfo)
 			{
                 Main.PlaySound(SoundID.MenuClose, (int)player.Center.X, (int)player.Center.Y, 1, 1f, 0f);
-				modPlayer.MrPlagueRaceInfoMouseX = 999999;
-				modPlayer.MrPlagueRaceInfoMouseY = 999999;
 				modPlayer.MrPlagueRaceInfo = false;
 			}
 			else
 			{
 				Main.PlaySound(SoundID.MenuOpen, (int)player.Center.X, (int)player.Center.Y, 1, 1f, 0f);
 				modPlayer.MrPlagueRaceInfo = true;
-				modPlayer.MrPlagueRaceInfoMouseX = Main.mouseX - 800;
-				modPlayer.MrPlagueRaceInfoMouseY = Main.mouseY - 400;
 			}
 			return true;
 		}
