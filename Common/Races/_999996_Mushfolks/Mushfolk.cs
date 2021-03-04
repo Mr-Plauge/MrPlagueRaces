@@ -99,11 +99,15 @@ namespace MrPlagueRaces.Common.Races._999996_Mushfolks
 
 		public override void ResetEffects(Player player)
 		{
-			var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
-			player.statLifeMax2 += (player.statLifeMax2 / 10);
-			player.allDamage -= 0.15f;
-			player.maxMinions += 2;
-			player.moveSpeed += 0.1f;
+            var modPlayer = player.GetModPlayer<MrPlagueRacesPlayer>();
+			if (modPlayer.RaceStats)
+			{
+
+				player.statLifeMax2 += (player.statLifeMax2 / 10);
+				player.allDamage -= 0.15f;
+				player.maxMinions += 2;
+				player.moveSpeed += 0.1f;
+			}
 		}
 
 		public override void PreUpdate(Player player, Mod mod)
