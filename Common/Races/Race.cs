@@ -24,9 +24,9 @@ namespace MrPlagueRaces.Common.Races
         public virtual string RaceEnvironmentIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/Environment/Environment_Forest");
         public virtual string RaceEnvironmentOverlay1Icon => ($"MrPlagueRaces/Common/UI/RaceDisplay/Environment/EnvironmentOverlay_Sun");
 		public virtual string RaceEnvironmentOverlay2Icon => ($"MrPlagueRaces/Common/UI/RaceDisplay/BlankDisplay");
-		public virtual string RaceSelectIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/BlankSelect");
-		public virtual string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/BlankDisplay");
-        public virtual string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/BlankDisplay");
+		public virtual string RaceSelectIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/DefaultSelect");
+		public virtual string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/DefaultDisplayMale");
+        public virtual string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/DefaultDisplayFemale");
 
 		public virtual bool DarkenEnvironment => false;
 
