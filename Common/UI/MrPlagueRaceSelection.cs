@@ -216,7 +216,8 @@ namespace MrPlagueRaces.Common.UI
             MrPlagueRaceBackground.HAlign = 0.5f;
             MrPlagueRaceBackground.VAlign = 0.4f;
             MrPlagueRaceBackground.Width.Set(1630, 0);
-            MrPlagueRaceBackground.Height.Set(-80f, 0.755f);
+            MrPlagueRaceBackground.Height.Set(0, 1f);
+			MrPlagueRaceBackground.MaxHeight.Set(793, 0);
 			MrPlagueRaceBackground.BackgroundColor = new Color(33, 43, 79) * 0.8f;
             Append(MrPlagueRaceBackground);
 
@@ -310,7 +311,7 @@ namespace MrPlagueRaces.Common.UI
 			MrPlagueRaceBackground.Append(SelectRace);
 
             MrPlagueRaceSelectionBackButton = new UITextPanel<string>("Back", 0.7f, true);
-			MrPlagueRaceSelectionBackButton.VAlign = 0.865f;
+			//MrPlagueRaceSelectionBackButton.VAlign = 1.5f;
             MrPlagueRaceSelectionBackButton.Width.Set(250, 0f);
             MrPlagueRaceSelectionBackButton.Height.Set(50f, 0f);
 			MrPlagueRaceSelectionBackButton.Left.Set(999999, 0f);
@@ -320,7 +321,7 @@ namespace MrPlagueRaces.Common.UI
             Append(MrPlagueRaceSelectionBackButton);
 
             MrPlagueRaceSelectionProceedButton = new UITextPanel<string>("Proceed", 0.7f, true);
-			MrPlagueRaceSelectionProceedButton.VAlign = 0.865f;
+			//MrPlagueRaceSelectionProceedButton.VAlign = 1.5f;
             MrPlagueRaceSelectionProceedButton.Width.Set(250, 0f);
             MrPlagueRaceSelectionProceedButton.Height.Set(50f, 0f);
 			MrPlagueRaceSelectionProceedButton.Left.Set(999999, 0f);
@@ -668,7 +669,7 @@ namespace MrPlagueRaces.Common.UI
 			MrPlagueRaceStatDisplayBackground.Append(Stat_JumpSpeed);
 
             Texture2D Stat_FallDamageResistanceIcon = GetTexture("MrPlagueRaces/Common/UI/Stat_FallDamageResistance");
-			Stat_FallDamageResistance = new MrPlagueRaceImage(Stat_FallDamageResistanceIcon, "Fall Damage");
+			Stat_FallDamageResistance = new MrPlagueRaceImage(Stat_FallDamageResistanceIcon, "Fall Damage Resistance");
             Stat_FallDamageResistance.Width.Set(64, 0);
             Stat_FallDamageResistance.Height.Set(20, 0);
             Stat_FallDamageResistance.Left.Set(20 - 22 + 64 + 8 + 64 + 8, 0);
@@ -1975,8 +1976,11 @@ namespace MrPlagueRaces.Common.UI
             {
                 RaceNameDisplay.SetText(MrPlagueRacesPlayer.StaticRace.Name);
             }
-			MrPlagueRaceSelectionBackButton.Left.Set(MrPlagueRaceBackgroundInnerDimensions.X - 12, 0);
+            MrPlagueRaceSelectionBackButton.Left.Set(MrPlagueRaceBackgroundInnerDimensions.X - 12, 0);
+			MrPlagueRaceSelectionBackButton.Top.Set(MrPlagueRaceBackgroundInnerDimensions.Y + MrPlagueRaceBackgroundInnerDimensions.Height - 66 + 5, 0);
 			MrPlagueRaceSelectionProceedButton.Left.Set(MrPlagueRaceBackgroundInnerDimensions.X + MrPlagueRaceBackgroundInnerDimensions.Width - 238, 0);
+			MrPlagueRaceSelectionProceedButton.Top.Set(MrPlagueRaceBackgroundInnerDimensions.Y + MrPlagueRaceBackgroundInnerDimensions.Height - 66 + 5, 0);
+
 			UI_ButtonHorizontalScrollLeft.Left.Set(MrPlagueRaceBackgroundInnerDimensions.Width - 156, 0);
 			UI_ButtonHorizontalScrollRight.Left.Set(MrPlagueRaceBackgroundInnerDimensions.Width + 70 - 156, 0);
 			MrPlagueRaceStatDisplayBackground.Left.Set(10 + MrPlagueRaceStatDisplayHorizontal, 0);

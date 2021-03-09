@@ -214,7 +214,8 @@ namespace MrPlagueRaces.Common.UI
 			MrPlagueRaceBackground.HAlign = 0.5f;
 			MrPlagueRaceBackground.VAlign = 0.4f;
 			MrPlagueRaceBackground.Width.Set(1630, 0);
-			MrPlagueRaceBackground.Height.Set(-80f, 0.755f);
+			MrPlagueRaceBackground.Height.Set(0, 1f);
+			MrPlagueRaceBackground.MaxHeight.Set(793, 0);
 			MrPlagueRaceBackground.BackgroundColor = new Color(33, 43, 79) * 0.8f;
 			Append(MrPlagueRaceBackground);
 
@@ -646,7 +647,7 @@ namespace MrPlagueRaces.Common.UI
 			MrPlagueRaceStatDisplayBackground.Append(Stat_JumpSpeed);
 
 			Texture2D Stat_FallDamageResistanceIcon = GetTexture("MrPlagueRaces/Common/UI/Stat_FallDamageResistance");
-			Stat_FallDamageResistance = new MrPlagueRaceImageInfo(Stat_FallDamageResistanceIcon, "Fall Damage");
+			Stat_FallDamageResistance = new MrPlagueRaceImageInfo(Stat_FallDamageResistanceIcon, "Fall Damage Resistance");
 			Stat_FallDamageResistance.Width.Set(64, 0);
 			Stat_FallDamageResistance.Height.Set(20, 0);
 			Stat_FallDamageResistance.Left.Set(20 - 22 + 64 + 8 + 64 + 8, 0);
