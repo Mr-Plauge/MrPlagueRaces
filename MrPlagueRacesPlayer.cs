@@ -434,17 +434,17 @@ namespace MrPlagueRaces
 			}
 		}
 
-		public void updatePlayerSprites(Player player, string clothingPath, string bodyPath, bool hideChest, bool hideLegs, int hairCount, string raceName, bool defaultCensor = true){
+		public void updatePlayerSprites(string clothingPath, string bodyPath, bool hideChest, bool hideLegs, int hairCount, string raceName, bool defaultCensor = true){
 			//this function does not invalidate complex clothing/sprite overriding, but for simpler race mods that use simpler/standard sprites this will be easier to use
 			int[] male = { 0, 1, 2, 3, 8 };
 			int[] female = { 4, 5, 6, 7, 9 };
 			foreach (int i in male){
-				bodyUpdate(player, i, bodyPath + raceName, "");
+				bodyUpdate(i, bodyPath + raceName, "");
 			}
 			foreach (int h in female){
-				bodyUpdate(player, h, bodyPath + raceName, "_Female");
+				bodyUpdate(h, bodyPath + raceName, "_Female");
 			}
-			clothingUpdate(player, 10, clothingPath, hideChest, hideLegs, female, defaultCensor);
+			clothingUpdate(10, clothingPath, hideChest, hideLegs, female, defaultCensor);
 
 			for (int i = 0; i < hairCount; i++)
 			{
@@ -454,8 +454,7 @@ namespace MrPlagueRaces
 
 			Main.ghostTexture = ModContent.GetTexture(bodyPath + raceName + "_Ghost");
 		}
-		private void bodyUpdate(Player player, int sheet, string path, string gender){
-			//the body path should include the name of the race at the end, but NOT the underscore
+		public void bodyUpdate(int sheet, string path, string gender){
 			updateTexture(sheet, 0, path + "_Head" + gender);
 			updateTexture(sheet, 1, path + "_Eyes_2" + gender);
 			updateTexture(sheet, 2, path + "_Eyes" + gender);
@@ -465,7 +464,7 @@ namespace MrPlagueRaces
 			updateTexture(sheet, 9, path + "_Hand" + gender);
 			updateTexture(sheet, 10, path + "_Legs" + gender);
 		}
-		private void clothingUpdate(Player player, int sheets, string path, bool hideChest, bool hideLegs, int[] female, bool defaultCensor = true){
+		public void clothingUpdate(int sheets, string path, bool hideChest, bool hideLegs, int[] female, bool defaultCensor = true){
 			//the clothing path should include the final /, this is done so you can potentially add the race name before it instead
 			string newPath = defaultCensor ? "MrPlagueRaces/Content/RaceTextures/" : path;
 			if ((player.armor[1].type == ItemID.FamiliarShirt || player.armor[11].type == ItemID.FamiliarShirt) && !hideChest){
@@ -505,7 +504,7 @@ namespace MrPlagueRaces
 			}
 			//this entire thing can be split into a few more functions to repeat less code but i think this is good enough optimization for now
 		}
-		private void updateTexture(int x, int y, string path){
+		public void updateTexture(int x, int y, string path){
 			Main.playerTextures[x, y] = ModContent.GetTexture(path);
 			//dont repeat this stuff over and over again
 		}
