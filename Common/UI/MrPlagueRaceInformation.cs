@@ -100,62 +100,62 @@ namespace MrPlagueRaces.Common.UI
 		private bool StatPosition35Taken = false;
 		private bool StatPosition36Taken = false;
 
-		UITextPanel<string> RaceNameDisplay = new UITextPanel<string>("");
-		UITextPanel<string> Lore1Description = new UITextPanel<string>("");
-		UITextPanel<string> Lore2Description = new UITextPanel<string>("");
-		UITextPanel<string> Ability = new UITextPanel<string>("");
-		UITextPanel<string> AdditionalNotes = new UITextPanel<string>("");
-		UITextPanel<string> AbilityDescription1 = new UITextPanel<string>("");
-		UITextPanel<string> AbilityDescription2 = new UITextPanel<string>("");
-		UITextPanel<string> AbilityDescription3 = new UITextPanel<string>("");
-		UITextPanel<string> AbilityDescription4 = new UITextPanel<string>("");
-		UITextPanel<string> AbilityDescription5 = new UITextPanel<string>("");
-		UITextPanel<string> AbilityDescription6 = new UITextPanel<string>("");
-		UITextPanel<string> AdditionalNotesDescription1 = new UITextPanel<string>("");
-		UITextPanel<string> AdditionalNotesDescription2 = new UITextPanel<string>("");
-		UITextPanel<string> AdditionalNotesDescription3 = new UITextPanel<string>("");
-		UITextPanel<string> AdditionalNotesDescription4 = new UITextPanel<string>("");
-		UITextPanel<string> AdditionalNotesDescription5 = new UITextPanel<string>("");
-		UITextPanel<string> AdditionalNotesDescription6 = new UITextPanel<string>("");
-		UITextPanel<string> RaceSelect = new UITextPanel<string>("");
-		UITextPanel<string> DisplayHealth = new UITextPanel<string>("");
-		UITextPanel<string> DisplayRegeneration = new UITextPanel<string>("");
-		UITextPanel<string> DisplayMana = new UITextPanel<string>("");
-		UITextPanel<string> DisplayManaRegeneration = new UITextPanel<string>("");
-		UITextPanel<string> DisplayDefense = new UITextPanel<string>("");
-		UITextPanel<string> DisplayDamageReduction = new UITextPanel<string>("");
-		UITextPanel<string> DisplayThorns = new UITextPanel<string>("");
-		UITextPanel<string> DisplayLavaResistance = new UITextPanel<string>("");
-		UITextPanel<string> DisplayAllDamage = new UITextPanel<string>("");
-		UITextPanel<string> DisplayMeleeDamage = new UITextPanel<string>("");
-		UITextPanel<string> DisplayRangedDamage = new UITextPanel<string>("");
-		UITextPanel<string> DisplayMagicDamage = new UITextPanel<string>("");
-		UITextPanel<string> DisplaySummonDamage = new UITextPanel<string>("");
-		UITextPanel<string> DisplayMeleeSpeed = new UITextPanel<string>("");
-		UITextPanel<string> DisplayArmorPenetration = new UITextPanel<string>("");
-		UITextPanel<string> DisplayBulletDamage = new UITextPanel<string>("");
-		UITextPanel<string> DisplayRocketDamage = new UITextPanel<string>("");
-		UITextPanel<string> DisplayManaCost = new UITextPanel<string>("");
-		UITextPanel<string> DisplayMinionKnockback = new UITextPanel<string>("");
-		UITextPanel<string> DisplayMinions = new UITextPanel<string>("");
-		UITextPanel<string> DisplaySentries = new UITextPanel<string>("");
-		UITextPanel<string> DisplayMeleeCritChance = new UITextPanel<string>("");
-		UITextPanel<string> DisplayRangedCritChance = new UITextPanel<string>("");
-		UITextPanel<string> DisplayMagicCritChance = new UITextPanel<string>("");
-		UITextPanel<string> DisplayMiningSpeed = new UITextPanel<string>("");
-		UITextPanel<string> DisplayBuildingSpeed = new UITextPanel<string>("");
-		UITextPanel<string> DisplayBuildingRange = new UITextPanel<string>("");
-		UITextPanel<string> DisplayBuildingWallSpeed = new UITextPanel<string>("");
-		UITextPanel<string> DisplayArrowDamage = new UITextPanel<string>("");
-		UITextPanel<string> DisplayMovementSpeed = new UITextPanel<string>("");
-		UITextPanel<string> DisplayJumpSpeed = new UITextPanel<string>("");
-		UITextPanel<string> DisplayFallDamageResistance = new UITextPanel<string>("");
-		UITextPanel<string> DisplayFishingSkill = new UITextPanel<string>("");
-		UITextPanel<string> DisplayAggro = new UITextPanel<string>("");
-		UITextPanel<string> DisplayRunSpeed = new UITextPanel<string>("");
-		UITextPanel<string> DisplayRunAcceleration = new UITextPanel<string>("");
-		UITextPanel<string> DisplayGoodBiomes = new UITextPanel<string>("");
-		UITextPanel<string> DisplayBadBiomes = new UITextPanel<string>("");
+		WrappedUITextPanel<string> RaceNameDisplay = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> Lore1Description = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> Lore2Description = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> Ability = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AdditionalNotes = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AbilityDescription1 = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AbilityDescription2 = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AbilityDescription3 = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AbilityDescription4 = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AbilityDescription5 = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AbilityDescription6 = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AdditionalNotesDescription1 = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AdditionalNotesDescription2 = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AdditionalNotesDescription3 = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AdditionalNotesDescription4 = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AdditionalNotesDescription5 = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> AdditionalNotesDescription6 = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> RaceSelect = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayHealth = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayRegeneration = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayMana = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayManaRegeneration = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayDefense = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayDamageReduction = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayThorns = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayLavaResistance = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayAllDamage = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayMeleeDamage = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayRangedDamage = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayMagicDamage = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplaySummonDamage = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayMeleeSpeed = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayArmorPenetration = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayBulletDamage = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayRocketDamage = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayManaCost = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayMinionKnockback = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayMinions = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplaySentries = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayMeleeCritChance = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayRangedCritChance = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayMagicCritChance = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayMiningSpeed = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayBuildingSpeed = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayBuildingRange = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayBuildingWallSpeed = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayArrowDamage = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayMovementSpeed = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayJumpSpeed = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayFallDamageResistance = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayFishingSkill = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayAggro = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayRunSpeed = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayRunAcceleration = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayGoodBiomes = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> DisplayBadBiomes = new WrappedUITextPanel<string>("");
 		private static Texture2D Stat_HealthIconPlaceholder = GetTexture("MrPlagueRaces/Common/UI/Stat_Health");
 		MrPlagueRaceImageInfo Stat_Health = new MrPlagueRaceImageInfo(Stat_HealthIconPlaceholder, "");
 		MrPlagueRaceImageInfo Stat_Regeneration = new MrPlagueRaceImageInfo(Stat_HealthIconPlaceholder, "");
@@ -302,7 +302,7 @@ namespace MrPlagueRaces.Common.UI
 			MrPlagueRaceStatDisplayBackground.BackgroundColor = new Color(72, 94, 170);
 			RaceInformationContentList.Add(MrPlagueRaceStatDisplayBackground);
 
-			UITextPanel<string> SelectRace = new UITextPanel<string>("Race Information", 0.8f, true);
+			WrappedUITextPanel<string> SelectRace = new WrappedUITextPanel<string>("Race Information", 0.8f, true);
 			SelectRace.HAlign = 0.5f;
 			SelectRace.Top.Set(-35f, 0f);
 			SelectRace.BackgroundColor = new Color(73, 94, 171);
@@ -710,7 +710,7 @@ namespace MrPlagueRaces.Common.UI
 			Environment_BadBiomes.Top.Set(539 + 34 + 132 - 92 - 260, 0);
 			MrPlagueRaceStatDisplayBackground.Append(Environment_BadBiomes);
 
-			Ability = new UITextPanel<string>("Ability:" + "\n                                                                                                                                                                       ");
+			Ability = new WrappedUITextPanel<string>("Ability:" + "\n                                                                                                                                                                       ");
 			Ability.Width.Set(1216, 0);
 			Ability.Height.Set(40, 0);
 			Ability.Left.Set(350 - 362 - 10 + 320, 0);
@@ -719,7 +719,7 @@ namespace MrPlagueRaces.Common.UI
 			Ability.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(Ability);
 
-			AdditionalNotes = new UITextPanel<string>("Additional Notes:" + "\n                                                                                                                                                                       ");
+			AdditionalNotes = new WrappedUITextPanel<string>("Additional Notes:" + "\n                                                                                                                                                                       ");
 			AdditionalNotes.Width.Set(1216, 0);
 			AdditionalNotes.Height.Set(40, 0);
 			AdditionalNotes.Left.Set(350 - 362 - 10 + 320, 0);
@@ -728,7 +728,7 @@ namespace MrPlagueRaces.Common.UI
 			AdditionalNotes.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotes);
 
-			AbilityDescription1 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AbilityDescription1 = new WrappedUITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AbilityDescription1.Width.Set(1216, 0);
 			AbilityDescription1.Height.Set(40, 0);
 			AbilityDescription1.Left.Set(350 - 362 - 8 + 320, 0);
@@ -737,7 +737,7 @@ namespace MrPlagueRaces.Common.UI
 			AbilityDescription1.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AbilityDescription1);
 
-			AbilityDescription2 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AbilityDescription2 = new WrappedUITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AbilityDescription2.Width.Set(1216, 0);
 			AbilityDescription2.Height.Set(40, 0);
 			AbilityDescription2.Left.Set(350 - 362 - 8 + 320, 0);
@@ -746,7 +746,7 @@ namespace MrPlagueRaces.Common.UI
 			AbilityDescription2.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AbilityDescription2);
 
-			AbilityDescription3 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AbilityDescription3 = new WrappedUITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AbilityDescription3.Width.Set(1216, 0);
 			AbilityDescription3.Height.Set(40, 0);
 			AbilityDescription3.Left.Set(350 - 362 - 8 + 320, 0);
@@ -755,7 +755,7 @@ namespace MrPlagueRaces.Common.UI
 			AbilityDescription3.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AbilityDescription3);
 
-			AbilityDescription4 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AbilityDescription4 = new WrappedUITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AbilityDescription4.Width.Set(1216, 0);
 			AbilityDescription4.Height.Set(40, 0);
 			AbilityDescription4.Left.Set(350 - 362 - 8 + 320, 0);
@@ -764,7 +764,7 @@ namespace MrPlagueRaces.Common.UI
 			AbilityDescription4.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AbilityDescription4);
 
-			AbilityDescription5 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AbilityDescription5 = new WrappedUITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AbilityDescription5.Width.Set(1216, 0);
 			AbilityDescription5.Height.Set(40, 0);
 			AbilityDescription5.Left.Set(350 - 362 - 8 + 320, 0);
@@ -773,7 +773,7 @@ namespace MrPlagueRaces.Common.UI
 			AbilityDescription5.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AbilityDescription5);
 
-			AbilityDescription6 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AbilityDescription6 = new WrappedUITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AbilityDescription6.Width.Set(1216, 0);
 			AbilityDescription6.Height.Set(40, 0);
 			AbilityDescription6.Left.Set(350 - 362 - 8 + 320, 0);
@@ -782,7 +782,7 @@ namespace MrPlagueRaces.Common.UI
 			AbilityDescription6.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AbilityDescription6);
 
-			AdditionalNotesDescription1 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AdditionalNotesDescription1 = new WrappedUITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription1.Width.Set(1216, 0);
 			AdditionalNotesDescription1.Height.Set(40, 0);
 			AdditionalNotesDescription1.Left.Set(350 - 362 - 8 + 320, 0);
@@ -791,7 +791,7 @@ namespace MrPlagueRaces.Common.UI
 			AdditionalNotesDescription1.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription1);
 
-			AdditionalNotesDescription2 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AdditionalNotesDescription2 = new WrappedUITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription2.Width.Set(1216, 0);
 			AdditionalNotesDescription2.Height.Set(40, 0);
 			AdditionalNotesDescription2.Left.Set(350 - 362 - 8 + 320, 0);
@@ -800,7 +800,7 @@ namespace MrPlagueRaces.Common.UI
 			AdditionalNotesDescription2.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription2);
 
-			AdditionalNotesDescription3 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AdditionalNotesDescription3 = new WrappedUITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription3.Width.Set(1216, 0);
 			AdditionalNotesDescription3.Height.Set(40, 0);
 			AdditionalNotesDescription3.Left.Set(350 - 362 - 8 + 320, 0);
@@ -809,7 +809,7 @@ namespace MrPlagueRaces.Common.UI
 			AdditionalNotesDescription3.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription3);
 
-			AdditionalNotesDescription4 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AdditionalNotesDescription4 = new WrappedUITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription4.Width.Set(1216, 0);
 			AdditionalNotesDescription4.Height.Set(40, 0);
 			AdditionalNotesDescription4.Left.Set(350 - 362 - 8 + 320, 0);
@@ -818,7 +818,7 @@ namespace MrPlagueRaces.Common.UI
 			AdditionalNotesDescription4.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription4);
 
-			AdditionalNotesDescription5 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AdditionalNotesDescription5 = new WrappedUITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription5.Width.Set(1216, 0);
 			AdditionalNotesDescription5.Height.Set(40, 0);
 			AdditionalNotesDescription5.Left.Set(350 - 362 - 8 + 320, 0);
@@ -827,7 +827,7 @@ namespace MrPlagueRaces.Common.UI
 			AdditionalNotesDescription5.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription5);
 
-			AdditionalNotesDescription6 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AdditionalNotesDescription6 = new WrappedUITextPanel<string>("" + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription6.Width.Set(1216, 0);
 			AdditionalNotesDescription6.Height.Set(40, 0);
 			AdditionalNotesDescription6.Left.Set(350 - 362 - 8 + 320, 0);
@@ -836,7 +836,7 @@ namespace MrPlagueRaces.Common.UI
 			AdditionalNotesDescription6.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription6);
 
-			Lore1Description = new UITextPanel<string>("A diverse race with" + "\na surprising amount" + "\nof resilience, known" + "\nfor their adaptivity." + "\n                                                                                                                                                                       ");
+			Lore1Description = new WrappedUITextPanel<string>("A diverse race with" + "\na surprising amount" + "\nof resilience, known" + "\nfor their adaptivity." + "\n                                                                                                                                                                       ");
 			Lore1Description.Width.Set(280, 0);
 			Lore1Description.Height.Set(40, 0);
 			Lore1Description.Left.Set(-8, 0);
@@ -845,7 +845,7 @@ namespace MrPlagueRaces.Common.UI
 			Lore1Description.BorderColor = Color.Transparent;
 			UI_LoreBox.Append(Lore1Description);
 
-			Lore2Description = new UITextPanel<string>("Old records seem to suggest they" + "\nonce built advanced technology," + "\nalthough there are no remnants." + "\n                                                                                                                                                                       ");
+			Lore2Description = new WrappedUITextPanel<string>("Old records seem to suggest they" + "\nonce built advanced technology," + "\nalthough there are no remnants." + "\n                                                                                                                                                                       ");
 			Lore2Description.Width.Set(280, 0);
 			Lore2Description.Height.Set(40, 0);
 			Lore2Description.Left.Set(-8, 0);
@@ -854,7 +854,7 @@ namespace MrPlagueRaces.Common.UI
 			Lore2Description.BorderColor = Color.Transparent;
 			UI_LoreBox2.Append(Lore2Description);
 
-			RaceSelect = new UITextPanel<string>("View Race Information (page " + (RacePage + 1) + ")" + "\n                                                                                                                                                                       ");
+			RaceSelect = new WrappedUITextPanel<string>("View Race Information (page " + (RacePage + 1) + ")" + "\n                                                                                                                                                                       ");
 			RaceSelect.Width.Set(1216, 0);
 			RaceSelect.Height.Set(40, 0);
 			RaceSelect.Left.Set(350 - 362 - 10 + 320, 0);
@@ -863,7 +863,7 @@ namespace MrPlagueRaces.Common.UI
 			RaceSelect.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(RaceSelect);
 
-			RaceNameDisplay = new UITextPanel<string>("Human");
+			RaceNameDisplay = new WrappedUITextPanel<string>("Human");
 			RaceNameDisplay.Width.Set(300, 0);
 			RaceNameDisplay.Height.Set(40, 0);
 			RaceNameDisplay.Left.Set(5 + 16 - 13 + 2 - 22, 0);
@@ -872,7 +872,7 @@ namespace MrPlagueRaces.Common.UI
 			RaceNameDisplay.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(RaceNameDisplay);
 
-			DisplayHealth = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayHealth = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayHealth.Width.Set(64, 0);
 			DisplayHealth.Height.Set(20, 0);
 			DisplayHealth.Left.Set(10 + 20 - 22 - 10 + 7, 0);
@@ -881,7 +881,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayHealth.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayHealth);
 
-			DisplayRegeneration = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayRegeneration = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayRegeneration.Width.Set(64, 0);
 			DisplayRegeneration.Height.Set(20, 0);
 			DisplayRegeneration.Left.Set(10 + 20 - 22 + 72 - 10 + 7, 0);
@@ -890,7 +890,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayRegeneration.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayRegeneration);
 
-			DisplayMana = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayMana = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayMana.Width.Set(64, 0);
 			DisplayMana.Height.Set(20, 0);
 			DisplayMana.Left.Set(10 + 20 - 22 + 72 + 72 - 10 + 7, 0);
@@ -899,7 +899,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayMana.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayMana);
 
-			DisplayManaRegeneration = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayManaRegeneration = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayManaRegeneration.Width.Set(64, 0);
 			DisplayManaRegeneration.Height.Set(20, 0);
 			DisplayManaRegeneration.Left.Set(10 + 20 - 22 + 72 + 72 + 72 - 10 + 7, 0);
@@ -908,7 +908,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayManaRegeneration.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayManaRegeneration);
 
-			DisplayDefense = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayDefense = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayDefense.Width.Set(64, 0);
 			DisplayDefense.Height.Set(20, 0);
 			DisplayDefense.Left.Set(10 + 20 - 22 - 10 + 7, 0);
@@ -917,7 +917,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayDefense.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayDefense);
 
-			DisplayDamageReduction = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayDamageReduction = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayDamageReduction.Width.Set(64, 0);
 			DisplayDamageReduction.Height.Set(20, 0);
 			DisplayDamageReduction.Left.Set(10 + 20 - 22 + 72 - 10 + 7, 0);
@@ -926,7 +926,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayDamageReduction.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayDamageReduction);
 
-			DisplayThorns = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayThorns = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayThorns.Width.Set(64, 0);
 			DisplayThorns.Height.Set(20, 0);
 			DisplayThorns.Left.Set(10 + 20 - 22 + 72 + 72 - 10 + 7, 0);
@@ -935,7 +935,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayThorns.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayThorns);
 
-			DisplayLavaResistance = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayLavaResistance = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayLavaResistance.Width.Set(64, 0);
 			DisplayLavaResistance.Height.Set(20, 0);
 			DisplayLavaResistance.Left.Set(10 + 20 - 22 + 72 + 72 + 72 - 10 + 7, 0);
@@ -944,7 +944,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayLavaResistance.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayLavaResistance);
 
-			DisplayMeleeDamage = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayMeleeDamage = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayMeleeDamage.Width.Set(64, 0);
 			DisplayMeleeDamage.Height.Set(20, 0);
 			DisplayMeleeDamage.Left.Set(10 + 20 - 22 - 10 + 7, 0);
@@ -953,7 +953,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayMeleeDamage.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayMeleeDamage);
 
-			DisplayRangedDamage = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayRangedDamage = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayRangedDamage.Width.Set(64, 0);
 			DisplayRangedDamage.Height.Set(20, 0);
 			DisplayRangedDamage.Left.Set(10 + 20 - 22 + 72 - 10 + 7, 0);
@@ -962,7 +962,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayRangedDamage.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayRangedDamage);
 
-			DisplayMagicDamage = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayMagicDamage = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayMagicDamage.Width.Set(64, 0);
 			DisplayMagicDamage.Height.Set(20, 0);
 			DisplayMagicDamage.Left.Set(10 + 20 - 22 + 72 + 72 - 10 + 7, 0);
@@ -971,7 +971,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayMagicDamage.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayMagicDamage);
 
-			DisplaySummonDamage = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplaySummonDamage = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplaySummonDamage.Width.Set(64, 0);
 			DisplaySummonDamage.Height.Set(20, 0);
 			DisplaySummonDamage.Left.Set(10 + 20 - 22 + 72 + 72 + 72 - 10 + 7, 0);
@@ -980,7 +980,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplaySummonDamage.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplaySummonDamage);
 
-			DisplayMeleeSpeed = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayMeleeSpeed = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayMeleeSpeed.Width.Set(64, 0);
 			DisplayMeleeSpeed.Height.Set(20, 0);
 			DisplayMeleeSpeed.Left.Set(10 + 20 - 22 - 10 + 7, 0);
@@ -989,7 +989,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayMeleeSpeed.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayMeleeSpeed);
 
-			DisplayArmorPenetration = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayArmorPenetration = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayArmorPenetration.Width.Set(64, 0);
 			DisplayArmorPenetration.Height.Set(20, 0);
 			DisplayArmorPenetration.Left.Set(10 + 20 - 22 + 72 - 10 + 7, 0);
@@ -998,7 +998,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayArmorPenetration.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayArmorPenetration);
 
-			DisplayBulletDamage = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayBulletDamage = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayBulletDamage.Width.Set(64, 0);
 			DisplayBulletDamage.Height.Set(20, 0);
 			DisplayBulletDamage.Left.Set(10 + 20 - 22 + 72 + 72 - 10 + 7, 0);
@@ -1007,7 +1007,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayBulletDamage.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayBulletDamage);
 
-			DisplayRocketDamage = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayRocketDamage = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayRocketDamage.Width.Set(64, 0);
 			DisplayRocketDamage.Height.Set(20, 0);
 			DisplayRocketDamage.Left.Set(10 + 20 - 22 + 72 + 72 + 72 - 10 + 7, 0);
@@ -1016,7 +1016,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayRocketDamage.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayRocketDamage);
 
-			DisplayManaCost = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayManaCost = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayManaCost.Width.Set(64, 0);
 			DisplayManaCost.Height.Set(20, 0);
 			DisplayManaCost.Left.Set(10 + 20 - 22 - 10 + 7, 0);
@@ -1025,7 +1025,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayManaCost.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayManaCost);
 
-			DisplayMinionKnockback = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayMinionKnockback = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayMinionKnockback.Width.Set(64, 0);
 			DisplayMinionKnockback.Height.Set(20, 0);
 			DisplayMinionKnockback.Left.Set(10 + 20 - 22 + 72 - 10 + 7, 0);
@@ -1034,7 +1034,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayMinionKnockback.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayMinionKnockback);
 
-			DisplayMinions = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayMinions = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayMinions.Width.Set(64, 0);
 			DisplayMinions.Height.Set(20, 0);
 			DisplayMinions.Left.Set(10 + 20 - 22 + 72 + 72 - 10 + 7, 0);
@@ -1043,7 +1043,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayMinions.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayMinions);
 
-			DisplaySentries = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplaySentries = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplaySentries.Width.Set(64, 0);
 			DisplaySentries.Height.Set(20, 0);
 			DisplaySentries.Left.Set(10 + 20 - 22 + 72 + 72 + 72 - 10 + 7, 0);
@@ -1052,7 +1052,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplaySentries.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplaySentries);
 
-			DisplayMeleeCritChance = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayMeleeCritChance = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayMeleeCritChance.Width.Set(64, 0);
 			DisplayMeleeCritChance.Height.Set(20, 0);
 			DisplayMeleeCritChance.Left.Set(10 + 20 - 22 - 10 + 7, 0);
@@ -1061,7 +1061,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayMeleeCritChance.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayMeleeCritChance);
 
-			DisplayRangedCritChance = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayRangedCritChance = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayRangedCritChance.Width.Set(64, 0);
 			DisplayRangedCritChance.Height.Set(20, 0);
 			DisplayRangedCritChance.Left.Set(10 + 20 - 22 + 72 - 10 + 7, 0);
@@ -1070,7 +1070,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayRangedCritChance.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayRangedCritChance);
 
-			DisplayMagicCritChance = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayMagicCritChance = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayMagicCritChance.Width.Set(64, 0);
 			DisplayMagicCritChance.Height.Set(20, 0);
 			DisplayMagicCritChance.Left.Set(10 + 20 - 22 + 72 + 72 - 10 + 7, 0);
@@ -1079,7 +1079,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayMagicCritChance.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayMagicCritChance);
 
-			DisplayMiningSpeed = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayMiningSpeed = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayMiningSpeed.Width.Set(64, 0);
 			DisplayMiningSpeed.Height.Set(20, 0);
 			DisplayMiningSpeed.Left.Set(10 + 20 - 22 + 72 + 72 + 72 - 10 + 7, 0);
@@ -1088,7 +1088,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayMiningSpeed.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayMiningSpeed);
 
-			DisplayBuildingSpeed = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayBuildingSpeed = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayBuildingSpeed.Width.Set(64, 0);
 			DisplayBuildingSpeed.Height.Set(20, 0);
 			DisplayBuildingSpeed.Left.Set(10 + 20 - 22 - 10 + 7, 0);
@@ -1097,7 +1097,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayBuildingSpeed.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayBuildingSpeed);
 
-			DisplayBuildingWallSpeed = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayBuildingWallSpeed = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayBuildingWallSpeed.Width.Set(64, 0);
 			DisplayBuildingWallSpeed.Height.Set(20, 0);
 			DisplayBuildingWallSpeed.Left.Set(10 + 20 - 22 + 72 - 10 + 7, 0);
@@ -1106,7 +1106,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayBuildingWallSpeed.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayBuildingWallSpeed);
 
-			DisplayBuildingRange = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayBuildingRange = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayBuildingRange.Width.Set(64, 0);
 			DisplayBuildingRange.Height.Set(20, 0);
 			DisplayBuildingRange.Left.Set(10 + 20 - 22 + 72 + 72 - 10 + 7, 0);
@@ -1115,7 +1115,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayBuildingRange.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayBuildingRange);
 
-			DisplayArrowDamage = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayArrowDamage = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayArrowDamage.Width.Set(64, 0);
 			DisplayArrowDamage.Height.Set(20, 0);
 			DisplayArrowDamage.Left.Set(10 + 20 - 22 + 72 + 72 + 72 - 10 + 7, 0);
@@ -1124,7 +1124,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayArrowDamage.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayArrowDamage);
 
-			DisplayMovementSpeed = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayMovementSpeed = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayMovementSpeed.Width.Set(64, 0);
 			DisplayMovementSpeed.Height.Set(20, 0);
 			DisplayMovementSpeed.Left.Set(10 + 20 - 22 - 10 + 7, 0);
@@ -1133,7 +1133,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayMovementSpeed.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayMovementSpeed);
 
-			DisplayJumpSpeed = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayJumpSpeed = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayJumpSpeed.Width.Set(64, 0);
 			DisplayJumpSpeed.Height.Set(20, 0);
 			DisplayJumpSpeed.Left.Set(10 + 20 - 22 + 72 - 10 + 7, 0);
@@ -1142,7 +1142,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayJumpSpeed.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayJumpSpeed);
 
-			DisplayFallDamageResistance = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayFallDamageResistance = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayFallDamageResistance.Width.Set(64, 0);
 			DisplayFallDamageResistance.Height.Set(20, 0);
 			DisplayFallDamageResistance.Left.Set(10 + 20 - 22 + 72 + 72 - 10 + 7, 0);
@@ -1151,7 +1151,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayFallDamageResistance.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayFallDamageResistance);
 
-			DisplayAllDamage = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayAllDamage = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayAllDamage.Width.Set(64, 0);
 			DisplayAllDamage.Height.Set(20, 0);
 			DisplayAllDamage.Left.Set(10 + 20 - 22 + 72 + 72 + 72 - 10 + 7, 0);
@@ -1160,7 +1160,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayAllDamage.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayAllDamage);
 
-			DisplayFishingSkill = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayFishingSkill = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayFishingSkill.Width.Set(64, 0);
 			DisplayFishingSkill.Height.Set(20, 0);
 			DisplayFishingSkill.Left.Set(10 + 20 - 22 - 10 + 7, 0);
@@ -1169,7 +1169,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayFishingSkill.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayFishingSkill);
 
-			DisplayAggro = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayAggro = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayAggro.Width.Set(64, 0);
 			DisplayAggro.Height.Set(20, 0);
 			DisplayAggro.Left.Set(10 + 20 - 22 + 72 - 10 + 7, 0);
@@ -1178,7 +1178,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayAggro.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayAggro);
 
-			DisplayRunSpeed = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayRunSpeed = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayRunSpeed.Width.Set(64, 0);
 			DisplayRunSpeed.Height.Set(20, 0);
 			DisplayRunSpeed.Left.Set(10 + 20 - 22 + 72 + 72 - 10 + 7, 0);
@@ -1187,7 +1187,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayRunSpeed.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayRunSpeed);
 
-			DisplayRunAcceleration = new UITextPanel<string>("" + "\n                                          ", 0.8f);
+			DisplayRunAcceleration = new WrappedUITextPanel<string>("" + "\n                                          ", 0.8f);
 			DisplayRunAcceleration.Width.Set(64, 0);
 			DisplayRunAcceleration.Height.Set(20, 0);
 			DisplayRunAcceleration.Left.Set(10 + 20 - 22 + 72 + 72 + 72 - 10 + 7, 0);
@@ -1196,7 +1196,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayRunAcceleration.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayRunAcceleration);
 
-			DisplayGoodBiomes = new UITextPanel<string>("None" + "\n                                          ", 0.8f);
+			DisplayGoodBiomes = new WrappedUITextPanel<string>("None" + "\n                                          ", 0.8f);
 			DisplayGoodBiomes.Width.Set(280, 0);
 			DisplayGoodBiomes.Height.Set(26, 0);
 			DisplayGoodBiomes.Left.Set(15 + 20 - 22 - 10, 0);
@@ -1205,7 +1205,7 @@ namespace MrPlagueRaces.Common.UI
 			DisplayGoodBiomes.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(DisplayGoodBiomes);
 
-			DisplayBadBiomes = new UITextPanel<string>("None" + "\n                                          ", 0.8f);
+			DisplayBadBiomes = new WrappedUITextPanel<string>("None" + "\n                                          ", 0.8f);
 			DisplayBadBiomes.Width.Set(280, 0);
 			DisplayBadBiomes.Height.Set(26, 0);
 			DisplayBadBiomes.Left.Set(15 + 20 - 22 - 10, 0);
