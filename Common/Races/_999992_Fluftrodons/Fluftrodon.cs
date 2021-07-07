@@ -15,8 +15,8 @@ namespace MrPlagueRaces.Common.Races._999992_Fluftrodons
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/FluftrodonDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/FluftrodonDisplayFemale");
 
-		public override string RaceLore1 => "Oddly raptor-like" + "\nin appearance, the" + "\nFluftrodons greatly" + "\nvalue the arts.";
-		public override string RaceLore2 => "Their history is baffling, seeming" + "\nto suggest they abruptly popped" + "\ninto existence out of nowhere.";
+		public override string RaceLore1 => "Oddly raptor-like in appearance, the Fluftrodons greatly value the arts.";
+		public override string RaceLore2 => "Their history is baffling, seeming to suggest they abruptly popped into existence out of nowhere.";
 		public override string RaceAbilityName => "Paint";
 		public override string RaceAbilityDescription1 => "Press [c/34EB93:Racial Ability Hotkey] to toggle a painting UI. You can paint whilst it is active.";
 		public override string RaceAbilityDescription2 => "";

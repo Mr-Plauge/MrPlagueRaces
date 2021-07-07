@@ -17,8 +17,8 @@ namespace MrPlagueRaces.Common.Races._999995_Skeletons
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/SkeletonDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/SkeletonDisplayFemale");
 
-		public override string RaceLore1 => "Skeletons reborn via" + "\nvarious practices," + "\ntypically using souls" + "\nand forbidden arts.";
-		public override string RaceLore2 => "Most Skeletons become maniacal" + "\nupon being reanimated, with only" + "\nthe strong-willed staying sane.";
+		public override string RaceLore1 => "Skeletons reborn via various practices, typically using souls and forbidden arts.";
+		public override string RaceLore2 => "Most Skeletons become maniacal upon being reanimated, with only the strong-willed staying sane.";
 		public override string RaceAbilityName => "";
 		public override string RaceAbilityDescription1 => "";
 		public override string RaceAbilityDescription2 => "";

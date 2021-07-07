@@ -14,8 +14,8 @@ namespace MrPlagueRaces.Common.Races._999998_Goblins
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/GoblinDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/GoblinDisplayFemale");
 
-		public override string RaceLore1 => "A race composed of" + "\ntravelling colonies," + "\ninfamous for raiding" + "\nand pillaging.";
-		public override string RaceLore2 => "Goblins are incredibly intelligent," + "\nalthough their barbaric ways" + "\nmake many assume otherwise.";
+		public override string RaceLore1 => "A race composed of traveling colonies, infamous for raiding and pillaging.";
+		public override string RaceLore2 => "Goblins are incredibly intelligent, although their barbaric ways make many assume otherwise.";
 		public override string RaceAbilityName => "";
 		public override string RaceAbilityDescription1 => "";
 		public override string RaceAbilityDescription2 => "";

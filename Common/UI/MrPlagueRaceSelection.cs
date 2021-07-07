@@ -103,8 +103,8 @@ namespace MrPlagueRaces.Common.UI
 
 		UITextPanel<string> HoverText = new UITextPanel<string>("");
 		UITextPanel<string> RaceNameDisplay = new UITextPanel<string>("");
-		UITextPanel<string> Lore1Description = new UITextPanel<string>("");
-		UITextPanel<string> Lore2Description = new UITextPanel<string>("");
+		WrappedUITextPanel<string> Lore1Description = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> Lore2Description = new WrappedUITextPanel<string>("");
 		UITextPanel<string> Ability = new UITextPanel<string>("");
         UITextPanel<string> AdditionalNotes = new UITextPanel<string>("");
         UITextPanel<string> AbilityDescription1 = new UITextPanel<string>("");
@@ -858,7 +858,7 @@ namespace MrPlagueRaces.Common.UI
 			AdditionalNotesDescription6.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription6);
 
-			Lore1Description = new UITextPanel<string>("A diverse race with" + "\na surprising amount" + "\nof resilience, known" + "\nfor their adaptivity." + "\n                                                                                                                                                                       ");
+			Lore1Description = new WrappedUITextPanel<string>("A diverse race with a surprising amount of resilience, known for their adaptivity.");
             Lore1Description.Width.Set(280, 0);
             Lore1Description.Height.Set(40, 0);
             Lore1Description.Left.Set(-8, 0);
@@ -867,7 +867,7 @@ namespace MrPlagueRaces.Common.UI
             Lore1Description.BorderColor = Color.Transparent;
 			UI_LoreBox.Append(Lore1Description);
 
-            Lore2Description = new UITextPanel<string>("Old records seem to suggest they" + "\nonce built advanced technology," + "\nalthough there are no remnants." + "\n                                                                                                                                                                       ");
+            Lore2Description = new WrappedUITextPanel<string>("Old records seem to suggest they once built advanced technology, although there are no remnants.");
             Lore2Description.Width.Set(280, 0);
             Lore2Description.Height.Set(40, 0);
             Lore2Description.Left.Set(-8, 0);
@@ -876,7 +876,7 @@ namespace MrPlagueRaces.Common.UI
             Lore2Description.BorderColor = Color.Transparent;
             UI_LoreBox2.Append(Lore2Description);
 
-			RaceSelect = new UITextPanel<string>("Select Race (page " + (RacePage + 1) + ")" + "\n                                                                                                                                                                       ");
+			RaceSelect = new UITextPanel<string>("Select Race (page " + (RacePage + 1) + ")");
 			RaceSelect.Width.Set(1216, 0);
 			RaceSelect.Height.Set(40, 0);
 			RaceSelect.Left.Set(350 - 362 - 10 + 320, 0);

@@ -17,8 +17,8 @@ namespace MrPlagueRaces.Common.Races._999991_Tabaxis
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/TabaxiDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/TabaxiDisplayFemale");
 
-		public override string RaceLore1 => "A nomadic folk that" + "\nrarely settle down," + "\nalthough they often" + "\nrecord their travels." + "\n";
-		public override string RaceLore2 => "Tabaxi have almost no interest in" + "\nwealth or power, being primarily" + "\nmotivated by curiosity instead.";
+		public override string RaceLore1 => "A nomadic folk that rarely settle down, although they often record their travels.";
+		public override string RaceLore2 => "Tabaxi have almost no interest in wealth or power, being primarily motivated by curiosity instead.";
 		public override string RaceAbilityName => "";
 		public override string RaceAbilityDescription1 => "";
 		public override string RaceAbilityDescription2 => "";

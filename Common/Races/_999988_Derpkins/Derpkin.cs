@@ -15,8 +15,8 @@ namespace MrPlagueRaces.Common.Races._999988_Derpkins
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/DerpkinDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/DerpkinDisplayFemale");
 
-		public override string RaceLore1 => "A primitive race of" + "\ninsectoids, infamous" + "\nfor their disturbing" + "\nspeed and strength.";
-		public override string RaceLore2 => "Derpkin are native to the tropics," + "\nalthough they can survive almost" + "\nanywhere with little trouble.";
+		public override string RaceLore1 => "A primitive race of insectoids, infamous for their disturbing speed and strength.";
+		public override string RaceLore2 => "Derpkin are native to the tropics, although they can survive almost anywhere with little trouble.";
 		public override string RaceAbilityName => "";
 		public override string RaceAbilityDescription1 => "";
 		public override string RaceAbilityDescription2 => "";

@@ -15,8 +15,8 @@ namespace MrPlagueRaces.Common.Races._999997_Merfolks
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/MerfolkDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/MerfolkDisplayFemale");
 
-		public override string RaceLore1 => "A race native to the" + "\nocean depths, having" + "\nmigrated to shores" + "\nin recent times.";
-		public override string RaceLore2 => "Although they are primarily built" + "\nfor living in water, Merfolk are" + "\nalso capable of traversing land.";
+		public override string RaceLore1 => "A race native to the ocean depths, having migrated to shores in recent times.";
+		public override string RaceLore2 => "Although they are primarily built for living in water, Merfolk are also capable of traversing land.";
 		public override string RaceAbilityName => "";
 		public override string RaceAbilityDescription1 => "";
 		public override string RaceAbilityDescription2 => "";

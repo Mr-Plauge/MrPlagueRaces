@@ -13,8 +13,8 @@ namespace MrPlagueRaces.Common.Races._999999_Humans
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/HumanDisplayMale");
 		public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/HumanDisplayFemale");
 
-		public override string RaceLore1 => "A diverse race with" + "\na surprising amount" + "\nof resilience, known" + "\nfor their adaptivity.";
-        public override string RaceLore2 => "Old records seem to suggest they" + "\nonce built advanced technology," + "\nalthough there are no remnants.";
+		public override string RaceLore1 => "A diverse race with a surprising amount of resilience, known for their adaptivity.";
+        public override string RaceLore2 => "Old records seem to suggest they once built advanced technology, although there are no remnants.";
 		public override string RaceAbilityName => "";
 		public override string RaceAbilityDescription1 => "";
 		public override string RaceAbilityDescription2 => "";

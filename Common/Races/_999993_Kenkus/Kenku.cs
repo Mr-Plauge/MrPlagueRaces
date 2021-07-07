@@ -14,8 +14,8 @@ namespace MrPlagueRaces.Common.Races._999993_Kenkus
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/KenkuDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/KenkuDisplayFemale");
 
-		public override string RaceLore1 => "A bird-like race," + "\nwell known for their" + "\nagility and uncanny" + "\nprecision.";
-		public override string RaceLore2 => "Kenku culture was influenced by" + "\nthe steampunk fad, likely having" + "\nbeen introduced by Humans.";
+		public override string RaceLore1 => "A bird-like race, well known for their agility and uncanny precision.";
+		public override string RaceLore2 => "Kenku culture was influenced by the steampunk fad, likely having been introduced by Humans.";
 		public override string RaceAbilityName => "";
 		public override string RaceAbilityDescription1 => "";
 		public override string RaceAbilityDescription2 => "";

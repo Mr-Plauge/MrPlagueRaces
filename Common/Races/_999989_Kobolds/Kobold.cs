@@ -17,8 +17,8 @@ namespace MrPlagueRaces.Common.Races._999989_Kobolds
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/KoboldDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/KoboldDisplayFemale");
 
-		public override string RaceLore1 => "Often reclusive, the" + "\nreptilian Kobolds" + "\nare talented diggers" + "\nand orefinders.";
-		public override string RaceLore2 => "They are adapted for living far" + "\nbelow the surface, notably having" + "\nsimilar biology to the Dragonkin.";
+		public override string RaceLore1 => "Often reclusive, the reptilian Kobolds are talented diggers and orefinders.";
+		public override string RaceLore2 => "They are adapted for living far below the surface, notably having similar biology to the Dragonkin.";
 		public override string RaceAbilityName => "Oresense";
 		public override string RaceAbilityDescription1 => "Press [c/34EB93:Racial Ability Hotkey] to detect nearby ores.";
 		public override string RaceAbilityDescription2 => "";
