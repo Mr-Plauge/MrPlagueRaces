@@ -20,18 +20,9 @@ namespace MrPlagueRaces.Common.Races._999989_Kobolds
 		public override string RaceLore1 => "Often reclusive, the reptilian Kobolds are talented diggers and orefinders.";
 		public override string RaceLore2 => "They are adapted for living far below the surface, notably having similar biology to the Dragonkin.";
 		public override string RaceAbilityName => "Oresense";
-		public override string RaceAbilityDescription1 => "Press [c/34EB93:Racial Ability Hotkey] to detect nearby ores.";
-		public override string RaceAbilityDescription2 => "";
-		public override string RaceAbilityDescription3 => "";
-		public override string RaceAbilityDescription4 => "";
-		public override string RaceAbilityDescription5 => "";
-		public override string RaceAbilityDescription6 => "";
-		public override string RaceAdditionalNotesDescription1 => "-Has [c/34EB93:Night Vision]";
-		public override string RaceAdditionalNotesDescription2 => "-Stats decrease in sunlight ([c/FF4F64:-4] Defense, [c/FF4F64:-20%] Attack Damage, [c/FF4F64:-50%] Jump Height)";
-		public override string RaceAdditionalNotesDescription3 => "";
-		public override string RaceAdditionalNotesDescription4 => "";
-		public override string RaceAdditionalNotesDescription5 => "";
-		public override string RaceAdditionalNotesDescription6 => "";
+		public override string RaceAbilityDescription => "Press [c/34EB93:Racial Ability Hotkey] to detect nearby ores.";
+		public override string RaceAdditionalNotesDescription => "-Has [c/34EB93:Night Vision]" +
+																  "\n-Stats decrease in sunlight ([c/FF4F64:-4] Defense, [c/FF4F64:-20%] Attack Damage, [c/FF4F64:-50%] Jump Height)";
 		public override bool UsesCustomHurtSound => true;
         public override bool HasFemaleHurtSound => true;
 

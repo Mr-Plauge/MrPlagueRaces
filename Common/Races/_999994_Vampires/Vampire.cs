@@ -22,18 +22,9 @@ namespace MrPlagueRaces.Common.Races._999994_Vampires
 		public override string RaceLore1 => "Bat-like creatures that are naturally gifted with a form of blood magic.";
 		public override string RaceLore2 => "Vampires tend to live solitarily, travelling at night or via caverns due to their sensitivity to the sun.";
 		public override string RaceAbilityName => "Bat Transformation";
-		public override string RaceAbilityDescription1 => "Press [c/34EB93:Racial Ability Hotkey] to become a bat. Grants flight, decreases your hitbox size, and increases your Movement Speed depending on equipped";
-		public override string RaceAbilityDescription2 => "wings and boots.";
-		public override string RaceAbilityDescription3 => "";
-		public override string RaceAbilityDescription4 => "";
-		public override string RaceAbilityDescription5 => "";
-		public override string RaceAbilityDescription6 => "";
-		public override string RaceAdditionalNotesDescription1 => "-Burns in sunlight";
-		public override string RaceAdditionalNotesDescription2 => "";
-		public override string RaceAdditionalNotesDescription3 => "";
-		public override string RaceAdditionalNotesDescription4 => "";
-		public override string RaceAdditionalNotesDescription5 => "";
-		public override string RaceAdditionalNotesDescription6 => "";
+		public override string RaceAbilityDescription =>
+			"Press [c/34EB93:Racial Ability Hotkey] to become a bat. Grants flight, decreases your hitbox size, and increases your Movement Speed depending on equipped wings and boots.";
+		public override string RaceAdditionalNotesDescription => "-Burns in sunlight";
 		public override bool UsesCustomHurtSound => true;
         public override bool HasFemaleHurtSound => true;
 

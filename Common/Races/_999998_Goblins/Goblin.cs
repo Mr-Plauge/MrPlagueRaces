@@ -17,13 +17,8 @@ namespace MrPlagueRaces.Common.Races._999998_Goblins
 		public override string RaceLore1 => "A race composed of traveling colonies, infamous for raiding and pillaging.";
 		public override string RaceLore2 => "Goblins are incredibly intelligent, although their barbaric ways make many assume otherwise.";
 		public override string RaceAbilityName => "";
-		public override string RaceAbilityDescription1 => "";
-		public override string RaceAbilityDescription2 => "";
-		public override string RaceAbilityDescription3 => "";
-		public override string RaceAbilityDescription4 => "";
-		public override string RaceAbilityDescription5 => "";
-		public override string RaceAbilityDescription6 => "";
-		public override string RaceAdditionalNotesDescription1 => "";
+		public override string RaceAbilityDescription => "";
+		public override string RaceAdditionalNotesDescription => "";
 		public override bool UsesCustomHurtSound => true;
         public override bool HasFemaleHurtSound => true;
 

@@ -18,18 +18,12 @@ namespace MrPlagueRaces.Common.Races._999997_Merfolks
 		public override string RaceLore1 => "A race native to the ocean depths, having migrated to shores in recent times.";
 		public override string RaceLore2 => "Although they are primarily built for living in water, Merfolk are also capable of traversing land.";
 		public override string RaceAbilityName => "";
-		public override string RaceAbilityDescription1 => "";
-		public override string RaceAbilityDescription2 => "";
-		public override string RaceAbilityDescription3 => "";
-		public override string RaceAbilityDescription4 => "";
-		public override string RaceAbilityDescription5 => "";
-		public override string RaceAbilityDescription6 => "";
-		public override string RaceAdditionalNotesDescription1 => "-Can breathe underwater";
-		public override string RaceAdditionalNotesDescription2 => "-Unhindered by water";
-		public override string RaceAdditionalNotesDescription3 => "-Can swim in water";
-		public override string RaceAdditionalNotesDescription4 => "-Attack Damage increases by [c/34EB93:+25%] in water";
-		public override string RaceAdditionalNotesDescription5 => "-Can't breathe on land";
-		public override string RaceAdditionalNotesDescription6 => "";
+		public override string RaceAbilityDescription => "";
+		public override string RaceAdditionalNotesDescription => "-Can breathe underwanter" +
+		                                                         "\n-Unhindered by water" +
+		                                                         "\n-Can swim in water" +
+																 "\n-Attack Damage increases by [c/34EB93:+25%] in water" +
+		                                                         "\n-Can't breathe on land";
 		public override bool UsesCustomHurtSound => true;
 
 		public override string RaceHealthDisplayText => "";

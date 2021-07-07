@@ -20,18 +20,11 @@ namespace MrPlagueRaces.Common.Races._999991_Tabaxis
 		public override string RaceLore1 => "A nomadic folk that rarely settle down, although they often record their travels.";
 		public override string RaceLore2 => "Tabaxi have almost no interest in wealth or power, being primarily motivated by curiosity instead.";
 		public override string RaceAbilityName => "";
-		public override string RaceAbilityDescription1 => "";
-		public override string RaceAbilityDescription2 => "";
-		public override string RaceAbilityDescription3 => "";
-		public override string RaceAbilityDescription4 => "";
-		public override string RaceAbilityDescription5 => "";
-		public override string RaceAbilityDescription6 => "";
-		public override string RaceAdditionalNotesDescription1 => "-Gains [c/34EB93:Fall Damage Immunity] and [c/34EB93:Dangersense] when below 25% Health";
-		public override string RaceAdditionalNotesDescription2 => "-Can cling to walls";
-		public override string RaceAdditionalNotesDescription3 => "-Can swim";
-		public override string RaceAdditionalNotesDescription4 => "-Has [c/34EB93:Night Vision]";
-		public override string RaceAdditionalNotesDescription5 => "";
-		public override string RaceAdditionalNotesDescription6 => "";
+		public override string RaceAbilityDescription => "";
+		public override string RaceAdditionalNotesDescription => "-Gains [c/34EB93:Fall Damage Immunity] and [c/34EB93:Dangersense] when below 25% Health" +
+		                                                         "\n-Can cling to walls" +
+		                                                         "\n-Can swim" +
+																 "\n-Has [c/34EB93:Night Vision]";
 		public override bool UsesCustomHurtSound => true;
         public override bool HasFemaleHurtSound => true;
 

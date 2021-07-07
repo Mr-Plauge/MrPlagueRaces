@@ -17,18 +17,8 @@ namespace MrPlagueRaces.Common.Races._999993_Kenkus
 		public override string RaceLore1 => "A bird-like race, well known for their agility and uncanny precision.";
 		public override string RaceLore2 => "Kenku culture was influenced by the steampunk fad, likely having been introduced by Humans.";
 		public override string RaceAbilityName => "";
-		public override string RaceAbilityDescription1 => "";
-		public override string RaceAbilityDescription2 => "";
-		public override string RaceAbilityDescription3 => "";
-		public override string RaceAbilityDescription4 => "";
-		public override string RaceAbilityDescription5 => "";
-		public override string RaceAbilityDescription6 => "";
-		public override string RaceAdditionalNotesDescription1 => "-Can fly short distances without wings";
-		public override string RaceAdditionalNotesDescription2 => "";
-		public override string RaceAdditionalNotesDescription3 => "";
-		public override string RaceAdditionalNotesDescription4 => "";
-		public override string RaceAdditionalNotesDescription5 => "";
-		public override string RaceAdditionalNotesDescription6 => "";
+		public override string RaceAbilityDescription => "";
+		public override string RaceAdditionalNotesDescription => "-Can fly short distances without wings";
 		public override bool UsesCustomHurtSound => true;
 		public override bool UsesCustomDeathSound => true;
 
