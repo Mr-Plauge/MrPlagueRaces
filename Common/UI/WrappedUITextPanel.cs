@@ -79,7 +79,7 @@ namespace MrPlagueRaces.Common.UI
 				{
 					string remainder = "";
 
-					while (font.MeasureString(drawString).X > space.Width + 24f)
+					while (font.MeasureString(drawString).X > space.Width + 26f)
 					{
 						remainder = drawString[drawString.Length - 1] + remainder;
 						drawString = drawString.Substring(0, drawString.Length - 1);
