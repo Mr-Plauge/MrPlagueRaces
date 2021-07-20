@@ -15,21 +15,11 @@ namespace MrPlagueRaces.Common.Races._999990_Dragonkins
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/DragonkinDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/DragonkinDisplayFemale");
 
-		public override string RaceLore1 => "Built for living in" + "\narid environments," + "\nthe Dragonkin have" + "\nhigh endurances.";
-		public override string RaceLore2 => "Their culture heavily favors their" + "\nwarriors, with the weak and timid" + "\noften being treated poorly.";
+		public override string RaceLore1 => "Built for living in arid environments, the Dragonkin have high endurances.";
+		public override string RaceLore2 => "Their culture heavily favors their warriors, with the weak and timid often being treated poorly.";
 		public override string RaceAbilityName => "";
-		public override string RaceAbilityDescription1 => "";
-		public override string RaceAbilityDescription2 => "";
-		public override string RaceAbilityDescription3 => "";
-		public override string RaceAbilityDescription4 => "";
-		public override string RaceAbilityDescription5 => "";
-		public override string RaceAbilityDescription6 => "";
-		public override string RaceAdditionalNotesDescription1 => "";
-		public override string RaceAdditionalNotesDescription2 => "";
-		public override string RaceAdditionalNotesDescription3 => "";
-		public override string RaceAdditionalNotesDescription4 => "";
-		public override string RaceAdditionalNotesDescription5 => "";
-		public override string RaceAdditionalNotesDescription6 => "";
+		public override string RaceAbilityDescription => "";
+		public override string RaceAdditionalNotesDescription => "";
 		public override bool UsesCustomHurtSound => true;
         public override bool HasFemaleHurtSound => true;
 

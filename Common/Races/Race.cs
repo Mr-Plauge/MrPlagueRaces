@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using MrPlagueRaces.Core.Loadables;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -33,17 +34,43 @@ namespace MrPlagueRaces.Common.Races
 		public virtual string RaceLore1 => "";
         public virtual string RaceLore2 => "";
 		public virtual string RaceAbilityName => "";
+
+		public virtual string RaceAbilityDescription => $"{RaceAbilityDescription1}" +
+		                                                $"\n{RaceAbilityDescription2}" +
+		                                                $"\n{RaceAbilityDescription3}" +
+		                                                $"\n{RaceAbilityDescription4}" +
+		                                                $"\n{RaceAbilityDescription5}" +
+		                                                $"\n{RaceAbilityDescription6}";
+		[Obsolete]
 		public virtual string RaceAbilityDescription1 => "";
+		[Obsolete]
 		public virtual string RaceAbilityDescription2 => "";
+		[Obsolete]
 		public virtual string RaceAbilityDescription3 => "";
+		[Obsolete]
 		public virtual string RaceAbilityDescription4 => "";
+		[Obsolete]
 		public virtual string RaceAbilityDescription5 => "";
+		[Obsolete]
 		public virtual string RaceAbilityDescription6 => "";
+
+		public virtual string RaceAdditionalNotesDescription => $"{RaceAdditionalNotesDescription1}" +
+		                                                        $"\n{RaceAdditionalNotesDescription2}" +
+		                                                        $"\n{RaceAdditionalNotesDescription3}" +
+		                                                        $"\n{RaceAdditionalNotesDescription4}" +
+		                                                        $"\n{RaceAdditionalNotesDescription5}" +
+		                                                        $"\n{RaceAdditionalNotesDescription6}";
+		[Obsolete]
 		public virtual string RaceAdditionalNotesDescription1 => "";
+		[Obsolete]
 		public virtual string RaceAdditionalNotesDescription2 => "";
+		[Obsolete]
 		public virtual string RaceAdditionalNotesDescription3 => "";
+		[Obsolete]
 		public virtual string RaceAdditionalNotesDescription4 => "";
+		[Obsolete]
 		public virtual string RaceAdditionalNotesDescription5 => "";
+		[Obsolete]
 		public virtual string RaceAdditionalNotesDescription6 => "";
 
 		public virtual string RaceHealthDisplayText => "";

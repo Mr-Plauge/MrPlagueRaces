@@ -17,21 +17,11 @@ namespace MrPlagueRaces.Common.Races._999996_Mushfolks
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/MushfolkDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/MushfolkDisplayFemale");
 
-		public override string RaceLore1 => "An unusual type of" + "\nfungi, interestingly" + "\npossessing sentience" + "\nand mobility.";
-		public override string RaceLore2 => "Their internal organs have arcane" + "\nproperties almost identical to the" + "\nnearly extinct Dryads.";
+		public override string RaceLore1 => "An unusual type of fungi, interestingly possessing sentience and mobility.";
+		public override string RaceLore2 => "Their internal organs have arcane properties almost identical to the nearly extinct Dryads.";
 		public override string RaceAbilityName => "Healing Aura";
-		public override string RaceAbilityDescription1 => "All nearby players gain [c/34EB93:+6] Regeneration when they are below 100% of their health.";
-		public override string RaceAbilityDescription2 => "";
-		public override string RaceAbilityDescription3 => "";
-		public override string RaceAbilityDescription4 => "";
-		public override string RaceAbilityDescription5 => "";
-		public override string RaceAbilityDescription6 => "";
-		public override string RaceAdditionalNotesDescription1 => "";
-		public override string RaceAdditionalNotesDescription2 => "";
-		public override string RaceAdditionalNotesDescription3 => "";
-		public override string RaceAdditionalNotesDescription4 => "";
-		public override string RaceAdditionalNotesDescription5 => "";
-		public override string RaceAdditionalNotesDescription6 => "";
+		public override string RaceAbilityDescription => "All nearby players gain [c/34EB93:+6] Regeneration when they are below 100% of their health.";
+		public override string RaceAdditionalNotesDescription => "";
 		public override bool UsesCustomHurtSound => true;
         public override bool UsesCustomDeathSound => true;
 

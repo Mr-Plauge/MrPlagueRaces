@@ -17,21 +17,12 @@ namespace MrPlagueRaces.Common.Races._999995_Skeletons
 		public override string RaceDisplayMaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/SkeletonDisplayMale");
         public override string RaceDisplayFemaleIcon => ($"MrPlagueRaces/Common/UI/RaceDisplay/SkeletonDisplayFemale");
 
-		public override string RaceLore1 => "Skeletons reborn via" + "\nvarious practices," + "\ntypically using souls" + "\nand forbidden arts.";
-		public override string RaceLore2 => "Most Skeletons become maniacal" + "\nupon being reanimated, with only" + "\nthe strong-willed staying sane.";
+		public override string RaceLore1 => "Skeletons reborn via various practices, typically using souls and forbidden arts.";
+		public override string RaceLore2 => "Most Skeletons become maniacal upon being reanimated, with only the strong-willed staying sane.";
 		public override string RaceAbilityName => "";
-		public override string RaceAbilityDescription1 => "";
-		public override string RaceAbilityDescription2 => "";
-		public override string RaceAbilityDescription3 => "";
-		public override string RaceAbilityDescription4 => "";
-		public override string RaceAbilityDescription5 => "";
-		public override string RaceAbilityDescription6 => "";
-		public override string RaceAdditionalNotesDescription1 => "-Can breathe underwater";
-		public override string RaceAdditionalNotesDescription2 => "-Immune to [c/34EB93:Poison], [c/34EB93:Venom], and [c/34EB93:Bleeding]";
-		public override string RaceAdditionalNotesDescription3 => "";
-		public override string RaceAdditionalNotesDescription4 => "";
-		public override string RaceAdditionalNotesDescription5 => "";
-		public override string RaceAdditionalNotesDescription6 => "";
+		public override string RaceAbilityDescription => "";
+		public override string RaceAdditionalNotesDescription => "-Can breathe underwater" +
+																 "\n-Immune to [c/34EB93:Poison], [c/34EB93:Venom], and [c/34EB93:Bleeding]";
 		public override bool UsesCustomHurtSound => true;
         public override bool UsesCustomDeathSound => true;
 

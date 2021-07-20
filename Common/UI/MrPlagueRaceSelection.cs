@@ -103,16 +103,18 @@ namespace MrPlagueRaces.Common.UI
 
 		UITextPanel<string> HoverText = new UITextPanel<string>("");
 		UITextPanel<string> RaceNameDisplay = new UITextPanel<string>("");
-		UITextPanel<string> Lore1Description = new UITextPanel<string>("");
-		UITextPanel<string> Lore2Description = new UITextPanel<string>("");
+		WrappedUITextPanel<string> Lore1Description = new WrappedUITextPanel<string>("");
+		WrappedUITextPanel<string> Lore2Description = new WrappedUITextPanel<string>("");
 		UITextPanel<string> Ability = new UITextPanel<string>("");
         UITextPanel<string> AdditionalNotes = new UITextPanel<string>("");
+		WrappedUITextPanel<string> AbilityDescription = new WrappedUITextPanel<string>("");
         UITextPanel<string> AbilityDescription1 = new UITextPanel<string>("");
         UITextPanel<string> AbilityDescription2 = new UITextPanel<string>("");
         UITextPanel<string> AbilityDescription3 = new UITextPanel<string>("");
 		UITextPanel<string> AbilityDescription4 = new UITextPanel<string>("");
 		UITextPanel<string> AbilityDescription5 = new UITextPanel<string>("");
 		UITextPanel<string> AbilityDescription6 = new UITextPanel<string>("");
+		WrappedUITextPanel<string> AdditionalNotesDescription = new WrappedUITextPanel<string>("");
 		UITextPanel<string> AdditionalNotesDescription1 = new UITextPanel<string>("");
 		UITextPanel<string> AdditionalNotesDescription2 = new UITextPanel<string>("");
 		UITextPanel<string> AdditionalNotesDescription3 = new UITextPanel<string>("");
@@ -750,7 +752,16 @@ namespace MrPlagueRaces.Common.UI
             AdditionalNotes.BorderColor = Color.Transparent;
 			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotes);
 
-            AbilityDescription1 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AbilityDescription = new WrappedUITextPanel<string>("");
+			AbilityDescription.Width.Set(1216f, 0f);
+			AbilityDescription.Height.Set(40f * 6f, 0);
+			AbilityDescription.Left.Set(350f - 362f + 328f, 0f);
+			AbilityDescription.Top.Set(20f + 40f - 34f + 1f + 271f - 79f, 0f);
+			AbilityDescription.BackgroundColor = Color.Transparent;
+			AbilityDescription.BorderColor = Color.Transparent;
+			MrPlagueRaceStatDisplayBackground.Append(AbilityDescription);
+
+			/*AbilityDescription1 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
             AbilityDescription1.Width.Set(1216, 0);
             AbilityDescription1.Height.Set(40, 0);
             AbilityDescription1.Left.Set(350 - 362 - 8 + 320, 0);
@@ -802,9 +813,18 @@ namespace MrPlagueRaces.Common.UI
 			AbilityDescription6.Top.Set(20 + 40 - 34 + 1 + 28 + 28 + 28 + 28 + 28 + 271 - 79, 0);
 			AbilityDescription6.BackgroundColor = Color.Transparent;
 			AbilityDescription6.BorderColor = Color.Transparent;
-			MrPlagueRaceStatDisplayBackground.Append(AbilityDescription6);
+			MrPlagueRaceStatDisplayBackground.Append(AbilityDescription6);*/
 
-			AdditionalNotesDescription1 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
+			AdditionalNotesDescription = new WrappedUITextPanel<string>("");
+			AdditionalNotesDescription.Width.Set(1216f, 0f);
+			AdditionalNotesDescription.Height.Set(40f * 6f, 0f);
+			AdditionalNotesDescription.Left.Set(350f - 362f + 328f, 0);
+			AdditionalNotesDescription.Top.Set(80f + 168f + 40f - 34f + 1f + 271f - 79f, 0f);
+			AdditionalNotesDescription.BackgroundColor = Color.Transparent;
+			AdditionalNotesDescription.BorderColor = Color.Transparent;
+			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription);
+
+			/*AdditionalNotesDescription1 = new UITextPanel<string>("" + "\n                                                                                                                                                                       ");
             AdditionalNotesDescription1.Width.Set(1216, 0);
             AdditionalNotesDescription1.Height.Set(40, 0);
             AdditionalNotesDescription1.Left.Set(350 - 362 - 8 + 320, 0);
@@ -856,9 +876,9 @@ namespace MrPlagueRaces.Common.UI
 			AdditionalNotesDescription6.Top.Set(80 + 168 + 40 - 34 + 1 + 28 + 28 + 28 + 28 + 28 + 271 - 79, 0);
 			AdditionalNotesDescription6.BackgroundColor = Color.Transparent;
 			AdditionalNotesDescription6.BorderColor = Color.Transparent;
-			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription6);
+			MrPlagueRaceStatDisplayBackground.Append(AdditionalNotesDescription6);*/
 
-			Lore1Description = new UITextPanel<string>("A diverse race with" + "\na surprising amount" + "\nof resilience, known" + "\nfor their adaptivity." + "\n                                                                                                                                                                       ");
+			Lore1Description = new WrappedUITextPanel<string>("A diverse race with a surprising amount of resilience, known for their adaptivity.");
             Lore1Description.Width.Set(280, 0);
             Lore1Description.Height.Set(40, 0);
             Lore1Description.Left.Set(-8, 0);
@@ -867,7 +887,7 @@ namespace MrPlagueRaces.Common.UI
             Lore1Description.BorderColor = Color.Transparent;
 			UI_LoreBox.Append(Lore1Description);
 
-            Lore2Description = new UITextPanel<string>("Old records seem to suggest they" + "\nonce built advanced technology," + "\nalthough there are no remnants." + "\n                                                                                                                                                                       ");
+            Lore2Description = new WrappedUITextPanel<string>("Old records seem to suggest they once built advanced technology, although there are no remnants.");
             Lore2Description.Width.Set(280, 0);
             Lore2Description.Height.Set(40, 0);
             Lore2Description.Left.Set(-8, 0);
@@ -876,7 +896,7 @@ namespace MrPlagueRaces.Common.UI
             Lore2Description.BorderColor = Color.Transparent;
             UI_LoreBox2.Append(Lore2Description);
 
-			RaceSelect = new UITextPanel<string>("Select Race (page " + (RacePage + 1) + ")" + "\n                                                                                                                                                                       ");
+			RaceSelect = new UITextPanel<string>("Select Race (page " + (RacePage + 1) + ")");
 			RaceSelect.Width.Set(1216, 0);
 			RaceSelect.Height.Set(40, 0);
 			RaceSelect.Left.Set(350 - 362 - 10 + 320, 0);
@@ -1988,18 +2008,22 @@ namespace MrPlagueRaces.Common.UI
 			Lore1Description.SetText(MrPlagueRacesPlayer.StaticRace.RaceLore1 + "\n                                                                                                                                                                       ");
             Lore2Description.SetText(MrPlagueRacesPlayer.StaticRace.RaceLore2 + "\n                                                                                                                                                                       ");
 			Ability.SetText("Ability: " + MrPlagueRacesPlayer.StaticRace.RaceAbilityName + "\n                                                                                                                                                                       ");
-            AbilityDescription1.SetText(MrPlagueRacesPlayer.StaticRace.RaceAbilityDescription1 + "\n                                                                                                                                                                       ");
+			AbilityDescription.SetText(MrPlagueRacesPlayer.StaticRace.RaceAbilityDescription);
+
+            /*AbilityDescription1.SetText(MrPlagueRacesPlayer.StaticRace.RaceAbilityDescription1 + "\n                                                                                                                                                                       ");
             AbilityDescription2.SetText(MrPlagueRacesPlayer.StaticRace.RaceAbilityDescription2 + "\n                                                                                                                                                                       ");
 			AbilityDescription3.SetText(MrPlagueRacesPlayer.StaticRace.RaceAbilityDescription3 + "\n                                                                                                                                                                       ");
 			AbilityDescription4.SetText(MrPlagueRacesPlayer.StaticRace.RaceAbilityDescription4 + "\n                                                                                                                                                                       ");
             AbilityDescription5.SetText(MrPlagueRacesPlayer.StaticRace.RaceAbilityDescription5 + "\n                                                                                                                                                                       ");
-			AbilityDescription6.SetText(MrPlagueRacesPlayer.StaticRace.RaceAbilityDescription6 + "\n                                                                                                                                                                       ");
-			AdditionalNotesDescription1.SetText(MrPlagueRacesPlayer.StaticRace.RaceAdditionalNotesDescription1 + "\n                                                                                                                                                                       ");
+			AbilityDescription6.SetText(MrPlagueRacesPlayer.StaticRace.RaceAbilityDescription6 + "\n                                                                                                                                                                       ");*/
+			AdditionalNotesDescription.SetText(MrPlagueRacesPlayer.StaticRace.RaceAdditionalNotesDescription);
+
+			/*AdditionalNotesDescription1.SetText(MrPlagueRacesPlayer.StaticRace.RaceAdditionalNotesDescription1 + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription2.SetText(MrPlagueRacesPlayer.StaticRace.RaceAdditionalNotesDescription2 + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription3.SetText(MrPlagueRacesPlayer.StaticRace.RaceAdditionalNotesDescription3 + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription4.SetText(MrPlagueRacesPlayer.StaticRace.RaceAdditionalNotesDescription4 + "\n                                                                                                                                                                       ");
 			AdditionalNotesDescription5.SetText(MrPlagueRacesPlayer.StaticRace.RaceAdditionalNotesDescription5 + "\n                                                                                                                                                                       ");
-			AdditionalNotesDescription6.SetText(MrPlagueRacesPlayer.StaticRace.RaceAdditionalNotesDescription6 + "\n                                                                                                                                                                       ");
+			AdditionalNotesDescription6.SetText(MrPlagueRacesPlayer.StaticRace.RaceAdditionalNotesDescription6 + "\n                                                                                                                                                                       ");*/
 			DisplayHealth.SetText(MrPlagueRacesPlayer.StaticRace.RaceHealthDisplayText);
 			DisplayRegeneration.SetText(MrPlagueRacesPlayer.StaticRace.RaceRegenerationDisplayText);
 			DisplayMana.SetText(MrPlagueRacesPlayer.StaticRace.RaceManaDisplayText);
