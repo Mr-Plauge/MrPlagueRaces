@@ -11,6 +11,7 @@ using MrPlagueRaces.Common.UI;
 using MrPlagueRaces.Common.Races;
 using MrPlagueRaces.Common.Races._999999_Humans;
 using MrPlagueRaces.Common.Races._999994_Vampires;
+using System.Linq;
 
 namespace MrPlagueRaces
 {
@@ -431,6 +432,81 @@ namespace MrPlagueRaces
 				}
 				Main.ghostTexture = ModContent.GetTexture("Terraria/Ghost");
 			}
+		}
+
+		public void updatePlayerSprites(string clothingPath, string bodyPath, bool hideChest, bool hideLegs, int hairCount, string raceName, bool defaultCensor = true){
+			//this function does not invalidate complex clothing/sprite overriding, but for simpler race mods that use simpler/standard sprites this will be easier to use
+			int[] male = { 0, 1, 2, 3, 8 };
+			int[] female = { 4, 5, 6, 7, 9 };
+			foreach (int i in male){
+				bodyUpdate(i, bodyPath + raceName, "");
+			}
+			foreach (int h in female){
+				bodyUpdate(h, bodyPath + raceName, "_Female");
+			}
+			clothingUpdate(10, clothingPath, hideChest, hideLegs, female, defaultCensor);
+
+			for (int i = 0; i < hairCount; i++)
+			{
+				Main.playerHairTexture[i] = ModContent.GetTexture(bodyPath + "Hair/" + raceName + "_Hair_" + (i + 1));
+				Main.playerHairAltTexture[i] = ModContent.GetTexture(bodyPath + "Hair/"  + raceName + "_HairAlt_" + (i + 1));
+			}
+
+			Main.ghostTexture = ModContent.GetTexture(bodyPath + raceName + "_Ghost");
+		}
+		public void bodyUpdate(int sheet, string path, string gender){
+			updateTexture(sheet, 0, path + "_Head" + gender);
+			updateTexture(sheet, 1, path + "_Eyes_2" + gender);
+			updateTexture(sheet, 2, path + "_Eyes" + gender);
+			updateTexture(sheet, 3, path + "_Torso" + gender);
+			updateTexture(sheet, 5, path + "_Hands" + gender);
+			updateTexture(sheet, 7, path + "_Arm" + gender);
+			updateTexture(sheet, 9, path + "_Hand" + gender);
+			updateTexture(sheet, 10, path + "_Legs" + gender);
+		}
+		public void clothingUpdate(int sheets, string path, bool hideChest, bool hideLegs, int[] female, bool defaultCensor = true){
+			//the clothing path should include the final /, this is done so you can potentially add the race name before it instead
+			string newPath = defaultCensor ? "MrPlagueRaces/Content/RaceTextures/" : path;
+			if ((player.armor[1].type == ItemID.FamiliarShirt || player.armor[11].type == ItemID.FamiliarShirt) && !hideChest){
+				for (int a = 0; a < sheets; a++)
+				{
+					updateTexture(a, 4, path + "Sleeves_" + (a + 1));
+					updateTexture(a, 6, path + "Shirt_" + (a + 1));
+					updateTexture(a, 8, path + "Sleeve_" + (a + 1));
+					updateTexture(a, 13, path + "Sleeve_" + (a + 1) + "_2");
+				}
+			} else {
+				for (int a = 0; a < sheets; a++){
+					updateTexture(a, 4, "MrPlagueRaces/Content/RaceTextures/Blank");
+					if (female.Contains(a)){
+						updateTexture(a, 6, newPath + "Censor_Clothing_Body_Female");
+					} else {
+						updateTexture(a, 6, "MrPlagueRaces/Content/RaceTextures/Blank");
+					}
+					updateTexture(a, 8, "MrPlagueRaces/Content/RaceTextures/Blank");
+					updateTexture(a, 13, "MrPlagueRaces/Content/RaceTextures/Blank");
+				}
+			}
+			if ((player.armor[2].type == ItemID.FamiliarPants || player.armor[12].type == ItemID.FamiliarPants) && !hideLegs){
+				for (int a = 0; a < sheets; a++)
+				{
+					updateTexture(a, 11, path + "Pants_" + (a + 1));
+					updateTexture(a, 12, path + "Shoes_" + (a + 1));
+					updateTexture(a, 14, path + "Pants_" + (a + 1) + "_2");
+				}
+			} else {
+				for (int a = 0; a < sheets; a++){
+					string gender = female.Contains(a) ? "_Female" : "";
+					updateTexture(a, 11, newPath + "Censor_Clothing_Legs" + gender);
+					updateTexture(a, 12, "MrPlagueRaces/Content/RaceTextures/Blank");
+					updateTexture(a, 14, "MrPlagueRaces/Content/RaceTextures/Blank");
+				}
+			}
+			//this entire thing can be split into a few more functions to repeat less code but i think this is good enough optimization for now
+		}
+		public void updateTexture(int x, int y, string path){
+			Main.playerTextures[x, y] = ModContent.GetTexture(path);
+			//dont repeat this stuff over and over again
 		}
 	}
 }
