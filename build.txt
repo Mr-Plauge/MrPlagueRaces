@@ -1,6 +1,6 @@
 displayName = [c/3ABC7A:MrPlague's Authentic Races]
 author = MrPlague
-version = 1.13.4
+version = 1.13.6
 hideCode = true
 hideResources = true
 includeSource = false

@@ -27,10 +27,13 @@ This allows you to retain the ability to see your equipped armor and change the 
 -MrPlague (spriter, animator, and coder)
 -Mirsario (helped with cleaning up MrPlague's spaghetti code and did 90% of the custom race support)
 -SnowMelon (adjusted some of the audio files)
+-Frozenreflex (improved player texture management)
+-Steviegt6 (added text wrapping to the UI menus)
 -CrocWithShades (betatester)
 -Dragons Tired (betatester)
 -Blaquestone (gameplay balance)
 -Fallout_Patriot (gameplay balance, betatester)
+-Shaggy Overlord (betatester)
 -FullyVoided, suggester of the Kobold Race
 -Pinsel, suggester and one of the creators of the Fluftrodon Race
 

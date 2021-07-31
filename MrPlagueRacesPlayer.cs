@@ -434,7 +434,7 @@ namespace MrPlagueRaces
 			}
 		}
 
-		public void updatePlayerSprites(string clothingPath, string bodyPath, bool hideChest, bool hideLegs, int hairCount, string raceName, bool defaultCensor = true){
+		public void updatePlayerSprites(string clothingPath, string bodyPath, bool hideChest, bool hideLegs, int hairCount, int hairAltCount, string raceName, bool censorClothing = false, bool oneHair = false, bool oneAltHair = false){
 			//this function does not invalidate complex clothing/sprite overriding, but for simpler race mods that use simpler/standard sprites this will be easier to use
 			int[] male = { 0, 1, 2, 3, 8 };
 			int[] female = { 4, 5, 6, 7, 9 };
@@ -444,14 +444,45 @@ namespace MrPlagueRaces
 			foreach (int h in female){
 				bodyUpdate(h, bodyPath + raceName, "_Female");
 			}
-			clothingUpdate(10, clothingPath, hideChest, hideLegs, female, defaultCensor);
-
-			for (int i = 0; i < hairCount; i++)
+			clothingUpdate(10, clothingPath, hideChest, hideLegs, female, censorClothing);
+			if (oneHair)
 			{
-				Main.playerHairTexture[i] = ModContent.GetTexture(bodyPath + "Hair/" + raceName + "_Hair_" + (i + 1));
-				Main.playerHairAltTexture[i] = ModContent.GetTexture(bodyPath + "Hair/"  + raceName + "_HairAlt_" + (i + 1));
+				for (int i = 0; i < 133; i++)
+				{
+					Main.playerHairTexture[i] = ModContent.GetTexture(bodyPath + "Hair/" + raceName + "_Hair");
+				}
 			}
+			else
+			{
+				for (int i = 0; i < hairCount; i++)
+				{
+					Main.playerHairTexture[i] = ModContent.GetTexture(bodyPath + "Hair/" + raceName + "_Hair_" + (i + 1));
 
+				}
+				for (int i = hairCount; i < 133; i++)
+				{
+					Main.playerHairTexture[i] = ModContent.GetTexture("MrPlagueRaces/Content/RaceTextures/Blank");
+				}
+			}
+			if (oneAltHair)
+			{
+				for (int i = 0; i < 133; i++)
+				{
+					Main.playerHairAltTexture[i] = ModContent.GetTexture(bodyPath + "Hair/" + raceName + "_HairAlt");
+				}
+			}
+			else
+			{
+				for (int i = 0; i < hairAltCount; i++)
+				{
+					Main.playerHairAltTexture[i] = ModContent.GetTexture(bodyPath + "Hair/"  + raceName + "_HairAlt_" + (i + 1));
+
+				}
+				for (int i = hairAltCount; i < 133; i++)
+				{
+					Main.playerHairAltTexture[i] = ModContent.GetTexture("MrPlagueRaces/Content/RaceTextures/Blank");
+				}
+			}
 			Main.ghostTexture = ModContent.GetTexture(bodyPath + raceName + "_Ghost");
 		}
 		public void bodyUpdate(int sheet, string path, string gender){
@@ -464,10 +495,11 @@ namespace MrPlagueRaces
 			updateTexture(sheet, 9, path + "_Hand" + gender);
 			updateTexture(sheet, 10, path + "_Legs" + gender);
 		}
-		public void clothingUpdate(int sheets, string path, bool hideChest, bool hideLegs, int[] female, bool defaultCensor = true){
+		public void clothingUpdate(int sheets, string path, bool hideChest, bool hideLegs, int[] female, bool censorClothing = false)
+		{
 			//the clothing path should include the final /, this is done so you can potentially add the race name before it instead
-			string newPath = defaultCensor ? "MrPlagueRaces/Content/RaceTextures/" : path;
-			if ((player.armor[1].type == ItemID.FamiliarShirt || player.armor[11].type == ItemID.FamiliarShirt) && !hideChest){
+			if ((player.armor[1].type == ItemID.FamiliarShirt || player.armor[11].type == ItemID.FamiliarShirt) && !hideChest)
+			{
 				for (int a = 0; a < sheets; a++)
 				{
 					updateTexture(a, 4, path + "Sleeves_" + (a + 1));
@@ -475,12 +507,17 @@ namespace MrPlagueRaces
 					updateTexture(a, 8, path + "Sleeve_" + (a + 1));
 					updateTexture(a, 13, path + "Sleeve_" + (a + 1) + "_2");
 				}
-			} else {
+			} 
+			else
+			{
 				for (int a = 0; a < sheets; a++){
 					updateTexture(a, 4, "MrPlagueRaces/Content/RaceTextures/Blank");
-					if (female.Contains(a)){
-						updateTexture(a, 6, newPath + "Censor_Clothing_Body_Female");
-					} else {
+					if (female.Contains(a) && censorClothing)
+					{
+						updateTexture(a, 6, path + "Censor_Clothing_Body_Female");
+					} 
+					else 
+					{
 						updateTexture(a, 6, "MrPlagueRaces/Content/RaceTextures/Blank");
 					}
 					updateTexture(a, 8, "MrPlagueRaces/Content/RaceTextures/Blank");
@@ -494,10 +531,19 @@ namespace MrPlagueRaces
 					updateTexture(a, 12, path + "Shoes_" + (a + 1));
 					updateTexture(a, 14, path + "Pants_" + (a + 1) + "_2");
 				}
-			} else {
+			} 
+			else 
+			{
 				for (int a = 0; a < sheets; a++){
 					string gender = female.Contains(a) ? "_Female" : "";
-					updateTexture(a, 11, newPath + "Censor_Clothing_Legs" + gender);
+					if (censorClothing)
+					{
+						updateTexture(a, 11, path + "Censor_Clothing_Legs" + gender);
+					}
+					else
+					{
+						updateTexture(a, 11, "MrPlagueRaces/Content/RaceTextures/Blank");
+					}
 					updateTexture(a, 12, "MrPlagueRaces/Content/RaceTextures/Blank");
 					updateTexture(a, 14, "MrPlagueRaces/Content/RaceTextures/Blank");
 				}
