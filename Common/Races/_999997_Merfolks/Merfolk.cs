@@ -223,7 +223,7 @@ namespace MrPlagueRaces.Common.Races._999997_Merfolks
 			{
 				modPlayer.IsNewCharacter2 = true;
 			}
-			if (modPlayer.resetDefaultColors)
+			if (modPlayer.resetDefaultColors && Main.gameMenu)
 			{
 				modPlayer.resetDefaultColors = false;
 				player.hairColor = new Color(94, 236, 135);

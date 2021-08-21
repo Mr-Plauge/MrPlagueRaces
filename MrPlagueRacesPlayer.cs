@@ -143,6 +143,9 @@ namespace MrPlagueRaces
             player.face = -1;
             player.balloon = -1;
             player.wings = -1;
+			hideHelmet = true;
+			hideChestplate = true;
+			hideLeggings = true;
         }
 		private void HideHelmet()
 		{
@@ -497,8 +500,9 @@ namespace MrPlagueRaces
 		}
 		public void clothingUpdate(int sheets, string path, bool hideChest, bool hideLegs, int[] female, bool censorClothing = false)
 		{
+			Vampire _Vampire = ModContent.GetInstance<Vampire>();
 			//the clothing path should include the final /, this is done so you can potentially add the race name before it instead
-			if ((player.armor[1].type == ItemID.FamiliarShirt || player.armor[11].type == ItemID.FamiliarShirt) && !hideChest)
+			if ((player.armor[1].type == ItemID.FamiliarShirt || player.armor[11].type == ItemID.FamiliarShirt) && !hideChest && !_Vampire.VampireTransformation)
 			{
 				for (int a = 0; a < sheets; a++)
 				{
@@ -524,7 +528,7 @@ namespace MrPlagueRaces
 					updateTexture(a, 13, "MrPlagueRaces/Content/RaceTextures/Blank");
 				}
 			}
-			if ((player.armor[2].type == ItemID.FamiliarPants || player.armor[12].type == ItemID.FamiliarPants) && !hideLegs){
+			if ((player.armor[2].type == ItemID.FamiliarPants || player.armor[12].type == ItemID.FamiliarPants) && !hideLegs && !_Vampire.VampireTransformation){
 				for (int a = 0; a < sheets; a++)
 				{
 					updateTexture(a, 11, path + "Pants_" + (a + 1));

@@ -145,7 +145,7 @@ namespace MrPlagueRaces.Common.Races._999991_Tabaxis
 			{
 				modPlayer.IsNewCharacter2 = true;
 			}
-			if (modPlayer.resetDefaultColors)
+			if (modPlayer.resetDefaultColors && Main.gameMenu)
 			{
 				modPlayer.resetDefaultColors = false;
 				player.hairColor = new Color(239, 119, 157);

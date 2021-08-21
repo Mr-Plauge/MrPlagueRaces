@@ -186,7 +186,7 @@ namespace MrPlagueRaces.Common.Races._999989_Kobolds
 			{
 				modPlayer.IsNewCharacter2 = true;
 			}
-			if (modPlayer.resetDefaultColors)
+			if (modPlayer.resetDefaultColors && Main.gameMenu)
 			{
 				modPlayer.resetDefaultColors = false;
 				player.hairColor = new Color(237, 180, 164);

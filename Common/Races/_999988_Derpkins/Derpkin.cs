@@ -129,7 +129,7 @@ namespace MrPlagueRaces.Common.Races._999988_Derpkins
 			{
 				modPlayer.IsNewCharacter2 = true;
 			}
-			if (modPlayer.resetDefaultColors)
+			if (modPlayer.resetDefaultColors && Main.gameMenu)
 			{
 				modPlayer.resetDefaultColors = false;
 				player.hairColor = new Color(82, 179, 255);

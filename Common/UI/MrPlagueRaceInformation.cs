@@ -26,6 +26,8 @@ namespace MrPlagueRaces.Common.UI
 		public static bool IsBeingHoveredOver = false;
 		public static bool Visible;
 
+		public int RaceUIMode = 0;
+
 		private int StatHealth = 0;
 		private int StatRegeneration = 0;
 		private int StatMana = 0;
@@ -273,6 +275,16 @@ namespace MrPlagueRaces.Common.UI
 			UI_ButtonNext.Top.Set(129 - 124 - 17 + 12, 0);
 			UI_ButtonNext.OnClick += new MouseEvent(UI_ButtonNext_Clicked);
 			MrPlagueRaceSelectButtonsBackground.Append(UI_ButtonNext);
+
+			Texture2D UI_ButtonRaceGuideIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonRaceGuide");
+			Texture2D UI_ButtonRaceGuide_ActiveIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonRaceGuide_Active");
+			MrPlagueRaceButton UI_ButtonRaceGuide = new MrPlagueRaceButton(UI_ButtonRaceGuideIcon, UI_ButtonRaceGuide_ActiveIcon);
+			UI_ButtonRaceGuide.Width.Set(56, 0);
+			UI_ButtonRaceGuide.Height.Set(56, 0);
+			UI_ButtonRaceGuide.Left.Set(80 + 80 + 70, 0);
+			UI_ButtonRaceGuide.Top.Set(129 - 124 - 17 + 12, 0);
+			UI_ButtonRaceGuide.OnClick += new MouseEvent(UI_ButtonRaceGuide_Clicked);
+            MrPlagueRaceSelectButtonsBackground.Append(UI_ButtonRaceGuide);
 
 			Texture2D UI_ButtonHorizontalScrollLeftIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonHorizontalScrollLeft");
 			Texture2D UI_ButtonHorizontalScrollLeft_ActiveIcon = GetTexture("MrPlagueRaces/Common/UI/UI_ButtonHorizontalScrollLeft_Active");
@@ -1539,6 +1551,19 @@ namespace MrPlagueRaces.Common.UI
 		{
 			Main.PlaySound(SoundID.MenuTick, -1, -1, 1, 1f, 0f);
 			RacePage += 1;
+		}
+
+		private void UI_ButtonRaceGuide_Clicked(UIMouseEvent mouseEvent, UIElement targetElement)
+		{
+			Main.PlaySound(SoundID.MenuTick, -1, -1, 1, 1f, 0f);
+			if (RaceUIMode == 0)
+			{
+				RaceUIMode = 1;
+			}
+			else
+			{
+				RaceUIMode = 0;
+			}
 		}
 
 		private void UI_ButtonRandom_Clicked(UIMouseEvent mouseEvent, UIElement targetElement)

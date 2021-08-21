@@ -148,7 +148,7 @@ namespace MrPlagueRaces.Common.Races._999996_Mushfolks
 			{
 				modPlayer.IsNewCharacter2 = true;
 			}
-			if (modPlayer.resetDefaultColors)
+			if (modPlayer.resetDefaultColors && Main.gameMenu)
 			{
 				modPlayer.resetDefaultColors = false;
 				player.hairColor = new Color(104, 138, 233);

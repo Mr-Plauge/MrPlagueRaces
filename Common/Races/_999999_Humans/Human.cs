@@ -75,7 +75,7 @@ namespace MrPlagueRaces.Common.Races._999999_Humans
 			{
 				modPlayer.IsNewCharacter2 = true;
 			}
-			if (modPlayer.resetDefaultColors)
+			if (modPlayer.resetDefaultColors && Main.gameMenu)
 			{
 				modPlayer.resetDefaultColors = false;
 				player.hairColor = new Color(200, 81, 57);

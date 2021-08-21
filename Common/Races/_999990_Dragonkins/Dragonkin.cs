@@ -146,7 +146,7 @@ namespace MrPlagueRaces.Common.Races._999990_Dragonkins
 			{
 				modPlayer.IsNewCharacter2 = true;
 			}
-			if (modPlayer.resetDefaultColors)
+			if (modPlayer.resetDefaultColors && Main.gameMenu)
 			{
 				modPlayer.resetDefaultColors = false;
 				player.hairColor = new Color(175, 163, 147);

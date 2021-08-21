@@ -135,7 +135,7 @@ namespace MrPlagueRaces.Common.Races._999995_Skeletons
 			{
 				modPlayer.IsNewCharacter2 = true;
 			}
-			if (modPlayer.resetDefaultColors)
+			if (modPlayer.resetDefaultColors && Main.gameMenu)
 			{
 				modPlayer.resetDefaultColors = false;
 				player.hairColor = new Color(208, 195, 151);

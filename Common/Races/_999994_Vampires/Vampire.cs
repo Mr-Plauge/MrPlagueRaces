@@ -190,7 +190,7 @@ namespace MrPlagueRaces.Common.Races._999994_Vampires
 			{
 				modPlayer.IsNewCharacter2 = true;
 			}
-			if (modPlayer.resetDefaultColors)
+			if (modPlayer.resetDefaultColors && Main.gameMenu)
 			{
 				modPlayer.resetDefaultColors = false;
 				player.hairColor = new Color(62, 54, 76);
@@ -351,6 +351,7 @@ namespace MrPlagueRaces.Common.Races._999994_Vampires
 
 			if (VampireTransformation)
 			{
+				modPlayer.hideArmor = true;
 				modPlayer.updatePlayerSprites("MrPlagueRaces/Content/RaceTextures/", "MrPlagueRaces/Content/RaceTextures/VampireBat/", hideChestplate, hideLeggings, 0, 0, "VampireBat", false, true);
 			}
 			else
